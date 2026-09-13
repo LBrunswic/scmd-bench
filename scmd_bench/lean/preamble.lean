@@ -105,8 +105,18 @@ elab "sb_check " sbNonce:ident sbCmd:command : command => do
   -- an identifier in a follow-up command.
   match sbCmd.raw.find? (·.isOfKind ``Lean.Parser.Command.declId) with
   | _root_.Option.some sbId =>
+    let sbWritten := (sbId.getArg 0).getId
+    let sbNs ← getCurrNamespace
+    let sbFull := if sbWritten.getRoot == `_root_ then sbWritten.replacePrefix `_root_ .anonymous
+      else sbNs ++ sbWritten
+    let sbEnvNow ← getEnv
+    -- Direct lookup first (public, then module-private mangling); scope resolution as a fallback.
+    -- Resolution alone failed on a correct proof whose written name was ambiguous in scope.
+    let sbDirect := [sbFull, mkPrivateName sbEnvNow sbFull].find? (fun n => sbEnvNow.contains n)
     try
-      let sbDecl ← liftCoreM <| realizeGlobalConstNoOverload (sbId.getArg 0)
+      let sbDecl ← match sbDirect with
+        | _root_.Option.some n => pure n
+        | _root_.Option.none => liftCoreM <| realizeGlobalConstNoOverload (sbId.getArg 0)
       logInfo s!"SB_{sbTag}_DECL {sbDecl}"
       let sbAx ← collectAxioms sbDecl
       logInfo s!"SB_{sbTag}_AXIOMS_N {sbAx.size}"

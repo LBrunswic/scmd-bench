@@ -31,8 +31,19 @@ class Job:
 
 
 def _worker(inq: mp.Queue, outq: mp.Queue, grader_kw: dict[str, Any]) -> None:
+    import signal
+    import sys
+
     from scmd_bench.verify import Grader
     g = Grader(**grader_kw)
+
+    def _stop(*_a: Any) -> None:          # never orphan a multi-GB Lean process
+        try:
+            g.close()
+        finally:
+            sys.exit(1)
+
+    signal.signal(signal.SIGTERM, _stop)
     while True:
         job = inq.get()
         if job is None:

@@ -125,7 +125,8 @@ class Grader:
 
     def __init__(self, paths: LeanPaths | None = None, *, mathlib_root: str | Path | None = None,
                  cmd_timeout_s: int = DEFAULT_CMD_TIMEOUT_S,
-                 prefix_timeout_s: int = DEFAULT_PREFIX_TIMEOUT_S, prefix_budget: int = 12):
+                 prefix_timeout_s: int = DEFAULT_PREFIX_TIMEOUT_S, prefix_budget: int = 6,
+                 max_rss_gb: float = 6.0):
         self.paths = paths or LeanPaths.discover()
         root = mathlib_root or self.paths.mathlib_root
         if root is None:
@@ -134,6 +135,11 @@ class Grader:
         self.cmd_timeout_s = cmd_timeout_s
         self.prefix_timeout_s = prefix_timeout_s
         self.prefix_budget = prefix_budget
+        #: The session is ALSO retired when its resident memory passes this. Measured 2026-09-13:
+        #: with a count budget of 12, eight workers reached 13-16 GB RSS each on mathlib prefixes and
+        #: pushed a shared 94 GB host into swap. A count cannot bound a quantity that varies 10x per
+        #: prefix; the process's own RSS can.
+        self.max_rss_gb = max_rss_gb
         #: Per-session secret. A submission cannot print a report line it cannot spell.
         self.tag = "N" + secrets.token_hex(8)
         self._preamble = PREAMBLE.read_text(encoding="utf-8")
@@ -167,7 +173,7 @@ class Grader:
             self._new_session()
         if key in self._env:
             return self._env[key], ""
-        if self._built >= self.prefix_budget:
+        if self._built >= self.prefix_budget or self._rss_gb() > self.max_rss_gb:
             self._new_session()
         path = self.mathlib_root / g["file"]
         try:
@@ -192,6 +198,18 @@ class Grader:
             return None, f"preamble did not elaborate in the prefix env: {_errtext(pre)[:300]}"
         self._env[key] = pre.env
         return pre.env, ""
+
+    def _rss_gb(self) -> float:
+        proc = getattr(self.session, "_proc", None)
+        if proc is None:
+            return 0.0
+        try:
+            for line in Path(f"/proc/{proc.pid}/status").read_text().splitlines():
+                if line.startswith("VmRSS:"):
+                    return int(line.split()[1]) / 1e6
+        except OSError:
+            pass
+        return 0.0
 
     # ── the contract ────────────────────────────────────────────────────────────────────────────
     def grade(self, item: Item, proof: str, *, track: str, k: int,

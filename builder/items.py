@@ -165,7 +165,7 @@ def main(argv: list[str] | None = None) -> int:
                 hard_out.write(json.dumps({"decl": d, "row": i, "hard": hard}) + "\n")
                 ex = c.reader.example(i)
                 ids = [int(t) for t in ex["proof"]]
-                bases, anon, meta_k = {}, {}, {}
+                bases, anon, src_anon, meta_k = {}, {}, {}, {}
                 for K in (64, 16):
                     if len(deps) > K:
                         continue
@@ -173,6 +173,8 @@ def main(argv: list[str] | None = None) -> int:
                                       seed=SEED, epoch=EPOCH, example_id=i, k=K, allowed=allowed | set(deps))
                     bases[str(K)] = [{"name": nm, "rest": c.rest_of(nm)} for nm in b.names]
                     slot = {nm: s for s, nm in enumerate(b.names)}
+                    src_anon[str(K)] = anonymise_full_names(rec.proof_source,
+                                                            {nm: placeholder(s) for nm, s in slot.items()})
                     anon[str(K)] = anonymise_full_names(
                         render_proof_ids(c, ids, [placeholder(slot[p]) for p in deps]),
                         {nm: placeholder(s) for nm, s in slot.items()})
@@ -185,7 +187,8 @@ def main(argv: list[str] | None = None) -> int:
                     "prompt": prompt, "grading": grading,
                     "answer": {"decl": d, "gold_deps": deps,
                                "gold_proof": render_proof_ids(c, ids, deps),
-                               "gold_proof_anon": anon, "proof_source": rec.proof_source},
+                               "gold_proof_anon": anon, "proof_source": rec.proof_source,
+                               "proof_source_anon": src_anon},
                     "meta": {"row": i, "splits": c.splits_of(i),
                              "heldout_in": sorted(s for s, v in c.splits_of(i).items() if v == "test"),
                              "n_gold": len(deps), "bases": meta_k,

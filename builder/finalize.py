@@ -43,9 +43,13 @@ def log(msg: str) -> None:
 
 def jobs_for(item: dict) -> Job:
     atts = []
+    ans = item["answer"]
     for k in item["prompt"]["base"]:
-        atts.append((f"gold/named/{k}", "named", int(k), 0, item["answer"]["gold_proof"]))
-        atts.append((f"gold/anon/{k}", "anon", int(k), 0, item["answer"]["gold_proof_anon"][k]))
+        atts.append((f"gold/named/{k}", "named", int(k), 0, ans["gold_proof"]))
+        atts.append((f"gold/anon/{k}", "anon", int(k), 0, ans["gold_proof_anon"][k]))
+        if ans.get("proof_source"):
+            atts.append((f"src/named/{k}", "named", int(k), 1, ans["proof_source"]))
+            atts.append((f"src/anon/{k}", "anon", int(k), 1, ans["proof_source_anon"][k]))
     for j, tac in enumerate(AMBIENT_BATTERY):
         atts.append((f"ambient/{tac}", "named", 64, j, tac))
     return Job(item=item, attempts=atts, checks=[("resolve", int(k)) for k in item["prompt"]["base"]])
@@ -98,8 +102,20 @@ def main(argv: list[str] | None = None) -> int:
                 reasons["worker_error"] += 1
                 continue
             atts = {tag: a for tag, a in res["attempts"]}
-            bad = [tag for tag, a in atts.items() if tag.startswith("gold/") and a["outcome"] != "solved"]
-            unres = {k: v for k, v in res["checks"].items() if v}
+            ok = lambda tag: atts.get(tag, {}).get("outcome") == "solved"  # noqa: E731
+            # A WITNESS, NOT A LABEL. Sufficiency needs SOME verified proof inside BASE on each
+            # track; the corpus's own rendering is tried first and mathlib's original proof text
+            # second. The second recovers items whose rendering hit a known corpus defect (a case
+            # label expanded to a full name, a misresolved dependency) without changing BASE.
+            chosen, bad = {}, []
+            for k in c["prompt"]["base"]:
+                for track in ("named", "anon"):
+                    if ok(f"gold/{track}/{k}"):
+                        chosen[(track, k)] = "gold"
+                    elif ok(f"src/{track}/{k}"):
+                        chosen[(track, k)] = "src"
+                    else:
+                        bad.append(f"gold/{track}/{k}")
             if bad:
                 first = atts[bad[0]]
                 why = ("void" if first["outcome"] == "void" else
@@ -107,8 +123,10 @@ def main(argv: list[str] | None = None) -> int:
                 reasons[why] += 1
                 gold_detail.append({"item_id": c["item_id"], "decl": c["answer"]["decl"],
                                     "failed": bad, "outcome": first["outcome"],
-                                    "detail": first["detail"][:500]})
+                                    "detail": first["detail"][:500],
+                                    "source_detail": atts.get(bad[0].replace("gold/", "src/"), {}).get("detail", "")[:300]})
                 continue
+            unres = {k: v for k, v in res["checks"].items() if v}
             if unres:
                 reasons["base_unresolvable"] += 1
                 gold_detail.append({"item_id": c["item_id"], "decl": c["answer"]["decl"],
@@ -120,8 +138,19 @@ def main(argv: list[str] | None = None) -> int:
             amb = sorted(tag.split("/", 1)[1] for tag, a in atts.items()
                          if tag.startswith("ambient/") and a["outcome"] == "solved")
             c = dict(c)
+            ans = dict(c["answer"])
+            ans["gold_proof_anon"] = dict(ans["gold_proof_anon"])
+            for (track, k), which in chosen.items():
+                if which == "src":
+                    if track == "named":
+                        ans["gold_proof"] = ans["proof_source"]
+                    else:
+                        ans["gold_proof_anon"][k] = ans["proof_source_anon"][k]
+            witness = {f"{t}/{k}": w for (t, k), w in chosen.items()}
+            reasons["witness_from_proof_source"] += any(w == "src" for w in witness.values())
+            c["answer"] = ans
             c["meta"] = dict(c["meta"], ambient_solved_by=amb, ambient_solvable=bool(amb),
-                             premise_necessary=not amb)
+                             premise_necessary=not amb, gold_witness=witness)
             kept.append(c)
         out = args.out / f"{split}.jsonl"
         with out.open("w", encoding="utf-8") as fh:
