@@ -1,0 +1,500 @@
+{"item_id": "79c8acf361669513", "proof": "by\n    have : (L₁ ⋙ W₂.Q).IsLocalization W₃ :=\n      ⟪p42⟫ L₁ W₂.Q W₁ W₂ W₃ (fun X Y f hf => ⟪p45⟫ W₂.Q W₂ _\n        (by simpa only [hW₂₃] using W₃.map_mem_map _ _ hf)) hW₁₃\n        (by rw [hW₂₃])\n    exact ⟪p7⟫ W₂.Q W₂ L₂\n      (⟪p41⟫ (L₁ ⋙ W₂.Q) (L₁ ⋙ L₂) W₃)\n      (liftNatIso L₁ W₁ _ _ _ _\n        ((⟪p35⟫ _ _ _).symm ≪≫\n          ⟪p62⟫ (L₁ ⋙ W₂.Q) (L₁ ⋙ L₂) W₃))", "sample_idx": 0}
+{"item_id": "7be5b7e075c15476", "proof": "by\n  simp only [⟪p2⟫ , ← ⟪p0⟫]\n  rintro (_ | _)\n  · exact ⟪p45⟫ (⟪p6⟫ _ (⟪p27⟫ _).symm)\n      <| ⟪p62⟫ hS _\n  · exact ⟪p45⟫ (⟪p6⟫ _ (⟪p44⟫ _).symm)\n      <| ⟪p56⟫ hS _", "sample_idx": 0}
+{"item_id": "1990bfd603642a91", "proof": "by\n  refine ⟪p32⟫ (⟪p47⟫ ?_)\n    (⟪p0⟫ _ P.le_isoClosure)\n  rw [⟪p17⟫]\n  exact ⟪p25⟫ P J", "sample_idx": 0}
+{"item_id": "0122e8f582e39dae", "proof": "by\n  simp only [⟪p62⟫, ⟪p10⟫, ⟪p1⟫,\n    ← ⟪p0⟫ s x, ⟪p49⟫]\n  simp only [⟪p0⟫, ⟪p36⟫,\n    ⟪p60⟫, ⟪p57⟫]\n  have this : x ∈ ⟪p12⟫ P.Ring (⟪p38⟫ (⟪p31⟫ R P.Ring)) := by\n    rw [⟪p39⟫]\n    trivial\n  induction this using ⟪p26⟫ with\n  | zero => simp\n  | add x y _ _ hx hy => simp [⟪p32⟫, hx, hy]\n  | mem y hy =>\n    obtain ⟨y, rfl⟩ := hy\n    simp\n  | smul a x _ hx =>\n    rw [⟪p20⟫, ← ⟪p6⟫ (P.baseChange (T := T)).Ring a, ⟪p54⟫,\n      ⟪p20⟫, hx, ⟪p47⟫, ← ⟪p6⟫ (P.baseChange (T := T)).Ring a,\n      ⟪p20⟫]", "sample_idx": 0}
+{"item_id": "590d4dde4b50b8c9", "proof": "by\n  induction s with\n  | nil => exact fun _ ↦ ⟪p9⟫ r\n  | cons a l => ?_\n  intro hs\n  have Ha : a ∈ (a :: l : Cycle α) := by simp\n  have Hl : ∀ {b} (_hb : b ∈ l), b ∈ (a :: l : Cycle α) := @fun b hb => by simp [hb]\n  rw [⟪p8⟫]\n  apply Pairwise.isChain\n  rw [pairwise_cons]\n  exact\n    ⟨fun b hb => by grind,\n      pairwise_append.2\n        ⟨pairwise_of_forall_mem_list fun b hb c hc => hs b (Hl hb) c (Hl hc),\n          pairwise_singleton r a, fun b hb c hc => by grind⟩⟩", "sample_idx": 0}
+{"item_id": "aa1455f9085c9ac8", "proof": "by\n  refine ⟨fun h => h ▸ by simp, fun h => ?_⟩\n  exact ⟪p2⟫ (⟪p63⟫.2 fun a ha hx => (h a ha).1 hx)\n    (⟪p63⟫.2 fun a ha hy => (h a ha).2 hy)", "sample_idx": 0}
+{"item_id": "72518e67d1d783bf", "proof": "by\n  simp only [⟪p51⟫]\n  have : ⟪p2⟫ (⟪p39⟫ a I) = a • ⊤ := by\n    simp only [← ⟪p9⟫, ⟪p39⟫, ⟪p47⟫, ⟪p38⟫, ⟪p59⟫,\n      ⟪p21⟫, ⟪p56⟫, ⟪p50⟫, ⟪p24⟫,\n      ⟪p13⟫, ⟪p22⟫, ⟪p4⟫]\n  simp [this, ⟪p15⟫, ⟪p43⟫, ⟪p17⟫,\n    ⟪p35⟫, ⟪p4⟫, ← ⟪p9⟫, ⟪p54⟫]", "sample_idx": 0}
+{"item_id": "dbe87390a9a52307", "proof": "by\n  rw [← ⟪p4⟫ a, ⟪p29⟫ ..]", "sample_idx": 0}
+{"item_id": "6f4fc8bd39505766", "proof": "by\n  refine ⟪p50⟫\n    (fun U : Y.affineOpens ↦ ⟨f.fromNormalization ⁻¹ᵁ U.1, U.2.preimage _⟩)\n    (⟪p21⟫ (⟪p17⟫ _) _) fun U ↦ ?_\n  simp only [⟪p39⟫, ⟪p55⟫, ⟪p31⟫]\n  rw [← ⟪p0⟫,\n    ← ⟪p53⟫, ← ⟪p30⟫]\n  simp only [⟪p46⟫,\n    ⟪p23⟫, ⟪p14⟫,\n    ⟪p24⟫]\n  rw [⟪p30⟫, @⟪p53⟫]\n  exact ⟪p19⟫", "sample_idx": 0}
+{"item_id": "1d79f32e698bf882", "proof": "fun p => ⟨p 0, by ext n; simpa [⟪p22⟫, ⟪p4⟫ n] using! ⟪p56⟫ _ _⟩", "sample_idx": 0}
+{"item_id": "b8d2ec65395f3ae8", "proof": "⟪p9⟫.mpr h", "sample_idx": 0}
+{"item_id": "c606171847fa989e", "proof": "⟪p19⟫ hp1m hp2m hp1 hp2 hyp", "sample_idx": 0}
+{"item_id": "9e52766cfd9b5eee", "proof": "by simp [⟪p46⟫]", "sample_idx": 0}
+{"item_id": "b476611076e881b7", "proof": "Iff.symm ⟪p28⟫", "sample_idx": 0}
+{"item_id": "52b81f31774dccf8", "proof": "by\n  simpa only [← ⟪p12⟫] using ⟪p7⟫ u", "sample_idx": 0}
+{"item_id": "22a166f50d90d55b", "proof": "by\n  let _ : ⟪p6⟫ ℚ A := .restrictScalars ℚ ℂ A\n  nth_rw 1 [expMulMulExp, ← (h.smul_right (star z)).exp_neg_mul_mul_exp_eq_self]\n  simp_rw [← ⟪p34⟫, ⟪p34⟫ (_ * _ * x)]\n  congr!\n  all_goals\n    simp [⟪p49⟫, smul_comm (2 : ℝ) ⟪p44⟫, ⟪p24⟫ ⟪p44⟫ ⟪p44⟫, ⟪p3⟫]\n    grind [⟪p27⟫, ⟪p32⟫, ⟪p45⟫]", "sample_idx": 0}
+{"item_id": "0eaae5b4d30cdaed", "proof": "by\n  ext x\n  rw [⟪p54⟫, ⟪p54⟫, ← ⟪p34⟫,\n    ← ⟪p51⟫, ← ⟪p56⟫,\n    ⟪p5⟫, ⟪p26⟫, ⟪p32⟫]", "sample_idx": 0}
+{"item_id": "1633d6fa805f4e1f", "proof": "let ⟨n, h⟩ := ⟪p35⟫ x; ⟨n, mod_cast h⟩", "sample_idx": 0}
+{"item_id": "3886f3f28a898138", "proof": "Prod.ext (⟪p24⟫ _ _ _) (⟪p27⟫ _ (⟪p47⟫ _) _ _)", "sample_idx": 0}
+{"item_id": "dcb1a4f00e7da23c", "proof": "by\n  obtain ⟨n, g, h, hg, hgh⟩ := ⟪p8⟫ f hS\n  refine ⟨n, fun i ↦ ⟨_, (⟪p26⟫ {i}).preimage hg⟩, h, fun x ↦ ?_⟩\n  convert! hgh x\n  exact (⟪p59⟫ _ fun i hi ↦ ⟪p36⟫ hi.symm _).trans\n    (⟪p32⟫ rfl _)", "sample_idx": 0}
+{"item_id": "759a3ff459fe75b7", "proof": "by\n  have eq_map := ⟪p30⟫ _ h eq\n  refine ⟪p12⟫ (fun x hx ↦ ?_) (fun x hx ↦ ?_)\n  · obtain ⟨x, rfl⟩ := ⟪p15⟫ x\n    simp only [⟪p32⟫, ⟪p54⟫, ⟪p36⟫, ⟪p0⟫,\n      ⟪p31⟫] at hx\n    rw [eq_map, ← ⟪p1⟫, ← ⟪p40⟫,\n      ⟪p17⟫ f.toRingHom h, ⟪p53⟫] at hx\n    rcases hx with ⟨y, y_in, z, z_in, hyz⟩\n    suffices ∃ a, a ∈ ⟪p7⟫ f.toRingHom ∧ a ∈ P.ker ∧ a - x ∈ P.ker ^ 2 by\n      simpa [⟪p14⟫]\n    refine ⟨z, z_in, ?_, by simpa [← hyz]⟩\n    rw [← ⟪p9⟫] at hyz\n    exact hyz ▸ ⟪p55⟫ _ x.prop (⟪p6⟫ (show 2 ≠ 0 by lia) y_in)\n  · obtain ⟨x, rfl⟩ := ⟪p15⟫ x\n    obtain ⟨y, y_in, y_in', hy⟩ : ∃ a ∈ ⟪p7⟫ f.toRingHom, a ∈ P.ker ∧\n      a - x ∈ P.ker ^ 2 := by simpa [⟪p14⟫] using hx\n    suffices f.toRingHom x ∈ P'.ker ^ 2 by simpa [⟪p31⟫]\n    rw [eq_map, ← ⟪p1⟫, ← ⟪p40⟫,\n      ⟪p17⟫ f.toRingHom h, ⟪p53⟫]\n    exact ⟨x - y, by rwa [← ⟪p3⟫, ⟪p5⟫], y, y_in, by ring⟩", "sample_idx": 0}
+{"item_id": "516553ff87652633", "proof": "by\n  cases x\n  · simp [⟪p61⟫ hz]\n  · simp only [⟪p52⟫] at hx\n    simp [← ⟪p21⟫ _ (⟪p20⟫ hz), ⟪p13⟫ hx hz]", "sample_idx": 0}
+{"item_id": "096da01430f813a5", "proof": "⟨fun d => by\n    have : Nonempty (⟪p38⟫ d F) := by\n      have := (I d).inv PUnit.unit\n      obtain ⟨j, y, rfl⟩ := ⟪p26⟫.{v, v} this\n      exact ⟨⟪p0⟫ y⟩\n    apply ⟪p40⟫\n    rintro ⟨⟨⟨⟩⟩, X₁, f₁⟩ ⟨⟨⟨⟩⟩, X₂, f₂⟩\n    let y₁ := ⟪p33⟫ (F ⋙ coyoneda.obj (⟪p58⟫ d)) X₁ f₁\n    let y₂ := ⟪p33⟫ (F ⋙ coyoneda.obj (⟪p58⟫ d)) X₂ f₂\n    have e : y₁ = y₂ := by\n      apply (I d).toEquiv.injective\n      ext\n    have t := ⟪p16⟫.{v, v} e\n    clear e y₁ y₂\n    exact ⟪p25⟫ t⟩", "sample_idx": 0}
+{"item_id": "ee8c34cd100ff4d9", "proof": "by\n  ext Y'\n  simp [⟪p62⟫, ⟪p7⟫]", "sample_idx": 0}
+{"item_id": "ec13d2ba0a8d86f2", "proof": "⟪p31⟫", "sample_idx": 0}
+{"item_id": "e3543a865e9b79bc", "proof": "by\n  rw [← ⟪p31⟫, ⟪p57⟫]", "sample_idx": 0}
+{"item_id": "d08ab0f2a997b5bc", "proof": "by\n  rw [← U.2.self_le_iSup_basicOpen_iff, ⟪p35⟫, ⟪p58⟫]\n  refine forall₂_congr fun x hx ↦ ?_\n  simp only [exists_and_left, ⟪p31⟫,\n    ⟪p45⟫, ⟪p7⟫, ⟪p25⟫,\n    ⟪p21⟫, ⟪p42⟫, exists_prop, ⟪p17⟫]\n  constructor\n  · simp only [⟪p16⟫]\n    rintro ⟨⟨V, hV⟩, ⟨f, hfs, g, rfl⟩, -, hxV⟩\n    exact ⟨f, hfs, hxV.1⟩\n  · rintro ⟨f, hfs, hxf⟩\n    refine ⟨U.basicOpen _, ⟨f, hfs, 1, rfl⟩, ⟨_, rfl⟩, by simpa using hxf⟩", "sample_idx": 0}
+{"item_id": "f1e164cec0d9bb56", "proof": "⟪p35⟫ h", "sample_idx": 0}
+{"item_id": "2290cc69baf67409", "proof": "by\n  simp [⟪p9⟫]", "sample_idx": 0}
+{"item_id": "70b0074c72b60067", "proof": "⟪p11⟫ _ _", "sample_idx": 0}
+{"item_id": "5cec4553056e9223", "proof": "by\n  rw [← ⟪p28⟫, ← ⟪p29⟫, ⟪p61⟫]", "sample_idx": 0}
+{"item_id": "6ae1d6b0fc5ee403", "proof": "by\n  simp_rw [⟪p59⟫, ⟪p10⟫, ← ⟪p49⟫, ⟪p42⟫, ⟪p5⟫]", "sample_idx": 0}
+{"item_id": "e002ca927189056c", "proof": "⟪p1⟫ ⟪p20⟫", "sample_idx": 0}
+{"item_id": "fab9195cdf95e982", "proof": "⟪p23⟫", "sample_idx": 0}
+{"item_id": "c5c61a7a18f29156", "proof": "⟪p26⟫\n  (congrArg ⟪p13⟫ h)\n  (congrArg ⟪p55⟫ h)", "sample_idx": 0}
+{"item_id": "e7f213df1a91f0a8", "proof": "⟪p47⟫ h", "sample_idx": 0}
+{"item_id": "c9a396cfb219e0d2", "proof": "by\n  rw [⟪p1⟫]", "sample_idx": 0}
+{"item_id": "fb3c5ef570ff810d", "proof": "⟪p50⟫ (G := Gᵒᵈ) hs hF_cont hF_anti hf h_tendsto", "sample_idx": 0}
+{"item_id": "2bb1713758c1c9a9", "proof": "by\n  classical\n  cases ⟪p62⟫ σ\n  simp [← ⟪p37⟫, P.aevalDifferential_toMatrix'_eq_mapMatrix_jacobiMatrix,\n    ⟪p32⟫, ⟪p50⟫, P.algebraMap_eq]", "sample_idx": 0}
+{"item_id": "6e07d5e2b38ac036", "proof": "by simp [← ⟪p3⟫]", "sample_idx": 0}
+{"item_id": "42d98722133a699c", "proof": "⟪p35⟫ (⟪p58⟫ ▸ ⟪p62⟫ _) (⟪p25⟫ a ▸ ⟪p47⟫ ⟪p7⟫)", "sample_idx": 0}
+{"item_id": "d9cd7e6d638b7b58", "proof": "⟨fun hf => hf.neg, fun hf => by rw [← ⟪p25⟫ f]; exact hf.neg⟩", "sample_idx": 0}
+{"item_id": "6d9b223315a85f52", "proof": "by\n  simp only [← ⟪p61⟫ h.i, assoc, ⟪p25⟫,\n    ⟪p18⟫, ⟪p24⟫]", "sample_idx": 0}
+{"item_id": "8f726b77ea7e0767", "proof": "by\n  rw [⟪p7⟫, ⟪p6⟫, ⟪p63⟫, ⟪p54⟫]", "sample_idx": 0}
+{"item_id": "336bde8350fc9070", "proof": "by\n  rcases ⟪p30⟫ I x with ⟨C, C_pos, hC⟩\n  lift C to ℝ≥0 using C_pos.le\n  simp only [gt_iff_lt, ⟪p35⟫] at C_pos\n  refine ⟨C, C_pos, ?_⟩\n  filter_upwards [hC] with y hy\n  simp only [enorm, nnnorm]\n  exact_mod_cast hy", "sample_idx": 0}
+{"item_id": "ecf990c3ddcea86e", "proof": "by\n  simp_rw [⟪p2⟫, ⟪p46⟫]\n  exact fun ⟨_, _, _, b, hb, _⟩ => ⟨b, hb⟩", "sample_idx": 0}
+{"item_id": "ae0a50d13c7a509d", "proof": "by\n  apply (⟪p41⟫ h).injective\n  simp only [⟪p21⟫, ⟪p14⟫, ⟪p1⟫]", "sample_idx": 0}
+{"item_id": "249755e214cb0e80", "proof": "⟪p22⟫ (a := ha.unit)", "sample_idx": 0}
+{"item_id": "8c8597115c414949", "proof": "by\n  simpa [⟪p52⟫, ⟪p20⟫] using\n    ⟪p16⟫ g P x", "sample_idx": 0}
+{"item_id": "5dfe220deb21a922", "proof": "by\n  induction n with\n  | zero =>\n    filter_upwards with a\n    ext m\n    simp\n  | succ n hn =>\n    have t₀ := h.of_le (⟪p58⟫.mpr (n.le_add_right 1))\n    have t₁ : ∀ᶠ (y : E) in 𝓝[s] x, ⟪p4⟫ 𝕜' (↑(n + 1)) f s y := by\n      nth_rw 2 [← s.insert_eq_of_mem hx]\n      apply h.eventually (by simp)\n    filter_upwards [⟪p63⟫.2 (hn t₀), t₁,\n      ⟪p31⟫ (a := x) (s := s)] with a h₁a h₃a h₄a\n    rw [← ⟪p50⟫] at h₁a\n    ext m\n    simp only [Function.comp_apply, ⟪p10⟫, ⟪p41⟫]\n    rw [← (h₁a.fderivWithin' (by tauto)).eq_of_nhdsWithin h₄a,\n      ⟪p46⟫]\n    · simp\n    · apply h₃a.differentiableWithinAt_iteratedFDerivWithin\n      · rw [⟪p45⟫]\n        simp\n      · have : ⟪p19⟫ 𝕜' s := hs.mono_field\n        simpa [s.insert_eq_of_mem h₄a]\n    apply hs a h₄a", "sample_idx": 0}
+{"item_id": "667ce10d4355b7cb", "proof": "by\n  rw [← ⟪p18⟫, eq_comm (b := -a)]\n  nth_rw 2 [← ⟪p35⟫ a]\n  simp", "sample_idx": 0}
+{"item_id": "b528e11c4d535387", "proof": "⟨h.liftK (𝟙 S.X₂) (by rw [hg, id_comp]),\n    by simp only [← ⟪p46⟫ h.i, id_comp, assoc, ⟪p23⟫, comp_id], ⟪p23⟫ _ _ _⟩", "sample_idx": 0}
+{"item_id": "3d64713f2f305403", "proof": "by\n  rw [⟪p47⟫ (P := P)]\n  intro U\n  let S i : X.affineOpens := ⟨_, ⟪p18⟫ (𝒰.f i)⟩\n  induction U using ⟪p6⟫ S 𝒰.iSup_opensRange with\n  | basicOpen U r H =>\n    simp_rw [⟪p44⟫,\n      ← f.appLE_map (U := ⊤) ⟪p38⟫ (homOfLE (X.basicOpen_le r)).op]\n    have := U.2.isLocalization_basicOpen r\n    exact (⟪p60⟫ P).StableUnderCompositionWithLocalizationAwayTarget _ r _ H\n  | openCover U s hs H =>\n    apply (⟪p60⟫ P).ofLocalizationSpanTarget.ofIsLocalization\n      (⟪p60⟫ P).respectsIso _ _ hs\n    rintro r\n    refine ⟨_, _, _, ⟪p43⟫ U.2 r, ?_⟩\n    rw [⟪p15⟫, ← ⟪p11⟫, ⟪p28⟫]\n    exact H r\n  | hU i =>\n    specialize H i\n    rw [← (⟪p60⟫ P).respectsIso.cancel_right_isIso _\n      ((IsOpenImmersion.isoOfRangeEq (𝒰.f i) (S i).1.ι\n      ⟪p33⟫.symm).inv.app _), ← ⟪p11⟫, ← ⟪p37⟫,\n      ⟪p24⟫, ⟪p37⟫,\n      ⟪p8⟫, Scheme.Hom.appTop, ⟪p54⟫, ⟪p28⟫] at H\n    exact (f.appLE_congr _ rfl (by simp) (fun f => Q f.hom)).mp H", "sample_idx": 0}
+{"item_id": "8456589d77c1b833", "proof": "by\n  ext X\n  have eq := (⟪p3⟫ W).right_inv X\n  simp only [⟪p3⟫] at eq\n  rw [← eq, ← ⟪p38⟫, ← ⟪p38⟫, h]", "sample_idx": 0}
+{"item_id": "92f3f078e247c58f", "proof": "by\n  lift ε to ℝ≥0 using εpos.le\n  rw [⟪p59⟫, ← ⟪p44⟫] at εpos\n  have If : (∫⁻ x, f x ∂μ) < ∞ := ⟪p24⟫.1 fint.hasFiniteIntegral\n  rcases ⟪p15⟫ f If.ne εpos.ne' with ⟨g, gf, gcont, gint⟩\n  have Ig : (∫⁻ x, g x ∂μ) < ∞ := by\n    refine ⟪p26⟫ (⟪p58⟫ fun x => ?_) If\n    simpa using gf x\n  refine ⟨g, gf, gcont, ?_, ?_⟩\n  · refine\n      ⟪p41⟫ fint gcont.measurable.coe_nnreal_real.aemeasurable.aestronglyMeasurable ?_\n    exact ⟪p61⟫ fun x => by simp [gf x]\n  · rw [⟪p55⟫, ⟪p55⟫]\n    · rw [⟪p9⟫]\n      convert! ⟪p23⟫ _ gint\n      · simp\n      · rw [⟪p60⟫ Ig.ne ⟪p33⟫]; simp\n      · simpa using Ig.ne\n    · apply ⟪p61⟫; simp\n    · exact gcont.measurable.coe_nnreal_real.aemeasurable.aestronglyMeasurable\n    · apply ⟪p61⟫; simp\n    · exact fint.aestronglyMeasurable", "sample_idx": 0}
+{"item_id": "e913a6d6890e4113", "proof": "by\n  obtain ⟨x, -, hx⟩ : ∃ x ∈ ⟪p37⟫ (0 : ℝ) 1, ∀ y ∈ ⟪p37⟫ (0 : ℝ) 1, f x - x ≤ f y - y :=\n    isCompact_Icc.exists_isMinOn (⟪p19⟫.2 ⟪p30⟫) (hf.sub ⟪p53⟫).continuousOn\n  refine ⟪p27⟫ (⟪p0⟫.2 <| hz x) ?_\n  apply ⟪p3⟫\n  simp only [← ⟪p63⟫]\n  exact f.forall_map_sub_of_Icc _ hx", "sample_idx": 0}
+{"item_id": "fd659578629a304d", "proof": "⟪p41⟫ (fun _ _ ↦ (⟪p33⟫ p).symm)", "sample_idx": 0}
+{"item_id": "1a632e6db571a7ce", "proof": "⟪p39⟫ ⟪p11⟫ ⟪p3⟫", "sample_idx": 0}
+{"item_id": "480b785dbe8d339c", "proof": "by\n  rcases ⟪p10⟫ a 0 with ha | rfl\n  · apply ⟪p25⟫\n    · fun_prop\n    · left\n      exact fun z hz ↦ ⟪p57⟫ ⟨z, hz⟩\n        ((⟪p16⟫ _ ⟪p8⟫ ⟪p28⟫).mpr ha)\n  · simp only [⟪p63⟫, ⟪p28⟫, zero_mul, ⟪p39⟫]\n    apply ⟪p33⟫", "sample_idx": 0}
+{"item_id": "fad8a93bb45d023d", "proof": "⟪p12⟫ ..", "sample_idx": 0}
+{"item_id": "dbd8a4393de51d9d", "proof": "by\n  simpa only [⟪p31⟫] using ⟪p53⟫ Q d 1", "sample_idx": 0}
+{"item_id": "e81cb7fe0b53cc83", "proof": "⟪p58⟫ hs.eq_generateFrom", "sample_idx": 0}
+{"item_id": "a96a5fdeab8040c8", "proof": "by\n  refine ⟪p54⟫ F (fun j x ↦ ?_)\n  rw [⟪p57⟫, ⟪p33⟫]\n  change (c.ι.app j ≫ hc.desc (⟪p32⟫ F f)) _ = _\n  rw [hc.fac]\n  simp", "sample_idx": 0}
+{"item_id": "d34e16231e623ca1", "proof": "by\n  cases n\n  · dsimp; refine (⟪p4⟫ _).trans_eq ?_; rfl\n  cases d\n  · simp\n  apply ⟪p18⟫.le_rothNumberNat _ _ (⟪p40⟫ _)\n  · simp only [⟪p53⟫, and_imp, forall_exists_index,\n      ⟪p1⟫, ⟪p43⟫]\n    rintro _ x hx _ rfl\n    exact (⟪p8⟫ hx).trans_lt ⟪p57⟫\n  apply ⟪p5⟫.mono fun x => ?_\n  simp only [⟪p56⟫, ⟪p1⟫, ⟪p43⟫, ⟪p11⟫, and_imp, ⟪p34⟫]\n  exact fun h _ i => (h i).trans_le ⟪p27⟫", "sample_idx": 0}
+{"item_id": "4a7d9c984f2d9546", "proof": "by\n  have h1 : ⟪p17⟫ s ≠ 0 := by\n    rw [Ne, ⟪p58⟫, not_exists]\n    intro n h\n    specialize hs (2 * n)\n    simp_all\n  have h2 : ∀ (n : ℕ), s ≠ -(2 * ↑n + 1) := by\n    intro n h\n    specialize hs (2 * n + 1)\n    simp_all\n  rw [← ⟪p33⟫ h2, ← ⟪p56⟫, ⟪p26⟫, ⟪p50⟫ h1, ⟪p42⟫]", "sample_idx": 0}
+{"item_id": "cb88b627bff68a11", "proof": "⟨fun h ↦ ⟪p62⟫ v h, fun h ↦ by rw [h, ⟪p31⟫]⟩", "sample_idx": 0}
+{"item_id": "dbc1fdea4c8e6318", "proof": "by\n  rw [← h.writtenInCharts.image_eq, ⟪p39⟫, ⟪p39⟫,\n    ⟪p4⟫, ⟪p24⟫,\n    ← ⟪p20⟫]\n  have : f '' h.domChart.source ⊆ h.codChart.source := by\n    simp [h.source_subset_preimage_source]\n  grw [this, ⟪p24⟫]", "sample_idx": 0}
+{"item_id": "cc1c4f801b8d1bb4", "proof": "by\n  suffices ⟪p17⟫ K M' from .of_injective (p.restrictScalars_injective_aux i j hi hN hp)\n    (p.flip.restrictScalars_injective_aux j i hj hM (fun m n ↦ hp n m))\n  obtain ⟨n, -, b', -⟩ := p.exists_basis_basis_of_span_eq_top_of_mem_algebraMap _ _ hM hN <| by\n    rintro - ⟨m, rfl⟩ - ⟨n, rfl⟩\n    exact hp m n\n  have : ⟪p17⟫ K (⟪p16⟫ i) := b'.finiteDimensional_of_finite\n  exact ⟪p37⟫ (⟪p14⟫ i hi).symm", "sample_idx": 0}
+{"item_id": "b065dd8efef5f484", "proof": "by\n  simp [⟪p12⟫]", "sample_idx": 0}
+{"item_id": "2cebb3263db66246", "proof": "by\n  by_cases hfi : ⟪p60⟫ f (⟪p2⟫ φ μ); swap\n  · rw [⟪p31⟫ hfi, ⟪p31⟫]\n    exact fun hfφ => hfi ((⟪p3⟫ hfm.aestronglyMeasurable hφ.aemeasurable).2 hfφ)\n  simp only [⟪p46⟫]\n  apply ⟪p39⟫ _ _\n    ((⟪p3⟫ hfm.aestronglyMeasurable hφ.aemeasurable).1 hfi) hfm hφ ⟪p17⟫\n  intro s x hs\n  simp [⟪p22⟫, ⟪p25⟫, hs, hφ]", "sample_idx": 0}
+{"item_id": "25d8864f78f246ae", "proof": "⟨fun _ ↦ inferInstance, fun _ ↦ ⟪p31⟫ _ U F hT⟩", "sample_idx": 0}
+{"item_id": "91e3f7f11ca4fc0c", "proof": "by\n  ext1 z\n  simp_rw [⟪p9⟫, ⟪p52⟫,\n    ⟪p62⟫ (⟪p8⟫ _ <| ⟪p50⟫ _ z),\n    ⟪p59⟫, ⟪p10⟫, ⟪p11⟫, ⟪p22⟫ (_ ^ k)]\n  congr 1\n  exact (⟪p17⟫ a γ).tsum_eq (⟪p5⟫ k · z)", "sample_idx": 0}
+{"item_id": "e2a79bf4ea4ecaf9", "proof": "by\n  refine ⟨fun h x => ?_, fun h x => ?_⟩\n  · obtain ⟨n, h0, hn⟩ := (h x).exists_nsmul_eq_zero\n    exact\n      ⟨⟨n, ⟪p24⟫ <| ⟪p50⟫ <| Int.natCast_pos.mpr h0⟩,\n        (⟪p35⟫ _ _).trans hn⟩\n  · rw [⟪p34⟫]\n    obtain ⟨n, hn⟩ := @h x\n    exact ⟨_, Int.natAbs_pos.2 (⟪p2⟫ n), ⟪p14⟫.2 hn⟩", "sample_idx": 0}
+{"item_id": "449273f107e9538d", "proof": "by\n  simp only [⟪p14⟫, List.foldl_append, List.foldl_cons, List.foldl_nil]", "sample_idx": 0}
+{"item_id": "411656e9fc88e4fa", "proof": "by\n  simp only [⟪p22⟫, ⟪p9⟫]", "sample_idx": 0}
+{"item_id": "91387bec008ef86c", "proof": "let ⟨_i, hi⟩ := ⟪p12⟫.2 hx\n  hi ▸ ⟪p26⟫ _", "sample_idx": 0}
+{"item_id": "af9524fbda5c6d86", "proof": "⟪p28⟫ f.toLRSHom x a", "sample_idx": 0}
+{"item_id": "39b81a1f0a1a1fab", "proof": "⟪p16⟫", "sample_idx": 0}
+{"item_id": "59d40bf731eb9083", "proof": "by\n  rw [⟪p63⟫, ⟪p29⟫, ⟪p33⟫, ← ⟪p60⟫ (⟪p32⟫ T g) P]\n  change (⟪p14⟫ T g P)\n    (((⟪p32⟫ T g).toComp P).toAlgHom _) * _ - _ = _\n  rw [⟪p59⟫, ⟪p16⟫,\n    ⟪p23⟫ P.Ring (P.Ring ⧸ P.ker ^ 2) (⟪p3⟫ _)]\n  simp", "sample_idx": 0}
+{"item_id": "93a2c83b4a2d9734", "proof": "by\n  rw [⟪p30⟫]\n  refine ⟨fun H ε ε_neg => ?_, fun H ε ε_pos => ?_⟩\n  · exact ⟪p54⟫ h' (⟪p60⟫.mp (H _ (⟪p36⟫.mpr ε_neg)))\n  · rcases H _ (⟪p62⟫.mpr ε_pos) with ⟨x, x_in, hx⟩\n    exact ⟪p17⟫.mp (⟪p11⟫ h x_in hx)", "sample_idx": 0}
+{"item_id": "36d1bc4efe9e3067", "proof": "by\n  set φ := ⟪p31⟫ (⟪p60⟫ a b : C(I, E)) (⟪p60⟫ a c)\n  have hφs : ⟪p7⟫ φ ⊆ s := by\n    rw [⟪p51⟫]\n    intro x\n    simp [φ, ha, hb, hc, hs.lineMap_mem]\n  have := φ.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt (t := ⟪p7⟫ φ) (ω := ω)\n    (dω := dω) ?_ ?_ ?_ ?_ ?_\n  · convert! this using 2\n    · dsimp [φ]\n      rw [← ⟪p32⟫ (⟪p10⟫ a b) (⟪p10⟫ a c), ⟪p9⟫]\n    · dsimp [φ]\n      rw [← ⟪p32⟫ (⟪p20⟫ a b) (⟪p20⟫ a c)]\n      simp\n  · intros\n    apply ⟪p56⟫\n  · exact fun x hx ↦ (hω x (hφs hx)).mono hφs\n  · rw [(⟪p36⟫ <| map_continuous _).isClosed.closure_eq]\n    exact fun x hx ↦ (hω x <| hφs hx).continuousWithinAt.mono hφs\n  · intro x hx u hu v hv\n    apply hdω <;> grw [← hφs] <;> assumption\n  · have : ⟪p55⟫ (fun x : ℝ × ℝ ↦ ⟪p27⟫ ⟪p35⟫ (φ.extend x.1) x.2)\n        (fun x ↦ ⟪p34⟫ (⟪p34⟫ a b x.2) (⟪p34⟫ a c x.2) x.1) (⟪p61⟫ 0 1) := by\n      rw [⟪p21⟫]\n      rintro ⟨x, y⟩ ⟨hx, hy⟩\n      lift x to I using hx\n      lift y to I using hy\n      simp [φ]\n    exact .congr (by fun_prop) this", "sample_idx": 0}
+{"item_id": "ec2121d273b03e18", "proof": "by\n  rw [⟪p41⟫, ← (⟪p35⟫ _).finrank_eq,\n    ← ⟪p37⟫]", "sample_idx": 0}
+{"item_id": "a5c85702f39f9d13", "proof": "by\n  induction h₁ <;> simp_all [⟪p29⟫, ⟪p47⟫]", "sample_idx": 0}
+{"item_id": "32128f4682447129", "proof": "by\n  rw [← ⟪p12⟫] at h\n  exact h.map (⟪p5⟫ M)", "sample_idx": 0}
+{"item_id": "3a1c0ba8155d7a03", "proof": "(⟪p26⟫ hS).homology_exact₃ ..", "sample_idx": 0}
+{"item_id": "4f81786cf4205ef0", "proof": "⟪p5⟫ _ k hk", "sample_idx": 0}
+{"item_id": "c4dd9d7b81950ca4", "proof": "by\n  rw [← ⟪p37⟫, ⟪p47⟫]", "sample_idx": 0}
+{"item_id": "93e370878a4f9aa6", "proof": "⟪p18⟫ <| ⟪p15⟫.2 hf", "sample_idx": 0}
+{"item_id": "a9eb219777d1da8e", "proof": "by\n  have : ⟪p18⟫ (⟪p61⟫ R) A :=\n    ⟪p30⟫ ⟪p27⟫ H\n  apply ⟪p41⟫ (⟪p61⟫ R)", "sample_idx": 0}
+{"item_id": "a6b2913bb26f61cd", "proof": "by simpa using ⟪p25⟫ 0 n φ a", "sample_idx": 0}
+{"item_id": "903aa5f37dad3a0b", "proof": "by\n    let that : (⟪p1⟫ fun n => K.obj ⟨n⟩) ≅ K := ⟪p39⟫ fun ⟨i⟩ => ⟪p62⟫ _\n    haveI := ⟪p17⟫ F n fun n => K.obj ⟨n⟩\n    apply ⟪p23⟫ F that", "sample_idx": 0}
+{"item_id": "0f9b76b7123015af", "proof": "by\n  apply ⟪p53⟫\n  apply ⟪p12⟫\n  exact congr_arg ⟪p59⟫ hΦ", "sample_idx": 0}
+{"item_id": "9cca9ae889e0a121", "proof": "⟪p25⟫ ⟪p47⟫", "sample_idx": 0}
+{"item_id": "d2f0cafc45c39bf5", "proof": "by\n  simp [hx, ⟪p51⟫]", "sample_idx": 0}
+{"item_id": "0cda712af31d0a98", "proof": "⟪p43⟫ h_indep hij", "sample_idx": 0}
+{"item_id": "701ac95d750b3f5a", "proof": "by\n  have hP : ⟪p37⟫ (fun f ↦ P (⟪p62⟫ (⟪p33⟫ f))) :=\n    ⟪p18⟫.mpr\n      (inferInstanceAs (P.inverseImage ⟪p39⟫).unop.RespectsIso)\n  constructor\n  · intro R S _ _ f r R' S' _ _ _ _ _ _ H\n    refine (⟪p41⟫ hP ..).mp ?_\n    exact (⟪p48⟫ P (⟪p16⟫\n      (⟪p33⟫ f) r)).mp (⟪p0⟫ H (basicOpen r))\n  · intro R S _ _ f s hs H\n    apply ⟪p2⟫ (⟪p29⟫\n      (fun i : s ↦ (i : S)) (by simpa)).openCover\n    intro i\n    simp only [⟪p42⟫, ← ⟪p7⟫,\n      ⟪p17⟫, ⟪p21⟫]\n    exact H i\n  · intro R S _ _ f s hs H\n    apply ⟪p35⟫ _ (⟪p63⟫\n      (f := fun i : s ↦ (i : R)).mpr (by simpa))\n    intro i\n    exact (⟪p48⟫ P (⟪p16⟫\n      (⟪p33⟫ f) i.1)).mpr (H i)\n  · intro R S T _ _ _ _ r _ f hf\n    have := ⟪p49⟫ (S := T) r\n    change P (⟪p62⟫ (⟪p33⟫ f ≫ ⟪p33⟫ (algebraMap _ _)))\n    rw [⟪p7⟫]\n    exact ⟪p58⟫ hf ..", "sample_idx": 0}
+{"item_id": "e6c19545360cb8f6", "proof": "by\n  rw [⟪p45⟫ ℝ]\n  refine\n    A.topologicalClosure.smul_mem\n      (A.topologicalClosure.add_mem\n        (A.topologicalClosure.add_mem (A.le_topologicalClosure f.property)\n          (A.le_topologicalClosure g.property))\n        ?_)\n      _\n  exact mod_cast ⟪p44⟫ A _", "sample_idx": 0}
+{"item_id": "5cb3d1b7d3e219b3", "proof": "((yonedaGrp.obj ⟨G⟩).map f.op).hom.map_div g h", "sample_idx": 0}
+{"item_id": "5671f17960999aad", "proof": "by\n  have : ⟪p1⟫ X := isAffine_of_isAffineOpen_basicOpen_aux s hs hs₂\n  have : ⟪p37⟫ X := by\n    obtain ⟨s', hs', e⟩ := (⟪p19⟫ _).mp hs\n    rw [← ⟪p26⟫, ← ⟪p59⟫, ← ⟪p11⟫ _ _ e]\n    simp only [⟪p15⟫, ⟪p43⟫, ⟪p12⟫, ⟪p5⟫]\n    apply s'.isCompact_biUnion\n    exact fun i hi ↦ (hs₂ _ (hs' hi)).isCompact\n  constructor\n  refine ⟪p21⟫ (P := ⟪p36⟫ ⟪p42⟫)\n    (fun i : s ↦ ⟨⟪p18⟫ i.1, ?_⟩) ?_ (fun i ↦ ⟨?_, ?_⟩)\n  · change ⟪p38⟫ _\n    simp only [← ⟪p2⟫]\n    exact (⟪p49⟫ (Scheme.Spec.obj (⟪p27⟫ _))).basicOpen _\n  · rw [⟪p20⟫, ⟪p50⟫, ⟪p52⟫, hs]\n  · rw [⟪p39⟫]\n    exact hs₂ _ i.2\n  · simp only [⟪p62⟫, ⟪p56⟫]\n    refine ⟪p46⟫ ?_ inferInstance\n    convert! ⟪p55⟫ i.1 using 0\n    exact congr(⟪p35⟫ ((ΓSpec.adjunction.unit.app X).app $(by simp)))", "sample_idx": 0}
+{"item_id": "8ad491d144b59b7c", "proof": "by\n  refine ⟪p57⟫ ?_ (⟪p56⟫ ⟪p4⟫)\n  calc\n    μ (⟪p3⟫ K) ≤ μ (⟪p59⟫ μ K) := ⟪p56⟫ <|\n      hK.closure_subset_measurableSet (⟪p50⟫ ..) (⟪p51⟫ ..)\n    _ = μ K := ⟪p23⟫ ..", "sample_idx": 0}
+{"item_id": "49fb88e9bf954c0e", "proof": "⟪p45⟫ h", "sample_idx": 0}
+{"item_id": "b708f4cd55b9b7d5", "proof": "by\n  by_cases! hM : ⟪p48⟫ M\n  · rw [⟪p46⟫]\n    use PUnit, by infer_instance, by infer_instance\n    exact fun x ↦ (⟪p1⟫ x).elim\n  inhabit M\n  let x : M := Inhabited.default\n  use (h x).smallComplement, by infer_instance, by infer_instance\n  exact (⟪p54⟫ (h x).smallEquiv).mp h", "sample_idx": 0}
+{"item_id": "4c75ddc3063feca4", "proof": "⟨⟪p61⟫ ℕ, ⟪p52⟫ (⟪p61⟫ ℕ), inferInstance, inferInstance, inferInstance,\n    inferInstance, ⟪p40⟫, ⟪p58⟫,\n    ⟪p33⟫⟩", "sample_idx": 0}
+{"item_id": "5d905bca9bbfc006", "proof": "by\n  refine ⟪p36⟫ _ (fun j a ↦ ?_)\n  dsimp\n  simp only [⟪p29⟫, ⟪p54⟫, ⟪p32⟫, ⟪p40⟫, ⟪p7⟫,\n    ⟪p40⟫]\n  erw [⟪p40⟫]\n  rfl", "sample_idx": 0}
+{"item_id": "b3b4af2a498a1acf", "proof": "ne_of_mem_of_not_mem hz ⟪p35⟫", "sample_idx": 0}
+{"item_id": "2735b9245bea0d44", "proof": "by\n  rw [⟪p40⟫ (⟪p52⟫ Nat.le_succ ⟪p37⟫)]\n  refine ⟪p51⟫ fun n => ?_\n  grw [← ⟪p59⟫ <| ⟪p13⟫ (u 0 + 1) (u n + 1)]\n  simpa using ⟪p1⟫ hf h_pos h_nonneg hu h_succ_diff n", "sample_idx": 0}
+{"item_id": "943996a553ffdbc1", "proof": "⟪p32⟫ _", "sample_idx": 0}
+{"item_id": "f485774e0204c9b7", "proof": "⟪p19⟫ hf ⟪p9⟫", "sample_idx": 0}
+{"item_id": "7e44ff5208ad2b9e", "proof": ".of_comp (f := ⟪p7⟫) ⟪p0⟫", "sample_idx": 0}
+{"item_id": "bf8889469df64e35", "proof": "by\n  simp_rw [⟪p62⟫] at h ⊢\n  exact ⟪p36⟫ h", "sample_idx": 0}
+{"item_id": "a9147bdda5efea37", "proof": "⟪p60⟫", "sample_idx": 0}
+{"item_id": "83cce9a5ab2fae98", "proof": "⟨fun (_ : ⟪p2⟫ C) => ⟪p5⟫ e.inverse,\n    fun (_ : ⟪p2⟫ D) => ⟪p5⟫ e.functor⟩", "sample_idx": 0}
+{"item_id": "425805dac9801f38", "proof": "⟪p40⟫ h r", "sample_idx": 0}
+{"item_id": "a5d279beea5e9cb6", "proof": "by\n  simp [⟪p56⟫]\n  rfl", "sample_idx": 0}
+{"item_id": "d04239d2defa9aad", "proof": "by\n  rw [⟪p35⟫, ⟪p38⟫]", "sample_idx": 0}
+{"item_id": "011b900556bfa684", "proof": "by\n  intro x₁ hx₁ x₂ hx₂ h\n  induction n with\n  | zero => simp [eq_iff_true_of_subsingleton]\n  | succ n ih =>\n    ext i\n    have x := (⟪p11⟫ hx₁ hx₂).1 h\n    exact Fin.cases x.1 (congr_fun <| ih (fun _ => hx₁ _) (fun _ => hx₂ _) x.2) i", "sample_idx": 0}
+{"item_id": "6c7eef2d189aab91", "proof": "⟪p33⟫ _ _ (by simp only [List.map_id, ⟪p31⟫])", "sample_idx": 0}
+{"item_id": "eeb3b4032d8513e3", "proof": "by\n  rw [Iff.comm, ← ⟪p41⟫ ⟨compl, ⟪p7⟫⟩, ⟪p44⟫, ⟪p16⟫, ⟪p5⟫]", "sample_idx": 0}
+{"item_id": "46864a89abeec08a", "proof": "⟪p47⟫ _ _", "sample_idx": 0}
+{"item_id": "7fb4afcb84abf0d5", "proof": "by\n  contrapose! h0\n  rw [(⟪p40⟫ P).mp h0]\n  exact ⟨rfl, rfl, rfl, rfl⟩", "sample_idx": 0}
+{"item_id": "be5ad67fd5736f06", "proof": ".mk ⟨⟪p41⟫ (⟪p1⟫ (⟪p40⟫ X Y)), (⟪p33⟫ (⟪p40⟫ X Y)).binaryFanSwap⟩", "sample_idx": 0}
+{"item_id": "efacb0d9dcf69fea", "proof": "by\n  simpa [⟪p23⟫] using ⟪p12⟫ f s t", "sample_idx": 0}
+{"item_id": "eb5e8a9eeb633fb7", "proof": "by\n  simp_rw [⟪p22⟫]\n  rw [← ⟪p59⟫, ⟪p30⟫, ⟪p61⟫ hx_pos.le]\n  simp [hx_pos]", "sample_idx": 0}
+{"item_id": "3963769a104501e9", "proof": "⟪p20⟫ (⟪p11⟫.mpr fun mn hmn p hp ↦ by\n    obtain ⟨m, hm, n, hn, rfl⟩ := ⟪p17⟫.mp hmn\n    rw [⟪p47⟫]; exact ⟪p7⟫ (⟪p60⟫ hm hp) <| ⟪p60⟫ hn hp)\n    (⟪p41⟫ (⟪p10⟫ ⟪p62⟫) <| ⟪p10⟫ ⟪p63⟫)", "sample_idx": 0}
+{"item_id": "4afe453a28b3d276", "proof": "⟪p57⟫\n    (⟪p37⟫ (x₀, x₀) hf ⟪p36⟫ <| ⟪p11⟫ s s)\n    ⟪p61⟫ hk hs hmn hx₀s (by rw [⟪p60⟫])", "sample_idx": 0}
+{"item_id": "f79d3f73c1b23072", "proof": "⟪p19⟫ hs", "sample_idx": 0}
+{"item_id": "696f0387bf56e4e7", "proof": "by\n  rcases ⟪p54⟫.eventually_iff.1 (hd.and hc) with ⟨r, hr₀, hr⟩\n  exact ⟪p54⟫.eventually_iff.2\n    ⟨r, hr₀, ⟪p33⟫ (⟪p38⟫ fun x hx =>\n        (hr <| ⟪p26⟫ hx).1.differentiableWithinAt) fun x hx =>\n      (hr <| ⟪p28⟫ hx).2⟩", "sample_idx": 0}
+{"item_id": "0dd04a6578690868", "proof": "by\n  dsimp [⟪p22⟫]\n  simp only [⟪p61⟫, ⟪p31⟫, ⟪p59⟫,\n    Function.comp_apply, ⟪p8⟫, ⟪p47⟫,\n    ⟪p33⟫, ⟪p26⟫, ⟪p12⟫, ⟪p53⟫]\n  have h := ⟪p60⟫ (⟪p48⟫ f) (⟪p40⟫ (ε.apply_symm_apply (ε b)))\n  simp only [⟪p59⟫] at h\n  erw [← h, ⟪p35⟫, ⟪p35⟫, ⟪p1⟫]\n  all_goals { simp }", "sample_idx": 0}
+{"item_id": "d4d5e405289e4ada", "proof": "by\n  classical\n  induction s using ⟪p33⟫ with\n  | empty => simp at hs\n  | insert i hi hins H =>\n      rw [⟪p17⟫ hins]\n      by_cases h : ¬ hi.Nonempty\n      · simp_all\n      · exact ⟪p56⟫ (hA _ <| ⟪p8⟫ i hi) <|\n          H (not_not.mp h) fun _ _hi => hA _ (⟪p15⟫ _hi)", "sample_idx": 0}
+{"item_id": "9382d94ff65fe123", "proof": "by\n  rw [eq_comm, ← ⟪p12⟫, eq_comm]", "sample_idx": 0}
+{"item_id": "9317a866ac20ff53", "proof": "⟪p29⟫ (pullback.cone f f) (pullback.isLimit f f)", "sample_idx": 0}
+{"item_id": "96ee91014086022b", "proof": "(⟪p37⟫ m₁).symm", "sample_idx": 0}
+{"item_id": "0eabba072bd7c355", "proof": "by\n  rw [b.cartan_eq_lieSpan]\n  apply ⟪p37⟫\n  rintro - ⟨i, rfl⟩ - ⟨j, rfl⟩\n  exact b.lie_h_h i j", "sample_idx": 0}
+{"item_id": "4f08393e3803fb68", "proof": "by\n  have : ⟪p7⟫ U.toScheme := hU\n  have : ⟪p7⟫ W.toScheme := hW\n  have : ⟪p40⟫ V := ⟪p63⟫.mp hV\n  let f' : U.toScheme ⟶ W := f.resLE _ _ hUW\n  let q : ⟪p22⟫ V ⟶ W :=\n    ⟪p2⟫ W.ι (⟪p38⟫ _ ≫ g) <| by simpa [⟪p60⟫]\n  let p : pullback f' q ⟶ pullback f g :=\n    pullback.map _ _ _ _ U.ι (⟪p38⟫ _) W.ι (by simp [f']) (by simp [q])\n  convert! ⟪p20⟫ p.continuous\n  simp [p, ⟪p61⟫]", "sample_idx": 0}
+{"item_id": "2c48aa8a9598999d", "proof": "by\n  suffices h : ∃ o f, ⟪p35⟫ a o f by\n    rcases h with ⟨o, f, hf⟩\n    exact ⟨_, hf.ord_cof⟩\n  rcases ⟪p63⟫ a with ⟨ι, f, hf, hι⟩\n  rcases ⟪p21⟫ ι with ⟨r, wo, hr⟩\n  let r' := ⟪p43⟫ r fun i ↦ ∀ j, r j i → f j < f i\n  let hrr' : r' ↪r r := ⟪p53⟫ _ _\n  haveI := hrr'.isWellOrder\n  refine\n    ⟨_, _, hrr'.ordinal_type_le.trans ?_, @fun i j _ h _ => (⟪p59⟫ r' ⟨j, h⟩).prop _ ?_,\n      ⟪p56⟫ (⟪p51⟫ fun i hi => ⟪p37⟫.1 hf.le _) ?_⟩\n  · rw [← hι, hr]\n  · change r (hrr'.1 _) (hrr'.1 _)\n    rwa [hrr'.2, @⟪p23⟫ _ r']\n  · rw [← hf, ⟪p37⟫]\n    intro i\n    suffices h : ∃ i' hi', f i ≤ ⟪p49⟫ r' (fun i => f i) i' hi' by\n      rcases h with ⟨i', hi', hfg⟩\n      exact hfg.trans_lt (⟪p19⟫ _ _ _)\n    by_cases! h : ∀ j, r j i → f j < f i\n    · refine ⟨⟪p57⟫ r' ⟨i, h⟩, ⟪p6⟫ _ _, ?_⟩\n      rw [⟪p61⟫]\n    · obtain ⟨hji, hij⟩ := wo.wf.min_mem _ h\n      refine ⟨⟪p57⟫ r' ⟨_, fun k hkj => ⟪p47⟫ ?_ hij⟩, ⟪p6⟫ _ _, ?_⟩\n      · by_contra! H\n        exact (wo.wf.not_lt_min {j | r j i ∧ f i ≤ f j} ⟨⟪p33⟫ _ _ _ hkj hji, H⟩) hkj\n      · rwa [⟪p61⟫]", "sample_idx": 0}
+{"item_id": "901b508f250f6120", "proof": "fun _ _ h_le => ⟪p7⟫ <| ⟪p8⟫ h_le", "sample_idx": 0}
+{"item_id": "dcfbd3ad306dfa44", "proof": "by\n  dsimp [⟪p9⟫, ⟪p28⟫]\n  conv_lhs => erw [⟪p18⟫ (⟪p45⟫ (⟪p13⟫ F))\n    (⟪p41⟫ _ j), ⟪p2⟫]\n  simp only [⟪p15⟫, ⟪p62⟫, ⟪p14⟫,\n    Function.comp_apply]\n  rfl", "sample_idx": 0}
+{"item_id": "a0f5ed999bc14ad6", "proof": "by\n  dsimp [⟪p33⟫, ⟪p9⟫]\n  rw [← ⟪p10⟫, ← ⟪p30⟫, ⟪p35⟫ ..]", "sample_idx": 0}
+{"item_id": "d9802a6f7b0a184a", "proof": "by\n  suffices h : ∀ (y : ⟪p30⟫ Y), ⟪p59⟫ (⟪p30⟫ (f ⁻¹' ⟪p5⟫ ⁻¹' {y})) by\n    refine .of_equiv _ (⟪p45⟫ (U := fun y ↦ f ⁻¹' ⟪p5⟫ ⁻¹' {y}) ?_ ?_ ?_).symm\n    · exact fun y ↦ (⟪p56⟫ {y}).preimage (⟪p26⟫.comp hfc)\n    · exact fun i j hij ↦ (⟪p43⟫ ⟪p5⟫ (by simpa)).preimage f\n    · rw [⟪p57⟫]\n      exact fun x ↦ ⟨⟪p5⟫ (f x), rfl⟩\n  intro y\n  obtain ⟨y, rfl⟩ := ⟪p58⟫ y\n  have := ⟪p32⟫.mp (⟪p6⟫ (x := y))\n  rw [⟪p33⟫]\n  refine ⟪p63⟫\n    (hf₁.restrictPreimage (⟪p27⟫ y)) (hf₂.restrictPreimage (⟪p27⟫ y))\n    (y := ⟨y, ⟪p28⟫⟩) ?_\n  rw [← ⟪p11⟫ ⟪p44⟫.injOn]\n  convert! h y\n  aesop (add safe ⟪p28⟫)", "sample_idx": 0}
+{"item_id": "4db2ff0bef5396db", "proof": "by\n  rw [⟪p3⟫, subst, ⟪p1⟫\n    (⟪p63⟫ (⟪p44⟫ _)) ha, ⟪p61⟫ ha, subst]", "sample_idx": 0}
+{"item_id": "e4517f2952c3a2b9", "proof": "by\n  dsimp [⟪p32⟫]\n  convert! ⟪p43⟫\n  rw [⟪p20⟫]\n  infer_instance", "sample_idx": 0}
+{"item_id": "bc32818f3c26b289", "proof": "by\n  have := e.isLocalRing\n  have := ⟪p9⟫ R e\n  rwa [⟪p59⟫, ← ⟪p30⟫ e, ← ⟪p0⟫ e,\n    ⟪p42⟫, ← ⟪p59⟫]", "sample_idx": 0}
+{"item_id": "5c6929614699c45b", "proof": "by\n  rw [⟪p32⟫ ha hb hc, ⟪p8⟫ hd]", "sample_idx": 0}
+{"item_id": "a8f5816c44ccd015", "proof": "by\n  let e : R ≃ₐ[R] (⟪p37⟫ (⟪p28⟫ R)) :=\n    ⟪p20⟫ R (⟪p28⟫ R).primeCompl (fun x ↦ by simpa using! fun a ↦ a)\n  exact ⟪p3⟫ e.toRingEquiv.symm", "sample_idx": 0}
+{"item_id": "61850dc1d957c6f8", "proof": "by\n  induction n with\n  | zero => ext; simp\n  | succ n ihn =>\n    rw [⟪p24⟫, ihn, ⟪p34⟫, ⟪p29⟫, ⟪p3⟫, ⟪p23⟫]", "sample_idx": 0}
+{"item_id": "a6337c1c48b0b499", "proof": "by\n  simp [⟪p54⟫, ⟪p57⟫]", "sample_idx": 0}
+{"item_id": "61cbfa1d3345872c", "proof": "⟪p16⟫ hf_indep hf_meas i j k hik hjk", "sample_idx": 0}
+{"item_id": "5128ed00b102accd", "proof": "⟪p23⟫ F", "sample_idx": 0}
+{"item_id": "bb8eebe68a51d632", "proof": "⟪p48⟫ h₁ h₂ (by simp)", "sample_idx": 0}
+{"item_id": "f5340fb16dfc39d5", "proof": "by\n  simp only [⟪p46⟫, ⟪p48⟫]", "sample_idx": 0}
+{"item_id": "60f074c39c05c4a6", "proof": "by\n  have := ⟪p50⟫ K A\n  have : ⟪p36⟫ A := .of_finite K A\n  have (I : ⟪p49⟫ A) : ⟪p59⟫ K (A ⧸ I.asIdeal) := by\n    rw [⟪p61⟫, ← ⟪p6⟫]\n    infer_instance\n  exact .of_equiv ((⟪p24⟫ A).restrictScalars K).symm", "sample_idx": 0}
+{"item_id": "991447bff5a1367b", "proof": "⟪p48⟫ s", "sample_idx": 0}
+{"item_id": "ac0143d7d0d4bbf6", "proof": "by\n  rcases s.eq_bot_or_nonempty with h | h\n  · simp [h]\n  have h : Nonempty s := by simpa using! h\n  simp [⟪p30⟫, h]", "sample_idx": 0}
+{"item_id": "8732ff1dd6f5d8b1", "proof": "⟪p42⟫", "sample_idx": 0}
+{"item_id": "c82424efb3a68393", "proof": "⟪p36⟫ ⟪p1⟫", "sample_idx": 0}
+{"item_id": "c874e9ec45108a18", "proof": "⟪p58⟫ (⟪p37⟫ _)", "sample_idx": 0}
+{"item_id": "3f61729cf2b69aad", "proof": "⟪p60⟫ (⟪p2⟫ F (⟪p47⟫ (F ⋙ G)))", "sample_idx": 0}
+{"item_id": "5639b78b925964c2", "proof": "by rw [⟪p58⟫, ⟪p6⟫]", "sample_idx": 0}
+{"item_id": "640f1d921e7e5ecf", "proof": "by\n  rw [← ⟪p27⟫, ← ⟪p33⟫]\n  refine ⟪p10⟫ ?_\n  filter_upwards [hf] with x hx\n  simpa", "sample_idx": 0}
+{"item_id": "babcbf5f43a4971a", "proof": "by\n  simp only [⟪p7⟫, ⟪p6⟫, ⟪p31⟫, ⟪p16⟫, ⟪p56⟫, forall_const]\n  intro r r_in x\n  rw [← ⟪p63⟫ (x.val n), ← ⟪p37⟫, ⟪p33⟫]\n  exact ⟪p17⟫ r_in ⟪p6⟫", "sample_idx": 0}
+{"item_id": "87854743fb0d1af3", "proof": "by\n  induction n generalizing g with\n  | zero =>\n    funext (x : Fin 1)\n    simp [⟪p33⟫, ⟪p13⟫, Subsingleton.elim x 0,\n      ⟪p18⟫, ⟪p24⟫, ⟪p25⟫]\n  | succ n hn =>\n    funext x\n    induction x using Fin.cases with\n    | zero => simp; rfl\n    | succ i =>\n      simpa [⟪p33⟫, ⟪p24⟫, ⟪p17⟫, ⟪p27⟫,\n        ⟪p18⟫] using! congrFun (hn (g * f 0) (⟪p6⟫ f)) i", "sample_idx": 0}
+{"item_id": "f291da6e69c5037c", "proof": "by\n  constructor\n  · intro hP X E _\n    exact ⟨E.isLimitMultifork ⟨_, hP⟩⟩\n  · intro hP\n    rw [⟪p49⟫]\n    rintro X ⟨S, hS⟩\n    obtain ⟨E, hE, le⟩ := H.exists_oneHypercover S hS\n    exact ⟨⟪p15⟫ hP hE le⟩", "sample_idx": 0}
+{"item_id": "1824275fb400ba30", "proof": "(⟪p11⟫ h₀).tprod_eq", "sample_idx": 0}
+{"item_id": "614bb05afed31c0c", "proof": "⟪p30⟫ <| ⟪p29⟫.2 hx", "sample_idx": 0}
+{"item_id": "7e61835d68451a0d", "proof": "((⟪p8⟫ (n := n)).trans objEquiv.symm).bijective", "sample_idx": 0}
+{"item_id": "3e2e9e39e45ff7a4", "proof": "by\n  injection ⟪p29⟫ ha h3", "sample_idx": 0}
+{"item_id": "fbf9165ec83b43ca", "proof": "by\n  rw [← ⟪p31⟫, hs.convexHull_eq]", "sample_idx": 0}
+{"item_id": "21449658bdbbea42", "proof": "⟪p37⟫", "sample_idx": 0}
+{"item_id": "cb5edd61da86f30f", "proof": "by\n  ext\n  apply ⟪p59⟫", "sample_idx": 0}
+{"item_id": "04d97f8c60276755", "proof": "⟪p21⟫ hyp", "sample_idx": 0}
+{"item_id": "ed7bec637e954a2e", "proof": "⟪p23⟫ (fun _ _ ↦ ⟪p41⟫.symm)", "sample_idx": 0}
+{"item_id": "07175349517dd098", "proof": "⟨fun _ => ⟪p5⟫ φ φ' e, fun _ => ⟪p5⟫ φ' φ e.symm⟩", "sample_idx": 0}
+{"item_id": "a7194d1d14450b88", "proof": "by\n  -- Porting note: added `convert`\n  convert! ⟪p26⟫ f hf hker", "sample_idx": 0}
+{"item_id": "09b36945232e3b16", "proof": "hfg.comp ⟪p17⟫ measurable_neg", "sample_idx": 0}
+{"item_id": "55369bf69da2b596", "proof": "by\n  rw [⟪p41⟫]\n  exact ⟪p0⟫ <| hf.coeFn_toL1.fun_comp _", "sample_idx": 0}
+{"item_id": "c201cced56cb572a", "proof": "⟪p16⟫ _ _ _", "sample_idx": 0}
+{"item_id": "5f8e856da6e5345a", "proof": "by\n  conv_lhs => rw [← ⟪p26⟫ r]\n  rw [← ⟪p50⟫, ← ⟪p46⟫, ⟪p12⟫,\n    ⟪p51⟫]", "sample_idx": 0}
+{"item_id": "d3b6085c971f1e8e", "proof": "⟪p48⟫ ⟪p6⟫ hf", "sample_idx": 0}
+{"item_id": "5b57d49b41d89059", "proof": "⟪p41⟫ _ h_mult t fun x hx y hy hxy => (⟪p0⟫ (ht x hx) (ht y hy)).mpr hxy", "sample_idx": 0}
+{"item_id": "1eda7bbc7b9e92e0", "proof": "(⟪p46⟫ _ _).symm", "sample_idx": 0}
+{"item_id": "3ae34520e2520ece", "proof": "⟨⟪p37⟫, ⟪p13⟫⟩", "sample_idx": 0}
+{"item_id": "f1f0fe634a9d4f1d", "proof": "⟪p4⟫ (⟪p42⟫ h)", "sample_idx": 0}
+{"item_id": "e15a72ea7316107d", "proof": "by\n  let e (p : ⟪p48⟫ k) [p.IsPrime] : ⟪p29⟫ k ≃ₐ[k] ⟪p29⟫ p.ResidueField :=\n    have := p.algEquivResidueFieldOfField.isAlgebraic\n    ⟪p1⟫ k _ _\n  refine ⟨fun ⟨h⟩ ↦ ?_, fun h ↦ ⟨fun p hp ↦ ?_⟩⟩\n  · exact ⟪p25⟫ _ (⟪p43⟫ (e ⊥) ⟪p59⟫).injective\n  · exact ⟪p25⟫ _ (⟪p43⟫ (e p).symm ⟪p59⟫).injective", "sample_idx": 0}
+{"item_id": "dbab010bd27b16f2", "proof": "by\n  simp [⟪p0⟫, ⟪p49⟫ _ h, ⟪p16⟫]", "sample_idx": 0}
+{"item_id": "ffa1e1016e93e7e8", "proof": "by\n  rw [← ⟪p63⟫ (S₁.mapLeftHomologyIso F).hom, ← ⟪p40⟫,\n    ⟪p37⟫, comp_id, ⟪p44⟫]", "sample_idx": 0}
+{"item_id": "d182319a011336dc", "proof": "(⟪p1⟫ I M).eq_iff", "sample_idx": 0}
+{"item_id": "27b335e3ff78d41f", "proof": "(⟪p35⟫ ha).lt_top", "sample_idx": 0}
+{"item_id": "669731adaaef0cba", "proof": "by\n  exact ⟪p42⟫\n    ⟪p45⟫ hf.property hfg", "sample_idx": 0}
+{"item_id": "5dcbb4c845029571", "proof": "by\n  rw [⟪p45⟫]\n  rw [⟪p24⟫]\n  monoidal", "sample_idx": 0}
+{"item_id": "71dcda23c8772716", "proof": "⟪p9⟫ _", "sample_idx": 0}
+{"item_id": "74dac36c7cecfbba", "proof": "⟪p45⟫", "sample_idx": 0}
+{"item_id": "47dc92e9b50007a2", "proof": "by\n  simpa using! ⟪p36⟫ (⟪p25⟫ A) p (by norm_num : (0 : ℝ) ≤ 1) i", "sample_idx": 0}
+{"item_id": "8a8f7dd12cc163b1", "proof": "by\n  let p : P := ⟪p23⟫ inferInstance\n  simp only [⟪p55⟫, ⟪p9⟫]\n  rw [⟪p19⟫\n    (b := p) (h := (s.map f).total),\n    ⟪p19⟫\n    (b := p) (h := s.total)]\n  suffices ((s.weights.mapDomain f).sum fun x r ↦ r • (x -ᵥ p)) =\n    s.weights.sum fun x r ↦ r • (f x -ᵥ p) by simpa\n  simp [⟪p53⟫, ⟪p10⟫]", "sample_idx": 0}
+{"item_id": "e8ea7e7b2e30c47e", "proof": "(⟪p3⟫ (⟪p26⟫ I) h).2 h", "sample_idx": 0}
+{"item_id": "944438d00c468c7e", "proof": "congrArg ((↑) : _ → P) (⟪p63⟫ _ _ _ hp₁o)", "sample_idx": 0}
+{"item_id": "82e3323ab6e35a0d", "proof": "by\n  simp [⟪p10⟫, ⟪p47⟫, ⟪p44⟫, ⟪p15⟫]", "sample_idx": 0}
+{"item_id": "3bd57e29b434e91e", "proof": "⟪p62⟫ G\n    (⟪p21⟫ _) (⟪p21⟫ _) (⟪p21⟫ _) _", "sample_idx": 0}
+{"item_id": "9b83d66e40a99ff6", "proof": "⟪p15⟫", "sample_idx": 0}
+{"item_id": "b6e80114e8d5160e", "proof": "by\n  by_cases hn : n = 0; · simp_all\n  exact ⟪p24⟫ (⟪p13⟫.mp (⟪p53⟫ (⟪p10⟫ hx r\n    (Nat.pos_of_ne_zero hn)) (⟪p63⟫ hg)))", "sample_idx": 0}
+{"item_id": "48ddddbe87cedfa4", "proof": "by\n  rw [⟪p25⟫ (fun x ↦ (⟪p51⟫ _).le) hf]\n  suffices (⟪p2⟫ fun x ↦ ⟪p61⟫ (f x)) = ⟪p58⟫ by simp [this, hμ.out]\n  ext1 x\n  simp only [⟪p42⟫, ne_eq, (⟪p51⟫ _).ne', not_false_eq_true, ⟪p40⟫]", "sample_idx": 0}
+{"item_id": "3ea98b953f019b96", "proof": "by\n  rcases ⟪p45⟫ I x with ⟨C, C_pos, hC⟩\n  refine ⟨C, C_pos, ?_⟩\n  have : 𝓝 x = 𝓝 ((⟪p61⟫ I x).symm (⟪p61⟫ I x x)) := by simp\n  rw [this] at hC\n  have : ⟪p24⟫ (⟪p61⟫ I x).symm (⟪p61⟫ I x x) := ⟪p4⟫ _\n  filter_upwards [⟪p27⟫ (this.preimage_mem_nhds hC),\n    ⟪p58⟫ x] with y hy h'y\n  have : y = (⟪p61⟫ I x) ((⟪p61⟫ I x).symm y) := by simp [-⟪p61⟫, h'y]\n  simp only [⟪p11⟫, ⟪p63⟫] at hy\n  convert! hy", "sample_idx": 0}
+{"item_id": "8f5808febe9bf9d3", "proof": "⟪p53⟫ hX (⟪p26⟫ Z)", "sample_idx": 0}
+{"item_id": "674c6b1f937fca8c", "proof": "by\n  rw [← ⟪p21⟫ (⟪p12⟫ (Perm (Fin n)))]\n  let g : E →L[𝕜] (Fin n → E) := ⟪p19⟫ (fun i ↦ ⟪p28⟫ 𝕜 E)\n  change iteratedFDeriv 𝕜 n (f ∘ g) x v = _\n  rw [⟪p45⟫ _ f.contDiff _ ⟪p27⟫, f.iteratedFDeriv_eq]\n  simp only [⟪p33⟫,\n    ⟪p9⟫, ⟪p39⟫,\n    ⟪p24⟫, ⟪p17⟫, ⟪p16⟫]\n  rw [← ⟪p21⟫ (⟪p44⟫ (Fin n))]\n  congr with σ\n  congr with i\n  obtain ⟨y, rfl⟩ := σ.equivOfFiniteSelfEmbedding.surjective i\n  simp [⟪p49⟫, g]", "sample_idx": 0}
+{"item_id": "f3031b918fd0362d", "proof": "by\n  simpa using (⟪p38⟫ hc hf).hasStrictDerivAt", "sample_idx": 0}
+{"item_id": "05b71281c375b18a", "proof": "⟪p46⟫ rfl", "sample_idx": 0}
+{"item_id": "e368499d2b26dc74", "proof": "by\n  simp [⟪p57⟫]", "sample_idx": 0}
+{"item_id": "563738ac657e849f", "proof": "by\n  rw [← ⟪p5⟫, ⟪p50⟫]", "sample_idx": 0}
+{"item_id": "568bdce02034f024", "proof": "by\n  rw [← Q.toQuadraticMap_associated ℝ,\n    ← (⟪p20⟫ ℝ).left_inv (Q.associatedHom ℝ)]\n  exact hQ.toQuadraticForm'", "sample_idx": 0}
+{"item_id": "2d849d8d5fb0a4d8", "proof": "by\n  intro V hV\n  rcases ⟪p9⟫ hV with ⟨W, hW₁, hW₂, hW₃⟩\n  specialize ha hW₁\n  filter_upwards [ha] with b ha'\n  grw [ha', ⟪p61⟫ b, ⟪p2⟫.mpr hW₂, hW₃]", "sample_idx": 0}
+{"item_id": "ec1b3325f457afe4", "proof": "by\n  refine ⟪p52⟫ ?_ ?_\n  · have : Nonempty { r' : ℚ // x < ↑r' } := by\n      obtain ⟨r, hrx⟩ := ⟪p22⟫ x\n      exact ⟨⟨r, hrx⟩⟩\n    refine ⟪p63⟫ fun r => ?_\n    obtain ⟨y, hxy, hyr⟩ := ⟪p24⟫ r.prop\n    refine ⟪p53⟫ hf (hxy.trans ?_)\n    exact_mod_cast hyr\n  · refine ⟪p63⟫ fun q => ?_\n    have hq := q.prop\n    rw [⟪p0⟫] at hq\n    obtain ⟨y, hxy, hyq⟩ := ⟪p24⟫ hq\n    refine (⟪p37⟫ ?_ ?_).trans ?_\n    · refine ⟨hf.some, fun z => ?_⟩\n      rintro ⟨u, rfl⟩\n      suffices hfu : f u ∈ f '' ⟪p13⟫ x from hf.choose_spec hfu\n      exact ⟨u, u.prop, rfl⟩\n    · exact ⟨y, hxy⟩\n    · refine hf_mono (⟪p46⟫ ?_ hyq.le)\n      norm_cast", "sample_idx": 0}
+{"item_id": "af6850c864bf5d03", "proof": "⟪p22⟫", "sample_idx": 0}
+{"item_id": "34e10da89a5d0f0d", "proof": "by\n  rw [← ⟪p47⟫]\n  exact ⟪p2⟫ hx", "sample_idx": 0}
+{"item_id": "7924faf4f182f2d2", "proof": "by\n  apply ⟪p26⟫\n  intro a ha\n  rw [⟪p28⟫, ← ⟪p40⟫ ζ] at ha\n  exact (⟪p45⟫ a).mp (⟪p34⟫ h (⟪p37⟫ a) (⟪p46⟫ _) ha)", "sample_idx": 0}
+{"item_id": "b1940c66465de7b5", "proof": "by\n  obtain ⟨x, hx_mem, hx_max⟩ := isCompact_closedBall (0 : E) r |>.exists_isMaxOn\n    (⟪p51⟫.mpr hr_nn)\n    (h_an.continuousOn.mono <| ⟪p25⟫ hr_lt).norm\n  suffices ⟪p11⟫ f (Function.const E (f x)) (⟪p20⟫ 0 b) by\n    rwa [this (⟪p31⟫ (hr_nn.trans_lt hr_lt))]\n  apply ⟪p44⟫ h_an (⟪p25⟫ hr_lt hx_mem) (fun z hz ↦ ?_)\n  obtain ⟨w, hw, hw'⟩ := hr z hz\n  exact hw'.trans (hx_max hw)", "sample_idx": 0}
+{"item_id": "e3d9f125a022b990", "proof": "by\n  rcases ⟪p43⟫ hf x with ⟨u, hu, huxf, hlim⟩\n  have hux (n : ℕ) : u n ∈ ⟪p23⟫ x := (huxf n).1\n  have huf (n : ℕ) : u n ∈ ⟪p0⟫ f := (huxf n).2\n  choose v hv using huf\n  obtain rfl : f ∘ v = u := funext hv\n  exact ⟨v, fun a b hlt ↦ hmono.reflect_lt <| hu hlt, hux, hlim⟩", "sample_idx": 0}
+{"item_id": "c746d574fff83826", "proof": "⟪p14⟫ h_indep h_le h_le' hm", "sample_idx": 0}
+{"item_id": "996ce4ebcf209697", "proof": "by\n  obtain ⟨γ', rfl⟩ := (⟪p25⟫ K L n a n' hn).surjective γ\n  dsimp\n  simp only [⟪p26⟫, γ'.δ_leftShift a n' m' hn m hm', ⟪p45⟫,\n    ⟪p53⟫, ⟪p46⟫, ⟪p10⟫]", "sample_idx": 0}
+{"item_id": "394b013323677658", "proof": "⟪p31⟫.symm.trans ⟪p29⟫", "sample_idx": 0}
+{"item_id": "0189bb80f4b81ea0", "proof": "⟪p22⟫ (by simp [⟪p16⟫, (⟪p19⟫ _).symm, ⟪p35⟫])\n    (by simp [⟪p16⟫, (⟪p46⟫ _).symm, ⟪p55⟫, (⟪p48⟫ _).symm]; rfl)", "sample_idx": 0}
+{"item_id": "09dae09a9b94ebd1", "proof": "⟪p17⟫.1 <| ⟪p3⟫ h", "sample_idx": 0}
+{"item_id": "297648595ebbefff", "proof": "by\n  rw [((⟪p2⟫ φ) S₁.leftHomologyData).quasiIso_iff]\n  dsimp\n  infer_instance", "sample_idx": 0}
+{"item_id": "afe9e736d52c0423", "proof": "by\n  simp [← ⟪p26⟫, ← ⟪p19⟫, ⟪p1⟫]", "sample_idx": 0}
+{"item_id": "45254712636c1c88", "proof": "by\n  let := ⟪p55⟫ p.asIdeal\n  dsimp [⟪p42⟫]\n  simp only [⟪p15⟫, ⟪p40⟫,\n    ⟪p41⟫, ⟪p44⟫]\n  apply (⟪p48⟫ (⟪p1⟫ K (K ⧸ p.asIdeal))\n    (⟪p27⟫ _ _)).injective\n  simp", "sample_idx": 0}
+{"item_id": "32beafc7c7d9cd3f", "proof": "by\n  ext n\n  apply ⟪p0⟫\n  intro gp m _ s_nth_eq\n  exact ⟨⟪p42⟫.trans_le ((c : ⟪p52⟫ K).property m gp.a\n    (⟪p21⟫ s_nth_eq)).symm.le, c.property m gp.b <| ⟪p8⟫ s_nth_eq⟩", "sample_idx": 0}
+{"item_id": "3aca8e35f93e9163", "proof": "⟪p46⟫ H w", "sample_idx": 0}
+{"item_id": "faf168aeb9642bc1", "proof": "@⟪p18⟫ αᵒᵈ _ _ _ _ _ h hd.symm", "sample_idx": 0}
+{"item_id": "3aadecc7966ab6f3", "proof": "⟪p27⟫", "sample_idx": 0}
+{"item_id": "f45de79c520ba2c9", "proof": "by\n  refine ⟨fun x ↦ ⟨fun s ↦ ⟨fun hs ↦ ?_, fun ⟨t, ht⟩ ↦ ⟪p17⟫ ht.1.1 ht.2⟩⟩⟩\n  let ⟨t, ht⟩ := (⟪p0⟫ S x s).mp hs\n  let ⟨t', ht'⟩ := (⟪p41⟫ (𝕜 := ℝ) x.1).mem_iff.mp ht.1\n  refine ⟨(↑) ⁻¹' t', ⟨?_, ?_⟩, (⟪p12⟫ ht'.2).trans ht.2⟩\n  · exact ⟪p23⟫.preimage_mem_nhds ht'.1.1\n  · refine ⟪p55⟫ _ _ ▸ ⟪p58⟫ ?_ ⟪p60⟫\n    exact (hS.inter ht'.1.2).isPathConnected ⟨x, x.2, ⟪p48⟫ ht'.1.1⟩", "sample_idx": 0}
+{"item_id": "cba7f2a3da7ccc04", "proof": "by\n  simp only [map, toPoly, ⟪p28⟫, ⟪p7⟫, ⟪p41⟫, ⟪p19⟫, ⟪p35⟫]", "sample_idx": 0}
+{"item_id": "2dd1d2a1e3a55dbd", "proof": "by\n  obtain rfl | hN := hN.eq_or_lt\n  · simp\n  · exact ⟪p5⟫ hN hN'", "sample_idx": 0}
+{"item_id": "f773c7a185797bbe", "proof": "⟪p1⟫", "sample_idx": 0}
+{"item_id": "cb6c0171d309b197", "proof": "s.lcm_eq_prod h ▸ ⟪p33⟫ ..", "sample_idx": 0}
+{"item_id": "66c7a0c50d7d8df7", "proof": "by\n  rw [⟪p50⟫, ⟪p53⟫ _ _ (hb := ⟪p13⟫ _ _), ← ⟪p15⟫ ..]\n  conv_rhs => rw [← ⟪p35⟫ 𝕜 a, ← ⟪p37⟫, ← ⟪p15⟫ ..]\n  simp [⟪p58⟫, ⟪p24⟫]", "sample_idx": 0}
+{"item_id": "4ef3c2936364bfc7", "proof": "let ⟨_i, hi⟩ := ⟪p52⟫.2 hx\n  hi ▸ ⟪p4⟫ _", "sample_idx": 0}
+{"item_id": "064b7701de291f07", "proof": "by\n  ext; simp [⟪p19⟫, ⟪p36⟫ hf]", "sample_idx": 0}
+{"item_id": "46550637504e9ef2", "proof": "by\n  simpa only [⟪p14⟫] using! ⟪p58⟫ (⟪p37⟫ f (⟪p2⟫ f hf))", "sample_idx": 0}
+{"item_id": "5286e69bacc41fef", "proof": "⟪p61⟫ (n := n) (i := ⟨i, by lia⟩) (j := ⟨j, by lia⟩) (by simpa)", "sample_idx": 0}
+{"item_id": "1b37a957fd719887", "proof": "⟪p45⟫ (s := ⟪p61⟫ ⟪p3⟫) (fun _ h _ h' ↦ h.inf h') hs hs' hU", "sample_idx": 0}
+{"item_id": "6a57c6cbdf0612a1", "proof": "by\n  rw [⟪p60⟫, ⟪p13⟫, ← ⟪p23⟫, ⟪p28⟫]\n  simp only [⟪p54⟫,\n    ⟪p22⟫, ⟪p2⟫]\n  rfl", "sample_idx": 0}
+{"item_id": "0a7883daa13bdfad", "proof": "⟪p61⟫ _ _ _", "sample_idx": 0}
+{"item_id": "3dee3ebafc4c887a", "proof": "have := hI.hasInitial\n  (⟪p14⟫ F\n    ((F.mapIso (terminalIsoIsTerminal (terminalOpOfInitial initialIsInitial)) ≪≫\n    (F.mapIso (initialIsoIsInitial hI).symm.op) ≪≫\n    (terminalIsoIsTerminal (⟪p18⟫ I F hF)).symm)))", "sample_idx": 0}
+{"item_id": "c62c7c0033978aef", "proof": "⟪p6⟫ (by decide) even.two_dvd", "sample_idx": 0}
+{"item_id": "bdfe8a2a5ba755eb", "proof": "by\n  rw [⟪p28⟫ ha hb, ⟪p43⟫ hc]", "sample_idx": 0}
+{"item_id": "fac5542385b90ac4", "proof": "by\n  have := H.dual.eraseMax_aux\n  rwa [← ⟪p52⟫, ⟪p22⟫, ← ⟪p15⟫, ⟪p22⟫, ← ⟪p31⟫, ⟪p42⟫]\n    at this", "sample_idx": 0}
+{"item_id": "566730d83d3e5178", "proof": "(⟪p61⟫ f).isHomeomorph", "sample_idx": 0}
+{"item_id": "e98eb3aea57d1d97", "proof": "(⟪p62⟫ P ⊤ f hPf trivial).isRightAdjoint", "sample_idx": 0}
+{"item_id": "5b448412731e8b42", "proof": "⟨fun ⟨u⟩ ↦ by constructor <;> exact inferInstance,\n   fun ⟨hs, hn⟩ ↦ ⟪p11⟫ α⟩", "sample_idx": 0}
+{"item_id": "a64d07147e663389", "proof": "by\n  split_ifs <;> (try simp [*]); rwa [⟪p27⟫]", "sample_idx": 0}
+{"item_id": "d55c5499dd187a1b", "proof": "by\n  refine ⟪p53⟫ f.isConnected_preimage_singleton\n    ?_ hs' hs\n  exact (hf.isQuotientMap f.continuous f.surjective).isCoinducing", "sample_idx": 0}
+{"item_id": "f565e9c5504c1e10", "proof": "(⟪p38⟫ h).closure f.continuous g.continuous", "sample_idx": 0}
+{"item_id": "c2df4808bc2b8302", "proof": "by\n      ext : 1 <;> exact ⟪p0⟫ _ _", "sample_idx": 0}
+{"item_id": "d09ab095e57dc42a", "proof": "⟪p18⟫", "sample_idx": 0}
+{"item_id": "90a151686e8f904c", "proof": "by\n  rw [⟪p39⟫, ⟪p39⟫, ⟪p17⟫ h]", "sample_idx": 0}
+{"item_id": "a43ebb48a8d85110", "proof": "by\n  dsimp only [⟪p17⟫]\n  simp_rw [← ⟪p63⟫, ← ⟪p60⟫]\n  slice_lhs 1 2 => rw [⟪p49⟫]\n  slice_lhs 2 3 =>\n    rw [⟪p39⟫, comp_id f₁, ← id_comp f₁, ⟪p20⟫,\n      ← ⟪p39⟫]\n  slice_lhs 3 4 =>\n    rw [⟪p39⟫, ⟪p39⟫, comp_id f₁, ← id_comp f₁, comp_id g₂,\n      ← id_comp g₂, ⟪p52⟫, ← ⟪p39⟫, ← ⟪p39⟫]\n  slice_lhs 4 5 =>\n    rw [⟪p39⟫, comp_id f₁, ← id_comp f₁, ⟪p49⟫,\n      ← ⟪p39⟫]\n  slice_lhs 5 6 => rw [⟪p20⟫]\n  simp only [assoc]", "sample_idx": 0}
+{"item_id": "b55ea3ef3d8c5c27", "proof": "by\n  refine ⟨fun h ↦ ?_, fun h ↦ ?_⟩\n  · rw [← h, ⟪p55⟫]\n  · rw [h, ⟪p43⟫]", "sample_idx": 0}
+{"item_id": "5a030fdc2a6955b2", "proof": "⟪p6⟫ _ _ _", "sample_idx": 0}
+{"item_id": "a2c2d6a7e575e51b", "proof": "by\n  simp only [⟪p55⟫, ← ⟪p7⟫, ⟪p9⟫, ⟪p42⟫]", "sample_idx": 0}
+{"item_id": "3eddcfbd1d458aa6", "proof": "by\n  rw [⟪p4⟫, ⟪p3⟫, ← ⟪p22⟫ .., ⟪p39⟫ a ha]\n  exact ⟪p36⟫ fun x hx ↦ ⟪p38⟫ x", "sample_idx": 0}
+{"item_id": "c0f3882edc7e9498", "proof": "⟪p38⟫", "sample_idx": 0}
+{"item_id": "d17eec636fdf7822", "proof": "by\n  rw [⟪p54⟫ ha hb hc, ⟪p10⟫]", "sample_idx": 0}
+{"item_id": "1e062d392db38e56", "proof": "@⟪p54⟫ _ _ fun {_} {_} f g => ⟪p12⟫ f g", "sample_idx": 0}
+{"item_id": "2d93c3ebd48ef335", "proof": "⟪p48⟫ 0 1", "sample_idx": 0}
+{"item_id": "d015b4451f77fc72", "proof": "by\n  suffices key : ∀ z : ℂ, x * ⟪p51⟫ (z • star a) = ⟪p51⟫ (z • star b) * x by\n    have (a : A) : ⟪p21⟫ (fun z : ℂ ↦ ⟪p51⟫ (z • a)) a 0 := by\n      simpa using ⟪p20⟫ a (0 : ℂ)\n    apply (this (star a)).const_mul x |>.unique\n    simpa [key] using (this (star b)).mul_const x\n  intro z\n  let _ : ⟪p47⟫ ℚ A := .restrictScalars ℚ ℂ A\n  let _ := ⟪p2⟫ (z • star a)\n  simpa [← ⟪p46⟫, ← ⟪p29⟫, expMulMulExp] using\n    congr($(expMulMulExp_const h z) * ⟪p51⟫ (z • star a)).symm", "sample_idx": 0}
+{"item_id": "8e641d5e9ba53d6a", "proof": "by\n  have ⟨x, y, z, h3⟩ := (⟪p43⟫ ha).mp hP\n  rw [⟪p34⟫ ha h3, h3]\n  change _ ↔ (x ::ₘ y ::ₘ {z}).Nodup\n  rw [⟪p16⟫, ⟪p16⟫, ⟪p20⟫, ⟪p14⟫, ⟪p14⟫]\n  simp only [⟪p22⟫]\n  tauto", "sample_idx": 0}
+{"item_id": "597a3a36ad36f411", "proof": "by\n  apply ⟪p28⟫\n  · introv H U\n    have : ⟪p48⟫ (e.hom.appLE (e.hom ''ᵁ U) U.1 (e.hom.preimage_image_eq _).ge) :=\n      inferInstanceAs (⟪p48⟫ (e.hom.app _ ≫\n        X.presheaf.map (⟪p16⟫ (e.hom.preimage_image_eq _).symm).op))\n    rw [← ⟪p29⟫ _ _ ⊤ (e.hom ''ᵁ U) U.1 ⟪p37⟫ (e.hom.preimage_image_eq _).ge,\n      ⟪p31⟫, h₁.cancel_right_isIso]\n    exact H ⟨_, U.prop.image_of_isOpenImmersion e.hom⟩\n  · introv H U\n    rw [⟪p8⟫, ⟪p31⟫, h₁.cancel_left_isIso]\n    exact H U", "sample_idx": 0}
+{"item_id": "c1ea8e3bee52ff0a", "proof": "⟪p33⟫ _ hg", "sample_idx": 0}
+{"item_id": "53f6194d923bd926", "proof": "by\n  haveI : ⟪p9⟫ G := hG.completeSpace_coe\n  let g := ⟪p27⟫ f h hker\n  rw [⟪p40⟫ f h hker]\n  apply g.toHomeomorph.isClosed_image.2\n  exact ⟪p4⟫.prod ⟪p61⟫", "sample_idx": 0}
+{"item_id": "0bd75963a8c18efe", "proof": "by\n  constructor <;> intro h\n  · simp [h]\n  ext n\n  by_cases hn : n = 0\n  · rw [hn, ⟪p50⟫, ⟪p50⟫]\n  rw [⟪p60⟫ f hf hn, ⟪p60⟫ g hg hn]\n  exact ⟪p28⟫ rfl fun p hp ↦ h p _ (⟪p42⟫ hp)", "sample_idx": 0}
+{"item_id": "c7aa22fdea01b9b2", "proof": "by\n  -- rewriting via Nat.card because Fintype instance is not found\n  rw [← ⟪p17⟫,\n    ⟪p25⟫ (⟪p55⟫ ⟪p34⟫ fun _ ↦ ?_),\n    ⟪p25⟫ ⟪p44⟫,\n    ⟪p25⟫ (⟪p38⟫ f).toEquiv, ⟪p0⟫]\n  · exact ⟪p51⟫ rfl fun i _ ↦ by rw [⟪p17⟫, ⟪p58⟫]\n  · rfl", "sample_idx": 0}
+{"item_id": "4d494b58a2fccb89", "proof": "by\n  rw [← ⟪p11⟫ ((α_ _ _ _).hom), ⟪p57⟫, ← ⟪p29⟫, ⟪p4⟫]", "sample_idx": 0}
+{"item_id": "3defa0ac3fbd44ca", "proof": "by\n  dsimp only [⟪p28⟫, ⟪p18⟫]\n  rw [⟪p31⟫]\n  ext\n  simpa using ⟪p32⟫ _", "sample_idx": 0}
+{"item_id": "da049a143b40033e", "proof": "⟪p36⟫ m h_le π h_pi h_generate h_ind", "sample_idx": 0}
+{"item_id": "e6ac13b94e2469b8", "proof": "by\n  rw [← ⟪p1⟫] at *\n  exact hc.smul_const f", "sample_idx": 0}
+{"item_id": "d10a396007c17655", "proof": "by\n  rcases ⟪p1⟫ a with rfl | a_top\n  · rw [ne_self_iff_false, false_or] at h₂; rw [⟪p35⟫ h₂] at hc; exact (⟪p14⟫ hc).rec\n  rcases ⟪p5⟫ b 0 with b0 | b0\n  · obtain ⟨a', aa', a_top'⟩ := ⟪p55⟫ a_top\n    exact ⟨a', ⟪p63⟫.2 ⟨aa', a_top'⟩, ⟪p50⟫ (⟪p41⟫ aa'.le b0) hc⟩\n  rcases ⟪p1⟫ b with rfl | b_top\n  · rcases ⟪p10⟫ a 0 with a0 | rfl | a0\n    · obtain ⟨a', aa', a0'⟩ := ⟪p55⟫ a0\n      rw [⟪p13⟫ a0] at hc\n      refine ⟨a', ⟪p63⟫.2 ⟨aa', ⟪p47⟫ a0'⟩, ⟪p13⟫ a0' ▸ hc⟩\n    · rw [ne_self_iff_false, ne_self_iff_false, false_or] at h₁; exact h₁.rec\n    · rw [⟪p6⟫ a0] at hc; exact (⟪p14⟫ hc).rec\n  · obtain ⟨a', aa', hc'⟩ := ⟪p55⟫ ((⟪p15⟫ b0 b_top.ne).2 hc)\n    exact ⟨a', ⟪p63⟫.2 ⟨aa', ⟪p47⟫ hc'⟩, (⟪p15⟫ b0 b_top.ne).1 hc'⟩", "sample_idx": 0}
+{"item_id": "201dea847b40a5b9", "proof": "by\n  ext X : 2\n  refine ⟪p15⟫ (fun S => ?_)\n  dsimp only [⟪p12⟫, ⟪p4⟫]\n  let e : S.unop ⟶ ⊤ := ⟪p54⟫ (⟪p47⟫ _)\n  rw [⟪p21⟫, ← ⟪p36⟫ _ e.op, ← ⟪p7⟫, ← ⟪p7⟫]\n  congr 1\n  refine ⟪p1⟫ _ _ _ (fun I => ?_)\n  erw [⟪p53⟫]\n  simp only [⟪p63⟫, ⟪p49⟫, ⟪p55⟫, ⟪p7⟫, ⟪p48⟫,\n    ⟪p41⟫]\n  let ee : (J.pullback (I.map e).f).obj S.unop ⟶ ⊤ := ⟪p54⟫ (⟪p47⟫ _)\n  erw [← ⟪p36⟫ _ ee.op, ⟪p9⟫, ⟪p32⟫, ⟪p24⟫,\n    ← ⟪p7⟫, ← ⟪p7⟫]\n  congr 1\n  refine ⟪p1⟫ _ _ _ (fun II => ?_)\n  convert!\n    ⟪p46⟫ (S.unop.index P)\n      { fst := I, snd := II.base, r.Z := II.Y, r.g₁ := II.f, r.g₂ := 𝟙 II.Y } using 1\n  all_goals simp", "sample_idx": 0}
+{"item_id": "286565318ffcbe22", "proof": "by\n  classical\n    convert! ←\n      @⟪p29⟫ _ _ _ _ _ (⟪p45⟫ r s) ⟨{ i }, _⟩\n        (InvImage.accessible snd <| hs.prod_gameAdd hu)\n    convert! ⟪p37⟫ x i", "sample_idx": 0}
+{"item_id": "db63cd153b348f21", "proof": "by\n  refine ⟨fun h ↦ ?_, fun h ↦ ⟪p47⟫.2 ?_⟩\n  · have : ⟪p60⟫ X ∈ _ := ⟪p32⟫ ⟨⊤, by simp⟩\n    simp only [⟪p37⟫] at this\n    exact this _ h\n  · obtain _ | n := n\n    · exact ⟨⊥, fun _ _ ↦ ⟪p48⟫ _ 0 _ (by simp), by decide⟩\n    · exact ⟨n, fun i hi ↦ ⟪p48⟫ _ (n + 1) _ (by simpa using hi),\n        by simp [⟪p59⟫]⟩", "sample_idx": 0}
+{"item_id": "f8962e7525ea8251", "proof": "⟪p18⟫\n    (⟪p3⟫\n      (⟪p20⟫ h.flip.cocone h.flip.isColimit)\n      h.toCommSq.flip.coconeUnop)", "sample_idx": 0}
+{"item_id": "31e4229e5cc75856", "proof": "⟪p6⟫ f", "sample_idx": 0}
+{"item_id": "beaa4bab42f8f56f", "proof": "by\n  rcases ⟪p7⟫ n with (rfl | hn)\n  · exact ⟪p36⟫ ⟪p49⟫\n  apply Nat.dvd_antisymm\n  · apply ⟪p9⟫\n    rintro (m | m)\n    · rw [← ⟪p50⟫, ⟪p2⟫]\n      refine Nat.dvd_trans ⟨gcd n m.val, ?_⟩ (⟪p62⟫ n 2)\n      exact (Nat.div_mul_cancel (Nat.gcd_dvd_left n m.val)).symm\n    · rw [← ⟪p50⟫, ⟪p0⟫]\n      exact ⟪p29⟫ n 2\n  · apply ⟪p40⟫\n    · convert! ⟪p10⟫ (⟪p33⟫ (1 : ⟪p20⟫ n))\n      exact ⟪p49⟫.symm\n    · convert! ⟪p10⟫ (⟪p37⟫ (0 : ⟪p20⟫ n))\n      exact (⟪p0⟫ 0).symm", "sample_idx": 0}
+{"item_id": "f10b8ff0d251f432", "proof": "⟨⟪p16⟫.2 (⟪p63⟫ _ (⟪p12⟫ ⟪p15⟫ x) h),\n    ⟪p54⟫.1 <|\n      ⟪p24⟫.1 <|\n        (⟪p36⟫ (⟪p11⟫ _)) fun _ε ε0 =>\n          ⟪p7⟫ <| (h _ ε0).imp fun _i h j ij => ⟪p19⟫ (h j ij)⟩", "sample_idx": 0}
+{"item_id": "8a8c04a0c9bfaba3", "proof": "⟪p59⟫ (fun _ _ ↦ hA.diag_pos) ⟪p14⟫", "sample_idx": 0}
+{"item_id": "1b9456017df4abe5", "proof": "by\n  injection ⟪p6⟫ ha h3", "sample_idx": 0}
+{"item_id": "fe2dc690c2b5f735", "proof": "by\n  rw [← ⟪p9⟫, ← ⟪p27⟫]\n  apply ⟪p31⟫", "sample_idx": 0}
+{"item_id": "815200ecc5e6aa7e", "proof": "by\n  obtain ⟨s, hs, e⟩ := ⟪p8⟫.mp ⟨hU, U.2⟩\n  replace e : U = ⟪p17⟫ fun i : s => (i : X.Opens) := by\n    ext1; simpa using e\n  have h₁ (i : s) : i.1.1 ≤ U := by\n    rw [e]\n    exact ⟪p23⟫ (fun (i : s) => (i : ⟪p41⟫ (X.toPresheafedSpace))) _\n  have H' := fun i : s =>\n    ⟪p46⟫ X i.1.2\n      (X.presheaf.map (⟪p6⟫ (h₁ i)).op x) (X.presheaf.map (⟪p6⟫ (h₁ i)).op f) ?_\n  swap\n  · change (X.presheaf.map (⟪p6⟫ _).op) ((X.presheaf.map (⟪p6⟫ _).op).hom x) = 0\n    have H : (X.presheaf.map (⟪p6⟫ _).op) x = 0 := H\n    convert! congr_arg (X.presheaf.map (⟪p6⟫ _).op).hom H\n    · simp only [← ⟪p55⟫, ← ⟪p56⟫]\n      · rfl\n    · rw [⟪p15⟫]\n    · simp only [⟪p53⟫, ⟪p16⟫]\n  choose n hn using H'\n  haveI := hs.to_subtype\n  cases ⟪p63⟫ s\n  use ⟪p4⟫.sup n\n  suffices ∀ i : s, X.presheaf.map (⟪p6⟫ (h₁ i)).op (f ^ ⟪p4⟫.sup n * x) = 0 by\n    subst e\n    apply ⟪p10⟫ X.sheaf fun i : s => (i : X.Opens)\n    intro i\n    change _ = (X.sheaf.obj.map _) 0\n    rw [⟪p15⟫]\n    apply this\n  intro i\n  replace hn :=\n    congr_arg (fun x => X.presheaf.map (⟪p6⟫ (h₁ i)).op (f ^ (⟪p4⟫.sup n - n i)) * x)\n      (hn i)\n  dsimp at hn\n  simp only [← ⟪p12⟫, ← ⟪p29⟫] at hn\n  rwa [mul_zero, ← ⟪p62⟫, ← ⟪p47⟫, ⟪p42⟫] at hn\n  apply ⟪p37⟫ (⟪p22⟫ i)", "sample_idx": 0}
+{"item_id": "917412113aa71697", "proof": "by\n  rw [(⟪p31⟫ F).iff_bijective]\n  aesop", "sample_idx": 0}
+{"item_id": "31df474a46cb0e5a", "proof": "by\n  refine (⟪p27⟫ 𝒜 f hf).hom_ext _ _ fun x ↦ ?_\n  simp only [⟪p43⟫, ⟪p26⟫, ⟪p56⟫,\n    ⟪p16⟫, ⟪p12⟫, ⟪p3⟫,\n    ⟪p19⟫, ⟪p13⟫]\n  simp only [⟪p27⟫,\n    ⟪p38⟫, ⟪p47⟫, ← ⟪p37⟫]\n  congr 1\n  simp only [⟪p62⟫, ← ⟪p56⟫, ← ⟪p31⟫, ← ⟪p54⟫,\n    ⟪p15⟫, ← ⟪p58⟫]\n  congr 2\n  rw [⟪p1⟫, ← ⟪p51⟫, ⟪p51⟫ _ A,\n    ← ⟪p1⟫, ⟪p18⟫, ⟪p1⟫]", "sample_idx": 0}
+{"item_id": "51f7170834ce463b", "proof": "by\n  cases x\n  cases y\n  simp only [⟪p20⟫] at h\n  congr", "sample_idx": 0}
+{"item_id": "79ff5c27747ab136", "proof": "⟨⟪p11⟫ ℳ i, (ℳ i).toBaseChange_surjective S⟩", "sample_idx": 0}
+{"item_id": "bdd2b4ef580f7fe2", "proof": "by\n  rw [← ⟪p13⟫,\n    ← ⟪p31⟫ J _ (⟪p8⟫ J Q),\n    ← ⟪p36⟫ J (⟪p8⟫ J P),\n    ⟪p47⟫, ⟪p14⟫]", "sample_idx": 0}
+{"item_id": "4776f27d059bded1", "proof": "by\n  rw [← ⟪p50⟫ P.Ring, ⟪p13⟫, ⟪p50⟫]", "sample_idx": 0}
+{"item_id": "83bbf57c816e26b5", "proof": "by\n  simpa using (⟪p7⟫ hf c).hasDerivAtFilter", "sample_idx": 0}
+{"item_id": "d98b0fc6dd224d05", "proof": "⟪p23⟫ (⟪p40⟫ i)", "sample_idx": 0}
+{"item_id": "274a8677b12386f9", "proof": "⟪p32⟫ _ ⟪p33⟫", "sample_idx": 0}
+{"item_id": "245433ec7c250fc1", "proof": "by\n  ext x\n  rw [⟪p58⟫, ← ⟪p54⟫ adj1 adj2]\n  simp", "sample_idx": 0}
+{"item_id": "0697e68e94a1c479", "proof": "⟪p10⟫ _", "sample_idx": 0}
+{"item_id": "37bc6505d3e88524", "proof": "⟨_, ⟪p40⟫ (arrows := arrows) (⟪p7⟫ _) hB⟩", "sample_idx": 0}
+{"item_id": "a1165b6f1c4c3f57", "proof": "by\n  rw [⟪p44⟫]\n  exact Classical.choose_spec (⟪p54⟫ f hsurj)", "sample_idx": 0}
+{"item_id": "a520d86d37d50874", "proof": "by\n  simp [← (ℜ a).2.quasispectrumRestricts.image, ⟪p31⟫ a, ⟪p33⟫]", "sample_idx": 0}
+{"item_id": "22aa70927282d3b0", "proof": "(⟪p26⟫ _ _ hf h ⟨⟩ ⟨⟩).1", "sample_idx": 0}
+{"item_id": "6fb1b00fd4221677", "proof": "by\n  -- This follows from the previous lemmas and the characterization of the closure using filters.\n  simp_rw [⟪p5⟫, ← ⟪p3⟫, ← ⟪p47⟫,\n    ⟪p38⟫, ⟪p46⟫, (⟪p33⟫ 𝔖).surjective.forall,\n    ← ⟪p19⟫ 𝔖_compact 𝔖_covers F_eqcont,\n    (⟪p33⟫ 𝔖).injective.mem_set_image]", "sample_idx": 0}
+{"item_id": "4bf78e3d65c970de", "proof": "by\n  rw [⟪p32⟫, if_pos, ⟪p43⟫]\n  exact ⟪p47⟫ ⟪p9⟫", "sample_idx": 0}
+{"item_id": "9c2b38d80c0739da", "proof": "lift.apply_symm_apply <| ⟪p14⟫ _", "sample_idx": 0}
+{"item_id": "9714e1a83566743b", "proof": "by\n  injection ⟪p38⟫ ha h3", "sample_idx": 0}
+{"item_id": "93f12007501c28ed", "proof": "by\n  by_contra! h₁\n  have h₂ : s₂ ≠ 0 := fun hc ↦ by simp_all\n  rw [← ⟪p6⟫ h₁] at hs₁\n  rw [← ⟪p6⟫ h₂] at hs₂\n  exact ⟪p44⟫ (h ▸ ⟪p13⟫ hs₁ hs₂)", "sample_idx": 0}
+{"item_id": "61d6db78c2460240", "proof": "by\n  rw [← ⟪p9⟫, ⟪p37⟫ (⟪p32⟫ s), ⟪p46⟫]", "sample_idx": 0}
+{"item_id": "52f0a5a8f0065bad", "proof": "by\n  let f := (⟪p31⟫ R S).toLinearMap.prodMap (⟪p31⟫ R T).toLinearMap\n  have : (⟪p31⟫ R (S × T)).toLinearMap = (⟪p45⟫ R S T S T R).comp f :=\n    ⟪p39⟫ ⟪p62⟫\n  simp_rw [⟪p19⟫, this]\n  exact ⟪p54⟫ _ _", "sample_idx": 0}
+{"item_id": "e0de01d5bfae5286", "proof": "by\n  rw [← ⟪p46⟫,\n      ← ⟪p30⟫]\n  refine ⟪p61⟫ ?_ ?_ <;> intro f\n  · refine ⟨⟪p49⟫.symm (withZeroUnitsEquiv.trans f), ?_⟩\n    intros\n    simp only [⟪p49⟫, ⟪p45⟫, ⟪p50⟫,\n      ⟪p4⟫, ⟪p29⟫, ⟪p11⟫, ⟪p16⟫,\n      ⟪p23⟫, ⟪p44⟫, ⟪p36⟫, ⟪p14⟫, ⟪p58⟫,\n      ↓reduceDIte, ⟪p56⟫, ⟪p51⟫, ⟪p63⟫, ⟪p52⟫]\n    rw [← ⟪p0⟫, ← map_le_map_iff f, ← ⟪p24⟫, ⟪p55⟫, ⟪p55⟫]\n  · refine ⟨withZeroUnitsEquiv.symm.trans (⟪p49⟫ f), ?_⟩\n    intros\n    simp only [⟪p45⟫, ⟪p44⟫, ⟪p49⟫,\n      ⟪p51⟫, ⟪p63⟫, ⟪p52⟫,\n      ⟪p50⟫, ⟪p4⟫, ⟪p36⟫, ⟪p29⟫]\n    split_ifs <;>\n    simp_all [← ⟪p0⟫]", "sample_idx": 0}
+{"item_id": "a3b9bf6a867e58df", "proof": "by\n  classical\n  have :\n    ∀ p ∈ antidiagonal m,\n      ⟪p41⟫ (p : (σ →₀ ℕ) × (σ →₀ ℕ)).1 φ * ⟪p41⟫ p.2 (⟪p21⟫ n a) ≠ 0 → p.2 = n :=\n    fun p _ hp => ⟪p37⟫ (⟪p45⟫ hp)\n  rw [⟪p44⟫, ← ⟪p8⟫ this, ⟪p3⟫ _ n,\n    ⟪p48⟫]\n  simp only [⟪p61⟫, ⟪p0⟫, ⟪p22⟫]", "sample_idx": 0}
+{"item_id": "a7961e1ca2e4de96", "proof": "by\n  rw [⟪p15⟫, (⟪p36⟫ f h1 h2).tsum_eq_zero_add]\n  rw [⟪p61⟫, ⟪p38⟫, ⟪p47⟫, ⟪p33⟫, ⟪p15⟫]", "sample_idx": 0}
+{"item_id": "dde1b24f41a8921b", "proof": "⟪p3⟫ <| x = y", "sample_idx": 0}
+{"item_id": "97709c0c433cfe22", "proof": "by\n  lift n to ℕ using hn\n  cases r\n  · simp only [⟪p51⟫, ⟪p41⟫, ⟪p1⟫, true_iff]\n    norm_cast\n    exact ⟪p52⟫\n  · simp only [ne_eq, ⟪p56⟫, ⟪p35⟫, ⟪p38⟫, ⟪p1⟫] at hn₀ ⊢\n    norm_cast\n    rw [← ⟪p59⟫, Nat.sub_add_cancel]\n    lia", "sample_idx": 0}
+{"item_id": "d77d7ed6dd9ca9be", "proof": "by\n  obtain rfl : p' = -p := by lia\n  obtain rfl : q' = -q := by lia\n  simp [⟪p23⟫]", "sample_idx": 0}
+{"item_id": "928c073b5d1822be", "proof": "by\n  simp only [← h.cyclesIso_hom_comp_i, ⟪p57⟫]", "sample_idx": 0}
+{"item_id": "808b9b991bc78aab", "proof": "⟪p46⟫ (⟪p28⟫.mpr fun x ↦ x.2)\n    (fun _ hx ↦ ⟪p40⟫.mpr <| ⟪p10⟫ R A h hx)", "sample_idx": 0}
+{"item_id": "08b93b03af51abe8", "proof": "⟪p12⟫ _ _", "sample_idx": 0}
+{"item_id": "14d0873f63ce9012", "proof": "by\n  induction n with\n  | zero => simp\n  | succ n ih => rw [⟪p42⟫, ih, ⟪p61⟫, ⟪p10⟫, ⟪p11⟫, ⟪p2⟫]", "sample_idx": 0}
+{"item_id": "fdd8c2b7bdf57d85", "proof": "by\n  have := fun i ↦ (hl i).1\n  simpa [⟪p29⟫]", "sample_idx": 0}
+{"item_id": "b070349036082aad", "proof": "by\n  simpa only [⟪p12⟫, ⟪p7⟫, ⟪p17⟫, ← ⟪p8⟫,\n    ⟪p5⟫] using .biUnion_of_finite (⟪p0⟫ _) (fun j _ ↦ h j)", "sample_idx": 0}
+{"item_id": "30396d09b603ce59", "proof": "by\n  simp [⟪p17⟫, ⟪p38⟫]", "sample_idx": 0}
+{"item_id": "8177acbc892c23ec", "proof": "by\n  have := hM.mul_mul_conjTranspose_same (B := M⁻¹) ?_\n  · let _ := hM.isUnit.invertible\n    simpa using this.conjTranspose\n  · simp only [⟪p29⟫, ⟪p2⟫, hM.isUnit]", "sample_idx": 0}
+{"item_id": "f1e75c8448cb1e41", "proof": "by\n  simp only [⟪p32⟫, ⟪p4⟫, ⟪p36⟫, ⟪p56⟫]\n  rfl", "sample_idx": 0}
+{"item_id": "fb7f054634329243", "proof": "by\n  classical\n  let c : ℕ → R := fun n ↦ a ^ n * b\n  have hcᵢ : ⟪p54⟫ (fun n ↦ (v i) (c n)) ⟪p20⟫ ⟪p20⟫ := by\n    simpa [c] using ⟪p50⟫ (by linarith) (⟪p16⟫ ha)\n  have hcⱼ (j : ι) (hj : j ≠ i) : ⟪p54⟫ (fun n ↦ (v j) (c n)) ⟪p20⟫ (𝓝 0) := by\n    simpa [c] using (⟪p62⟫ ((v j).nonneg _) (haj j hj)).mul_const _\n  simp_rw +instances [⟪p11⟫,\n    ⟪p43⟫, ⟪p63⟫, ⟪p7⟫] at hcⱼ\n  choose r₁ hr₁ using ⟪p30⟫.1 hcᵢ 2\n  choose rₙ hrₙ using fun j hj ↦ hcⱼ j hj (.Iio 1) (by simpa using ⟨1, .inr rfl⟩) (by simp)\n  have := ⟪p22⟫ ι\n  let r := ⟪p5⟫.sup fun j ↦ if h : j = i then r₁ else rₙ j h\n  refine ⟨c r, ⟪p17⟫ (by linarith) (hr₁ r ?_), fun j hj ↦ ?_, by simpa [c, haw]⟩\n  · exact ⟪p27⟫ (p := fun j ↦ j = i) (f := fun _ _ ↦ r₁) (⟪p15⟫ _) rfl\n  · simpa using hrₙ j hj _ <| ⟪p56⟫ (fun j ↦ j = i) (⟪p15⟫ j) _", "sample_idx": 0}
+{"item_id": "64c05c4f193f8dfd", "proof": "by\n  dsimp only [⟪p40⟫]\n  have :\n    (λ_ X₁).hom ⊗ₘ (λ_ X₂).hom =\n      (α_ (𝟙_ C) X₁ (𝟙_ C ⊗ X₂)).hom ≫\n        (𝟙_ C ◁ (α_ X₁ (𝟙_ C) X₂).inv) ≫ (λ_ ((X₁ ⊗ 𝟙_ C) ⊗ X₂)).hom ≫ ((ρ_ X₁).hom ▷ X₂) := by\n    monoidal\n  simp [this]", "sample_idx": 0}
+{"item_id": "797fef29ac986eaf", "proof": "⟪p61⟫ h_indep h31", "sample_idx": 0}
+{"item_id": "6a833364a1be73bb", "proof": "⟪p56⟫.mpr ⟨r, by simp [h], by grind [⟪p40⟫]⟩", "sample_idx": 0}
+{"item_id": "07d08e57704f7868", "proof": "by\n  rw [⟪p7⟫]\n  -- unify the `Decidable` arguments\n  convert! rfl", "sample_idx": 0}
+{"item_id": "742e760c6af2c6ff", "proof": "⟪p30⟫", "sample_idx": 0}
+{"item_id": "9320dc22d914de5e", "proof": "by\n    suffices ∃ h, h ≫ G.map f = ⟪p51⟫ (G.obj Y) from ⟪p35⟫ this.choose_spec\n    refine ⟨adj.unit.app (⟪p9⟫ (G.obj Y)) ≫\n      G.map (⟪p40⟫ (F.map (⟪p51⟫ _) ≫ adj.counit.app Y) f), ?_⟩\n    rw [⟪p25⟫, ← ⟪p10⟫]\n    simp", "sample_idx": 0}
+{"item_id": "6bd7bcbb42ff46a8", "proof": "by\n  rw [⟪p19⟫]\n  intro y hy\n  rw [← (X.presheaf.germ U x hx).hom.map_zero] at hy\n  obtain ⟨W, hW, iU, iV, e⟩ := X.presheaf.germ_eq _ hx hx _ _ hy\n  cases Subsingleton.elim iU iV\n  haveI : Nonempty W := ⟨⟨_, hW⟩⟩\n  exact ⟪p21⟫ X iU e", "sample_idx": 0}
+{"item_id": "be1a242b5b60e350", "proof": "⟪p21⟫ hf", "sample_idx": 0}
+{"item_id": "b48bcf73cdde3546", "proof": "by\n  refine ⟪p23⟫ (by simp) ⟨c, ?_⟩\n  suffices ∃ x ∈ s, (c -ᵥ h.some) +ᵥ x = c by simpa [⟪p38⟫, h]\n  exact ⟨h.some, by simp⟩", "sample_idx": 0}
+{"item_id": "5aa5f1204f938a0c", "proof": "by\n  refine ⟪p39⟫ ?_ (⟪p28⟫.2 ⟪p52⟫)\n  rw [← ⟪p27⟫, ⟪p47⟫, ⟪p10⟫, ⟪p36⟫,\n    ⟪p50⟫]\n  exact ⟪p13⟫ k _", "sample_idx": 0}
+{"item_id": "a3baea9d0a91981f", "proof": "by\n  rwa [⟪p7⟫ <| (⟪p11⟫ ha h3).mp hd,\n    ← ⟪p48⟫ ha]", "sample_idx": 0}
+{"item_id": "f91a5f0cebcf08eb", "proof": "⟪p45⟫.comp_continuous (by fun_prop) (by cfc_tac)", "sample_idx": 0}
+{"item_id": "6cdf1937727aa4f0", "proof": "by\n  nontriviality R\n  rw [⟪p1⟫, ⟪p2⟫ ha (hb ▸ ⟪p50⟫), hb]", "sample_idx": 0}
+{"item_id": "de6e29394058862d", "proof": "by\n  dsimp [⟪p49⟫]\n  rw [⟪p1⟫, dif_neg h.symm]", "sample_idx": 0}
+{"item_id": "f5aa1703c64dfcee", "proof": "⟪p50⟫ a", "sample_idx": 0}
+{"item_id": "5bb2c5cd3892f40d", "proof": "by\n  suffices ⟪p4⟫ {x : G | 0 ≤ x} (· < ·) ↔ Nonempty (G ≃+o ℤ) by\n    rw [← this]\n    refine ⟨fun h ↦ (h.mapsTo (· + g) ?_).mono' ?_, fun h ↦ (h.mapsTo (· - g) ?_).mono' ?_⟩ <;>\n    · try intro\n      simp [⟪p34⟫]\n  constructor\n  · intro h\n    replace h : WellFounded (α := {x : G | 0 ≤ x}) (· < ·) := h\n    rw [⟪p61⟫] at h\n    by_cases! H : ∀ (x : G) {y}, 0 < y → ∃ n : ℕ, x ≤ n • y -- Archimedean\n    · replace H : ⟪p17⟫ G := ⟨H⟩\n      rw [⟪p44⟫]\n      intro hd\n      obtain ⟨y, hy⟩ := ⟪p58⟫ (0 : G)\n      wlog! hy' : 0 < y generalizing y\n      · refine this (-y) ?_ ?_\n        · simp [hy]\n        · simp [⟪p2⟫ hy' hy]\n      obtain ⟨⟨z, hz⟩, hz', hz''⟩ := h ({x | ⟨0, ⟪p26⟫⟩ < x}) ⟨⟨y, hy'.le⟩, hy'⟩\n      obtain ⟨w, hw, hw'⟩ := ⟪p39⟫ hz'\n      exact hz'' ⟨w, hw.le⟩ hw hw'\n    · exfalso\n      obtain ⟨x, y, hy0, H⟩ := H\n      obtain ⟨_, ⟨n, rfl⟩, hz⟩ :=\n        h (⟪p62⟫ (fun n : ℕ ↦ ⟨x - n • y, ⟪p25⟫.mpr (H _).le⟩)) (⟪p38⟫ _)\n      refine hz ⟨x - (n + 1) • y, ⟪p25⟫.mpr (H _).le⟩ ⟨_, rfl⟩ ?_\n      simp [⟪p41⟫, hy0]\n  · rintro ⟨f⟩\n    have : ⟪p31⟫ G := ⟪p15⟫ f\n    exact ⟪p28⟫ ⟨0, by simp [⟪p5⟫]⟩", "sample_idx": 0}
+{"item_id": "fc2c1a026ea75276", "proof": "⟪p63⟫", "sample_idx": 0}
+{"item_id": "43031a94e1354d0b", "proof": "⟪p14⟫ e.hom", "sample_idx": 0}
+{"item_id": "c9cc43f73e8ace9a", "proof": "by\n  obtain ⟨a, v', h⟩ := ⟪p17⟫ v\n  simp_rw [h, ⟪p50⟫, ⟪p59⟫]", "sample_idx": 0}
+{"item_id": "5305c8264991df05", "proof": "by\n  simp_rw [⟪p58⟫, ← not_forall, ⟪p46⟫]", "sample_idx": 0}
+{"item_id": "efd55d1fa8fd5136", "proof": "by\n  simp [⟪p8⟫, ⟪p47⟫, ⟪p31⟫]", "sample_idx": 0}
+{"item_id": "f4ce0f9563c37e60", "proof": "⟪p10⟫.mpr <| ⟪p61⟫ B f g", "sample_idx": 0}
+{"item_id": "f0e41669bd749bc7", "proof": "by\n  rw [⟪p37⟫]\n  constructor\n  · suffices Function.Injective (a ^ · : ℤ → G) by\n      rintro ⟨m, rfl⟩\n      exact ⟨m, rfl, fun k hk ↦ this hk⟩\n    rcases ha.lt_or_gt with ha | ha\n    · exact (⟪p42⟫ ha).injective\n    · exact (⟪p31⟫ ha).injective\n  · exact fun h ↦ h.exists", "sample_idx": 0}
+{"item_id": "fbe31d25fb672ac2", "proof": "by\n  grind [⟪p23⟫, ⟪p3⟫, ⟪p3⟫, ⟪p25⟫]", "sample_idx": 0}
+{"item_id": "a2967b5fdbd21d17", "proof": "by\n  refine ⟪p14⟫ (⟪p12⟫ ▸ ⟪p29⟫ _) ?_\n  have h1 : #((fun x => x - a) '' ⟪p35⟫ a b) ≤ #(⟪p35⟫ a b) := ⟪p60⟫\n  refine ⟪p18⟫ ?_ h1\n  rw [⟪p24⟫, ⟪p55⟫]\n  replace h := ⟪p15⟫ h\n  have h2 : #(Inv.inv '' ⟪p35⟫ 0 (b - a)) ≤ #(⟪p35⟫ 0 (b - a)) := ⟪p60⟫\n  refine ⟪p18⟫ ?_ h2\n  rw [⟪p5⟫, ⟪p50⟫ h, ⟪p22⟫]", "sample_idx": 0}
+{"item_id": "c714175859532059", "proof": "by\n  simp only [⟪p22⟫, ⟪p16⟫, ⟪p26⟫, ⟪p8⟫,\n    ⟪p30⟫, ⟪p52⟫, ⟪p19⟫, ⟪p44⟫, ⟪p42⟫]\n  rw [← adj2.unit_naturality_assoc, ← G'.map_comp]\n  simp", "sample_idx": 0}
+{"item_id": "3b3b11f7f3333984", "proof": "by\n  suffices h : ∀ {n : ℕ} (U : Fin n → ⟪p31⟫ X) (hU₁ : ∀ i, ⟪p7⟫ (U i)) (hU₂ : ∀ i, (U i).Nonempty)\n      (hU₃ : ⟪p5⟫ (⟪p24⟫ on U)) (hU₄ : ⋃ i, U i = ⟪p14⟫),\n      n ≤ (f ⁻¹' {y}).encard by\n    obtain (hy | hy) := ⟪p39⟫ (⟪p37⟫ X)\n    · cases ⟪p41⟫ (⟪p37⟫ X)\n      simp only [⟪p57⟫]\n      refine h (fun i ↦ ⟪p6⟫ ⁻¹' {(⟪p44⟫ _).symm i}) (fun i ↦ ?_)\n          (fun i ↦ ?_) (fun i j hij ↦ ⟪p34⟫ _ (by simp [hij])) ?_\n      · exact (⟪p46⟫ _).preimage ⟪p58⟫\n      · exact (⟪p53⟫ _).preimage ⟪p9⟫\n      · simp [← ⟪p36⟫]\n    · simp only [⟪p8⟫, ⟪p51⟫, ⟪p32⟫]\n      intro m\n      obtain ⟨U, hU1, hU2, hU3, hU4⟩ := ⟪p26⟫ X (m + 1) (by simp)\n      exact ⟪p13⟫ (by simp) (h U hU1 hU2 hU3 hU4)\n  intro n U hU1 hU2 hU3 hU4\n  have heq : f ⁻¹' {y} = ⋃ i, (U i ∩ f ⁻¹' {y}) := by\n    conv_lhs => rw [← ⟪p42⟫ (f ⁻¹' {y}), ← hU4, ⟪p40⟫]\n  rw [heq, ⟪p15⟫ fun i j hij ↦ .inter_left _ (.inter_right _ <| hU3 hij)]\n  trans ∑ i : Fin n, 1\n  · simp\n  · rw [⟪p23⟫]\n    refine ⟪p52⟫ fun i ↦ ⟪p33⟫.mpr (show y ∈ f '' (U i) from ?_)\n    convert! ⟪p55⟫ y\n    exact ⟪p61⟫ ⟨hf₂ _ (hU1 i).1, hf₁ _ (hU1 i).2⟩ ((hU2 i).image f)", "sample_idx": 0}
+{"item_id": "2a06ee1bb0ffeca1", "proof": "⟪p41⟫.1 <| ⟪p28⟫ R A", "sample_idx": 0}
+{"item_id": "49e31e28be2d10b3", "proof": "by\n  rw [⟪p21⟫ (a / b) b, ← ⟪p1⟫ a b b, ⟪p62⟫ h₁ h₂ h₃, ⟪p7⟫]", "sample_idx": 0}
+{"item_id": "e63f4690e5f42660", "proof": "⟪p15⟫.isClosedEmbedding.comp <| ⟪p24⟫ ..", "sample_idx": 0}
+{"item_id": "97bbe0bfa630e49d", "proof": "by\n    apply ((⟪p37⟫ (L.map f) (L.obj 0)).out 2 0).mp\n    refine ⟪p52⟫ ?_ (hL _ (((⟪p37⟫ f 0).out 0 2).mp hf))\n    exact ⟪p29⟫ (⟪p42⟫ _) (⟪p42⟫ _) (⟪p42⟫ _)", "sample_idx": 0}
+{"item_id": "821fcd6435da830d", "proof": "by\n  have : ⟪p21⟫ f := .of_comp f g\n  have : ⟪p21⟫ (f.imageι ≫ g) := by\n    suffices ⟪p28⟫ (f.imageι ≫ g) from ⟨⟩\n    have : ⟪p28⟫ (f.toImage ≫ f.imageι ≫ g) := by\n      rw [⟪p42⟫]; infer_instance\n    refine .of_comp_surjective f.toImage _\n  refine ⟪p3⟫ _ _ ?_\n  refine .of_finite_image (f := f.imageι) (H.subset ?_) f.imageι.isClosedEmbedding.injective.injOn\n  rintro _ ⟨x, hx, rfl⟩\n  obtain ⟨x, rfl⟩ := f.toImage.surjective x\n  refine ⟨x, ?_, by simp [← ⟪p60⟫]⟩\n  simpa [← ⟪p60⟫, -⟪p51⟫] using hx", "sample_idx": 0}
+{"item_id": "ec1037c960933a05", "proof": "by\n  subst hy₀\n  exact ⟪p62⟫ hV hf hf' hx₀ hs hmn hst hu", "sample_idx": 0}
+{"item_id": "ce95c533cee3d52d", "proof": "by\n  simpa using ⟪p31⟫ hx (1 : R)", "sample_idx": 0}
+{"item_id": "162a4e06063dc68c", "proof": "by\n  rw [⟪p25⟫ hn]\n  interval_cases n <;> decide", "sample_idx": 0}
+{"item_id": "b451897fa0822797", "proof": "by\n  have := ⟪p31⟫ n\n  rw [⟪p29⟫, ⟪p20⟫ _ _ hA.1]\n  constructor\n  · refine fun h => .of_dotProduct_mulVec_nonneg h.1 fun x => ?_\n    have := h.2 (-((A⁻¹ * B) *ᵥ x) ⊕ᵥ x)\n    rwa [⟪p52⟫, ⟪p24⟫ B D _ _ hA.1, ⟪p33⟫, ⟪p7⟫,\n      ⟪p50⟫, ← ⟪p52⟫] at this\n  · refine fun h => ⟨h.1, fun x => ?_⟩\n    rw [⟪p52⟫, ← Sum.elim_comp_inl_inr x, ⟪p24⟫ B D _ _ hA.1]\n    apply ⟪p55⟫\n    · rw [← ⟪p52⟫]\n      apply (⟪p29⟫.mp hA.posSemidef).2\n    · rw [← ⟪p52⟫ (star (x ∘ Sum.inr))]\n      apply (⟪p29⟫.mp h).2", "sample_idx": 0}
+{"item_id": "5ce82a488d0ff963", "proof": "⟪p62⟫", "sample_idx": 0}
+{"item_id": "ff7eea79ddf997a0", "proof": "by\n  refine Iff.trans ?_ (⟪p36⟫ h (⟪p6⟫ c.inr c.inl))\n  exact\n    ⟨fun h => ⟨⟪p17⟫ h.some⟩, fun h =>\n      ⟨(⟪p17⟫ h.some).ofIsoColimit (⟪p19⟫ c).symm⟩⟩", "sample_idx": 0}
+{"item_id": "b2c40dead971aef1", "proof": "⟨⟪p48⟫ e.symm e.symm.injective, ⟪p48⟫ e e.injective⟩", "sample_idx": 0}
+{"item_id": "7ed983c655591021", "proof": "by\n  ext k : 1\n  exact ⟪p31⟫ (⟪p59⟫ _ _ h) k", "sample_idx": 0}
+{"item_id": "ec1138198d33151b", "proof": "⟪p2⟫ h .one_left f", "sample_idx": 0}
+{"item_id": "d9e90c0e0b2e2894", "proof": "(hfg.choose_spec ▸ ⟪p22⟫ 𝒜 f _).trans_le ⟪p6⟫", "sample_idx": 0}
+{"item_id": "ae3c09acfda5dcfd", "proof": "by\n  by_cases hk : k = 0\n  · rw [hk, ⟪p23⟫, zero_mul, B.norm_zero, zero_mul]\n  · rw [⟪p38⟫ hBi]\n    obtain ⟨i, _, hi⟩ := ⟪p27⟫ ⟪p58⟫ (fun i ↦ ‖B.repr y i‖)\n    obtain ⟨j, _, hj⟩ := ⟪p27⟫ ⟪p58⟫\n      (fun i ↦ ‖B.repr ((algebraMap K L) k * y) i‖)\n    have hij : ‖B.repr y i‖ = ‖B.repr y j‖ := by\n      rw [← hi]\n      apply ⟪p35⟫ _ (⟪p13⟫ B j)\n      have hj' := ⟪p48⟫ (fun i ↦ ‖B.repr ((algebraMap K L) k * y) i‖) (⟪p26⟫ i)\n      simp only [⟪p33⟫, ⟪p21⟫, ← hi] at hj hj'\n      exact (⟪p32⟫ (⟪p36⟫ (⟪p62⟫ _)\n        (Ne.symm (⟪p45⟫.mpr hk)))).mp (hj ▸ hj')\n    simp only [⟪p4⟫, hj]\n    rw [⟪p33⟫, ⟪p21⟫, hi, hij]", "sample_idx": 0}
+{"item_id": "8a498d67494b0adb", "proof": "by\n  rw [← ⟪p53⟫ (algebraMap ℝ≥0 A), ⟪p48⟫]", "sample_idx": 0}
+{"item_id": "1cf7ada33bc72c97", "proof": "by\n  rw [⟪p15⟫, ← ⟪p19⟫, ⟪p45⟫, ⟪p59⟫]\n  simp only [⟪p7⟫, ⟪p62⟫, ⟪p14⟫]", "sample_idx": 0}
+{"item_id": "07f577b8cf33cc26", "proof": "by\n  apply ⟪p13⟫\n  filter_upwards [h] with _ ha\n  apply ⟪p13⟫\n  filter_upwards [ha] with _ hb using hb", "sample_idx": 0}
+{"item_id": "671c7928f1bdf675", "proof": "by\n  rw [⟪p59⟫, ⟪p25⟫, ⟪p43⟫,\n    ⟪p20⟫, ⟪p47⟫,\n    ⟪p22⟫]", "sample_idx": 0}
+{"item_id": "d9876e52fa8a4718", "proof": "coeToMvPowerSeries.ringHom.map_pow _ _", "sample_idx": 0}
+{"item_id": "f3ba60eb795dc698", "proof": "by\n  ext\n  simp [⟪p56⟫]", "sample_idx": 0}
+{"item_id": "dfb4c62e2beabb0e", "proof": "by\n  have hne' : (-s).Nonempty := ⟪p50⟫.mpr hne\n  have hbdd' : ⟪p38⟫ (-s) := ⟪p33⟫.mpr hbdd\n  use -Classical.choose (⟪p1⟫ hne' hbdd')\n  rw [← ⟪p6⟫]\n  exact Classical.choose_spec (⟪p1⟫ hne' hbdd')", "sample_idx": 0}
+{"item_id": "8c71ee66c8d757af", "proof": "⟨fun h =>\n    letI := (⟪p16⟫.1 <| h.isUnit).invertible\n    ⟪p17⟫ M ▸ h.inv, (·.inv)⟩", "sample_idx": 0}
+{"item_id": "e828de69c9a32933", "proof": "by\n  suffices @⟪p13⟫ α r ≤ 3 * (⟪p13⟫ l + 1) by lia\n  rcases H2 with (⟨hl, rfl⟩ | ⟨hr, rfl⟩) <;> rcases H1 with (h | ⟨_, h₂⟩)\n  · exact ⟪p40⟫ (Nat.le_add_left _ _) (⟪p40⟫ h (Nat.le_add_left _ _))\n  · exact\n      ⟪p40⟫ h₂\n        (Nat.mul_le_mul_left _ <| ⟪p40⟫ (⟪p23⟫ _ _) (Nat.add_le_add_left hl _))\n  · exact\n      ⟪p40⟫ (⟪p57⟫ _ _)\n        (⟪p40⟫ (⟪p9⟫ hr (⟪p40⟫ (Nat.le_add_left _ _) h)) (by lia))\n  · rw [Nat.mul_succ]\n    exact ⟪p40⟫ (⟪p62⟫ _ _) (⟪p9⟫ h₂ (⟪p40⟫ hr (by decide)))", "sample_idx": 0}
+{"item_id": "9b9818f0f9928e3d", "proof": "by\n  rw [⟪p55⟫ ha, hb, ⟪p20⟫, zero_mul, ⟪p7⟫]", "sample_idx": 0}
+{"item_id": "960d5cf2ae676e1e", "proof": "⟪p61⟫ m₁", "sample_idx": 0}
+{"item_id": "e57424ae04bfa86a", "proof": "by\n  rw [← (⟪p14⟫.symm).lintegral_comp_emb\n    measurableEquivRealProd.symm.measurableEmbedding, ← ⟪p41⟫]\n  simp_rw [⟪p22⟫]", "sample_idx": 0}
+{"item_id": "42622f5b10319523", "proof": "by\n  simpa only [⟪p42⟫] using hc.mul_const d⁻¹", "sample_idx": 0}
+{"item_id": "693846d1fb966f7f", "proof": "⟪p19⟫ hf_Indep hf_meas n", "sample_idx": 0}
+{"item_id": "c9035b3a5613781c", "proof": "by\n  simpa using (⟪p5⟫ hn₀ hn).not", "sample_idx": 0}
+{"item_id": "ceac1ac3227314b5", "proof": "by\n  cases ⟪p36⟫ hf with\n  | inl hf' =>\n    have hmain : f =ᶠ[⟪p50⟫] fun x => |f x| := by\n      filter_upwards [hf'] with x hx\n      rw [⟪p31⟫ hx]\n    rw [← ⟪p12⟫ hmain]\n    exact hf\n  | inr hf' =>\n    have hmain : -f =ᶠ[⟪p50⟫] fun x => |f x| := by\n      filter_upwards [hf'] with x hx\n      simp only [⟪p53⟫, ⟪p7⟫ hx]\n    rw [← ⟪p12⟫ hmain]\n    exact hf.neg", "sample_idx": 0}
+{"item_id": "4d006b587ad64ea9", "proof": "⟨⟪p50⟫ e, ⟪p50⟫ e.symm⟩", "sample_idx": 0}
+{"item_id": "d78250adfd0a85e7", "proof": "by\n  rw [⟪p44⟫]\n  erw [⟪p6⟫]\n  rw [⟪p35⟫]\n  erw [← ⟪p50⟫ (⟪p1⟫ R (⟪p10⟫ Q))]\n  rw [⟪p19⟫ R (⟪p33⟫ m), ⟪p3⟫]\n  rfl", "sample_idx": 0}
+{"item_id": "aeaafc64ee07deb3", "proof": "by\n  rw [⟪p27⟫, ← pow_succ', ⟪p5⟫ ⟪p21⟫] <;>\n  · #adaptation_note /-- After https://github.com/leanprover/lean4/pull/13593\n    we need to re-enable model-based theory combination in `lia` for this to go through. -/\n    lia +mbtc", "sample_idx": 0}
+{"item_id": "046f7b573df3435f", "proof": "by\n  by_cases ha : a = 0\n  · simp [ha]\n  · simp [⟪p52⟫, ⟪p56⟫, ⟪p9⟫ n ha]", "sample_idx": 0}
+{"item_id": "3c387df44068ce13", "proof": "by\n  simp_rw [⟪p1⟫, ⟪p49⟫] at *\n  refine ⟨∑'(x : Fin 2 → ℤ), ⟪p33⟫ ⟨⟨N, 2⟩, ⟪p8⟫⟩ ^ (-k) * ‖x‖ ^ (-k), 2, ?_⟩\n  intro z hz\n  obtain ⟨n, hn⟩ := (⟪p37⟫ z (⟪p53⟫ N))\n  rw [⟪p40⟫, ⟪p44⟫, ← ⟪p32⟫,\n    ← ⟪p62⟫ N k n (⟪p49⟫ (a ᵥ* A) k) z]\n  apply ⟪p14⟫ (⟪p46⟫ N (a ᵥ* A) k hk _)\n  have hk' : (2 : ℝ) < k := by norm_cast\n  apply (⟪p22⟫ hk _).tsum_le_tsum _\n  · exact_mod_cast (⟪p56⟫ hk').mul_left <| ⟪p33⟫ ⟨⟨N, 2⟩, ⟪p8⟫⟩ ^ (-k)\n  · intro x\n    simp_rw [⟪p3⟫, ⟪p35⟫]\n    exact_mod_cast\n      ⟪p7⟫ (⟪p52⟫ ⟪p16⟫ hk').le x ⟪p16⟫\n      (⟪p17⟫ N hz hn)", "sample_idx": 0}
+{"item_id": "585aa1a8a78e3314", "proof": "by simp only [⟪p37⟫, ⟪p12⟫]", "sample_idx": 0}
+{"item_id": "1f362dc382260c92", "proof": "by\n  rcases hxs with ⟨i, rfl⟩\n  have hi : (i : ℕ) < (s.length - 1).succ := by\n    conv_rhs => rw [← Nat.succ_sub (⟪p59⟫ ⟨_, ⟨i, rfl⟩, _, s.last_mem, hx⟩),\n      Nat.add_one_sub_one]\n    exact ⟪p48⟫ (Nat.le_of_lt_succ i.2) (by simpa [⟪p39⟫, s.inj, Fin.ext_iff] using hx)\n  exact ⟨⟨↑i, hi⟩, by simp⟩", "sample_idx": 0}
+{"item_id": "1f73d97e92fc2da3", "proof": "by\n  rw [⟪p54⟫]\n  exact ⟪p38⟫ ((⟪p15⟫ n).unit.app X)\n    ((⟪p15⟫ n).counit.app _) (𝟙 _) ((⟪p15⟫ n).left_triangle_components X)", "sample_idx": 0}
+{"item_id": "35174bc74ebbf14b", "proof": "(⟪p1⟫ ⟪p9⟫).trans <| ⟪p2⟫ _ _", "sample_idx": 0}
+{"item_id": "ea91873d1c131a3b", "proof": "⟪p8⟫", "sample_idx": 0}
+{"item_id": "c2d8d82883ad8d89", "proof": "⟪p16⟫ ..", "sample_idx": 0}
+{"item_id": "785f3fdb311691dc", "proof": "⟪p54⟫ (⟪p16⟫ h)", "sample_idx": 0}
+{"item_id": "b69c7e51a0abf97a", "proof": "by\n  rcases ⟪p15⟫ hij with (hij | rfl)\n  · exact (hf.2.1 hi hj hij).le\n  · rfl", "sample_idx": 0}
+{"item_id": "3288f59e5beb51ee", "proof": "⟪p56⟫ S T hST hf_Indep hf_meas", "sample_idx": 0}
+{"item_id": "3b4e2eb517d2c0d1", "proof": "⟪p56⟫ _ k x hx", "sample_idx": 0}
+{"item_id": "3c66bcad9d34243e", "proof": "by\n  simp only [⟪p5⟫, ⟪p55⟫, ⟪p9⟫, ⟪p6⟫]", "sample_idx": 0}
+{"item_id": "5583c9049b0a3570", "proof": "by\n  simp [← ⟪p0⟫, hP.w]", "sample_idx": 0}
+{"item_id": "f91cf1f207c5f77c", "proof": "by\n  convert! (⟪p12⟫ ⟪p1⟫).comp (⟪p20⟫ fmeas hf) with n\n  rw [⟪p35⟫]\n  · simp\n  · apply (⟪p47⟫ _).sub\n    apply (⟪p60⟫.2 ⟨fmeas, ?_⟩).aestronglyMeasurable\n    exact .mono (.of_subtype (⟪p29⟫ f ∪ {0})) ⟪p0⟫", "sample_idx": 0}
+{"item_id": "1dd558d081026649", "proof": "by\n  rw [← ⟪p6⟫ s h0,\n    ⟪p32⟫ (φ := ⟪p49⟫ 𝕜 𝕜 (X := s) ⟨0, h0⟩) (continuous_eval_const _) _]\n  convert! (⟪p54⟫ _).symm\n  rw [← ⟪p11⟫, ← ⟪p15⟫,\n    ← ⟪p51⟫ s]\n  congrm (($(⟪p23⟫ s) : ⟪p18⟫ C(s, 𝕜)))", "sample_idx": 0}
+{"item_id": "c7f965738b4925b9", "proof": "by\n  simp only [⟪p42⟫, ⟪p42⟫, ⟪p37⟫]\n  exact (⟪p16⟫ (⟪p14⟫ μ) f).symm", "sample_idx": 0}
+{"item_id": "7353a85fbd09d0fc", "proof": "by\n    suffices h : ⟪p42⟫ (⟪p54⟫ f) by\n      have := ⟪p29⟫ (⟪p54⟫ f) h\n      exact .of_isPreimmersion _ (⟪p54⟫ f).isClosedMap.isClosed_range\n    intro S\n    have hc : ⟪p37⟫ S.i₁ (⟪p0⟫ (⟪p6⟫ (algebraMap S.R S.K)))\n        f (S.i₂ ≫ ⟪p62⟫ f f ≫ f) := ⟨by simp [← S.commSq.w_assoc]⟩\n    let S' : ⟪p59⟫ f := ⟨S.R, S.K, S.i₁, S.i₂ ≫ ⟪p62⟫ f f ≫ f, hc⟩\n    have : Subsingleton S'.commSq.LiftStruct := hf S'\n    let S'l₁ : S'.commSq.LiftStruct := ⟨S.i₂ ≫ ⟪p62⟫ f f,\n      by simp [S', ← S.commSq.w_assoc], by simp [S']⟩\n    let S'l₂ : S'.commSq.LiftStruct := ⟨S.i₂ ≫ ⟪p30⟫ f f,\n      by simp [S', ← S.commSq.w_assoc], by simp [S', ⟪p23⟫]⟩\n    have h₁₂ : S'l₁ = S'l₂ := Subsingleton.elim _ _\n    constructor\n    constructor\n    refine ⟨S.i₂ ≫ ⟪p62⟫ _ _, ?_, ?_⟩\n    · simp [← S.commSq.w_assoc]\n    · simp only [⟪p41⟫]\n      apply ⟪p12⟫ (⟪p19⟫ _ _)\n      · simp\n      · simp only [⟪p41⟫, ⟪p27⟫, ⟪p51⟫]\n        exact congrArg ⟪p15⟫ h₁₂", "sample_idx": 0}
+{"item_id": "1f3f009d4a6af58c", "proof": "by rw [Ne, ⟪p38⟫ a v v', ⟪p16⟫]", "sample_idx": 0}
+{"item_id": "8a8cf96c0575954c", "proof": "⟪p28⟫.eq_iff' rfl", "sample_idx": 0}
+{"item_id": "afe0864d66318e4e", "proof": "(⟪p56⟫ h).casesOn (fun h => le_of_eq_of_le h (Nat.zero_le _)) fun h =>\n    @⟪p18⟫ α β (⟪p27⟫ h) f hf", "sample_idx": 0}
+{"item_id": "0bb7d9efe5aa4b28", "proof": "by rw [← ⟪p25⟫, h, ⟪p25⟫]", "sample_idx": 0}
+{"item_id": "f92a1c58b2acf280", "proof": "by\n  dsimp only [⟪p37⟫]\n  have :\n    ((λ_ (𝟙_ C)).inv ▷ (X₁ ⊗ X₂)) ≫\n        (α_ (𝟙_ C) (𝟙_ C) (X₁ ⊗ X₂)).hom ≫ (𝟙_ C ◁ (α_ (𝟙_ C) X₁ X₂).inv) =\n      𝟙_ C ◁ (λ_ X₁).inv ▷ X₂ := by\n    simp\n  slice_rhs 1 3 => rw [this]\n  clear this\n  slice_rhs 1 2 => rw [← ⟪p24⟫, ← ⟪p58⟫,\n    ⟪p15⟫]\n  simp [⟪p12⟫]", "sample_idx": 0}
+{"item_id": "19120d2ccc227a2e", "proof": "by\n  simpa using ⟪p34⟫ h0 1 hc", "sample_idx": 0}
+{"item_id": "430b3f6a9cc1877b", "proof": "⟪p9⟫ hf", "sample_idx": 0}
+{"item_id": "d5e53eaff6559271", "proof": "by\n  rw [⟪p30⟫, ⟪p30⟫, ⟪p30⟫, ⟪p7⟫]\n  exact Eq.symm (⟪p34⟫ S.mulI T.mulI)", "sample_idx": 0}
+{"item_id": "80ce68402d24f5e8", "proof": "⟨fun _ => ⟪p44⟫ _ _, fun _ => ⟪p31⟫ F _⟩", "sample_idx": 0}
+{"item_id": "414515e8f5af8fb0", "proof": "by\n  ext ⟨f, sf, hf⟩\n  simp only [⟪p61⟫, ⟪p62⟫, ⟪p34⟫, ⟪p20⟫, ⟪p5⟫, ⟪p60⟫,\n    Function.comp_apply]\n  rw [⟪p1⟫ i (fun j _ hji => ?_) (fun hi => ?_), ⟪p30⟫]\n  · simp [hji]\n  · simp [(hf i).resolve_left (by simpa using hi)]", "sample_idx": 0}
+{"item_id": "0342f6325751fe1a", "proof": "μ.eq_zero_of_isEmpty ▸ ⟪p9⟫ _", "sample_idx": 0}
+{"item_id": "c6ad96f1eee8145c", "proof": "⟪p8⟫ _ _", "sample_idx": 0}
+{"item_id": "bd4891e10d70d3bc", "proof": "by\n  rw [⟪p29⟫,\n    ⟪p51⟫ <|\n      (⟪p8⟫ ha).mpr <| Exists.intro x <| Exists.intro y <| Exists.intro z h3,\n    ⟪p16⟫, ⟪p35⟫ ha, ← ⟪p43⟫, h3]\n  change ⟪p6⟫ (φ P.a) * ((⟪p12⟫ - ⟪p6⟫ x) ::ₘ (⟪p12⟫ - ⟪p6⟫ y) ::ₘ {⟪p12⟫ - ⟪p6⟫ z}).prod = _\n  rw [⟪p24⟫, ⟪p24⟫, ⟪p42⟫, ⟪p11⟫, ⟪p11⟫]", "sample_idx": 0}
+{"item_id": "aa80430e0102e281", "proof": "by\n  rw [‹BorelSpace α›.measurable_eq, ‹BorelSpace β›.measurable_eq]\n  refine ⟪p39⟫ ?_ ?_\n  · exact ⟪p53⟫.mpr ⟪p16⟫.borel_measurable\n  · exact ⟪p53⟫.mpr ⟪p8⟫.borel_measurable", "sample_idx": 0}
+{"item_id": "9b9831b94c89d126", "proof": "(⟪p44⟫ _ a).symm", "sample_idx": 0}
+{"item_id": "9db77f955df30266", "proof": "by\n  induction hy using ⟪p3⟫ with\n  | smul r hr y _ =>\n    obtain ⟨x, hx⟩ := h (⟪p45⟫ _ y)\n    use r • x, ⟪p46⟫ hr ⟪p34⟫\n    simp only [⟪p21⟫, Function.comp_apply, ⟪p25⟫, ← ⟪p36⟫, ⟪p11⟫] at ⊢ hx\n    rw [⟪p43⟫, ← ⟪p18⟫]\n    exact ⟪p38⟫ hx hr\n  | add y1 hy1 y2 hy2 ih1 ih2 =>\n    obtain ⟨x1, hx1, hx1'⟩ := ih1\n    obtain ⟨x2, hx2, hx2'⟩ := ih2\n    use x1 + x2, add_mem hx1 hx2\n    simp only [⟪p60⟫]\n    exact ⟪p33⟫ hx1' hx2'", "sample_idx": 0}
+{"item_id": "7dfa21108b65aee4", "proof": "⟪p59⟫ h1 h2 hp1 hp2 hpm1 hpm2 hyp", "sample_idx": 0}
+{"item_id": "ce8eee86914bcfc3", "proof": "⟪p40⟫ _ _ h", "sample_idx": 0}
+{"item_id": "e217197831f6b92f", "proof": "⟪p35⟫", "sample_idx": 0}
+{"item_id": "1f7f9041727328fa", "proof": "⟨hA.isHermitian.add hB.isHermitian, fun x => by\n    simpa [⟪p23⟫, ⟪p54⟫] using ⟪p44⟫ (hA.2 x) (hB.2 x)⟩", "sample_idx": 0}
+{"item_id": "e2f21edd76c27720", "proof": "by\n  replace ha : (⟪p34⟫ φ P).a ≠ 0 := (⟪p23⟫ φ).mpr ha\n  rw [⟪p2⟫, ← ⟪p33⟫, ⟪p21⟫,\n    ← ((⟪p52⟫ <| ⟪p53⟫ ha).1 <| ⟪p8⟫ ha : _ = 3)]", "sample_idx": 0}
+{"item_id": "7178eae0162cfc38", "proof": "by\n  dsimp only [⟪p8⟫]\n  rw [← ⟪p11⟫, ⟪p1⟫]", "sample_idx": 0}
+{"item_id": "a3d59099089a900e", "proof": "by\n  constructor\n  · intro h\n    convert! h.comp (⟪p3⟫ (⟪p4⟫ f).symm).isOpenEmbedding\n    exact congr_arg (⟪p26⟫ ∘ ⟪p35⟫) (⟪p9⟫ f g).symm\n  · exact fun h => h.comp (⟪p3⟫ (⟪p4⟫ f)).isOpenEmbedding", "sample_idx": 0}
+{"item_id": "8f41cf244d9ee64e", "proof": "by\n  simp [← ⟪p24⟫]", "sample_idx": 0}
+{"item_id": "0e3c517443b344e9", "proof": "by\n  rw [⟪p21⟫]\n  conv_lhs =>\n    congr; congr; rw [← ⟪p23⟫ a]\n    case a.g => rw [show 0 = a ≫ (0 : Y ⟶ Y) by simp]\n  rw [← ⟪p31⟫, ⟪p49⟫, ⟪p13⟫, ⟪p23⟫]", "sample_idx": 0}
+{"item_id": "df2c851acf7f7280", "proof": "fun _ U =>\n  ⟨⟪p59⟫.trans, fun h => ⟪p54⟫ h U.isClosed⟩", "sample_idx": 0}
+{"item_id": "1aeb476d78267313", "proof": "fun j => ⟨j, 𝟙 j, fun k g => by rw [⟪p15⟫, ⟪p60⟫, ⟪p2⟫, (h g).range_eq]⟩", "sample_idx": 0}
+{"item_id": "1a5136b4d252fa63", "proof": "by\n  constructor\n  · rintro ⟨i⟩\n    exact ⟨i, rfl⟩\n  · rintro ⟨i, h⟩\n    rw [← (⟪p48⟫ f).arrow_mk_mem_toSet_iff, h, ⟪p30⟫]\n    constructor", "sample_idx": 0}
+{"item_id": "2f68cc36b26b637b", "proof": "by\n  classical\n    constructor\n    · rintro ⟨h⟩\n      rw [← show _ = c.inl from\n          h.comp_coconePointUniqueUpToIso_inv (⟪p0⟫ X Y) ⟨⟪p54⟫⟩,\n        ← show _ = c.inr from\n          h.comp_coconePointUniqueUpToIso_inv (⟪p0⟫ X Y) ⟨⟪p48⟫⟩]\n      dsimp [⟪p17⟫]\n      refine\n        ⟨(h.coconePointUniqueUpToIso (⟪p0⟫ X Y)).symm.toEquiv.injective.comp\n            ⟪p26⟫,\n          (h.coconePointUniqueUpToIso (⟪p0⟫ X Y)).symm.toEquiv.injective.comp\n            ⟪p36⟫, ?_⟩\n      rw [⟪p13⟫, ⟪p57⟫, ← ⟪p49⟫, ⟪p13⟫]\n      dsimp\n      rw [⟪p57⟫ _ Sum.inr, ← dsimp% [⟪p7⟫] ⟪p15⟫\n          (h.coconePointUniqueUpToIso (⟪p0⟫ X Y)).symm.toEquiv.bijective]\n      simp\n    · rintro ⟨h₁, h₂, h₃⟩\n      have : ∀ x, x ∈ ⟪p39⟫ c.inl ∨ x ∈ ⟪p39⟫ c.inr := by\n        rw [⟪p49⟫.mpr h₃.symm]\n        exact fun _ => ⟪p52⟫\n      refine ⟨⟪p41⟫ _ ?_ ?_ ?_ ?_⟩\n      · intro T f g\n        refine ↾fun x => ?_\n        exact\n          if h : x ∈ ⟪p39⟫ c.inl then f ((⟪p63⟫ _ h₁).symm ⟨x, h⟩)\n          else g ((⟪p63⟫ _ h₂).symm ⟨x, (this x).resolve_left h⟩)\n      · intro T f g\n        ext x\n        simp\n      · intro T f g\n        ext x\n        dsimp\n        simp only [⟪p3⟫, ⟪p38⟫, dite_eq_right_iff,\n          forall_exists_index]\n        intro y e\n        have : c.inr x ∈ ⟪p39⟫ c.inl ⊓ ⟪p39⟫ c.inr := ⟨⟨_, e⟩, ⟨_, rfl⟩⟩\n        rw [⟪p4⟫.mp h₃.1] at this\n        exact this.elim\n      · rintro T _ _ m rfl rfl\n        ext x\n        simp only [⟪p31⟫, ⟪p58⟫, ⟪p62⟫, ⟪p3⟫,\n          ⟪p47⟫, ⟪p34⟫, ⟪p61⟫, ⟪p45⟫]\n        split_ifs <;> exact congr_arg _ (⟪p10⟫ _ ⟨_, _⟩).symm", "sample_idx": 0}
+{"item_id": "db27291e4f25a1da", "proof": "by\n  rw [⟪p6⟫, ⟪p15⟫ ha hb hc, hd]", "sample_idx": 0}
+{"item_id": "6216eb612a4333a4", "proof": "by\n  ext\n  rw [S.homologyData.left.mapHomologyIso_eq F, S.homologyData.right.mapHomologyIso'_eq F]\n  dsimp only [⟪p52⟫, ⟪p4⟫, ⟪p15⟫, ⟪p21⟫, ⟪p11⟫,\n    rightHomologyIso, ⟪p54⟫, ⟪p46⟫,\n    leftHomologyIso, ⟪p40⟫]\n  simp only [⟪p32⟫, ⟪p31⟫, ⟪p7⟫, assoc,\n    ⟪p60⟫, ⟪p57⟫, ⟪p41⟫,\n    ⟪p1⟫, ⟪p35⟫, ⟪p55⟫, ⟪p17⟫,\n    ⟪p18⟫, ← ⟪p58⟫, ← ⟪p20⟫,\n    id_comp]\n  have γ : ⟪p9⟫ (𝟙 (S.map F)) (⟪p3⟫ S F).homologyData (S.homologyData.map F) := default\n  have eq := γ.comm\n  rw [← γ.left.leftHomologyMap'_eq, ← γ.right.rightHomologyMap'_eq] at eq\n  dsimp at eq\n  simp only [← reassoc_of% eq, ← F.map_comp, ⟪p13⟫, F.map_id, comp_id]", "sample_idx": 0}
+{"item_id": "707b95d7418dd566", "proof": "⟪p54⟫ a", "sample_idx": 0}
+{"item_id": "27e4dad14acdf77a", "proof": "by\n  rw [⟪p1⟫ (⟪p53⟫ Nat.le_succ ⟪p23⟫), ⟪p16⟫, ← ⟪p25⟫]\n  refine ⟪p0⟫ fun n => ?_\n  grw [← ⟪p24⟫ <| ⟪p6⟫ 2 (2 ^ n + 1)]\n  simpa using ⟪p49⟫ hf n", "sample_idx": 0}
+{"item_id": "61353b1fea4f0b8a", "proof": "⟪p43⟫ f g hf hfg", "sample_idx": 0}
+{"item_id": "4ccba0066e725143", "proof": "⟪p63⟫ (𝓝 0).basis_sets", "sample_idx": 0}
+{"item_id": "3f1c4855a937fee8", "proof": "by\n  rw [⟪p3⟫, ⟪p31⟫ _ ⟪p50⟫ _\n    (by simp), ⟪p12⟫]\n  simp [⟪p11⟫]", "sample_idx": 0}
+{"item_id": "da3ee92f58f0fc93", "proof": "by\n  rw [⟪p50⟫] at hs ⊢\n  simp only [⟪p43⟫, ⟪p53⟫, ← ⟪p18⟫] at hs ⊢\n  exact hf'.dense_image f.continuous hs", "sample_idx": 0}
+{"item_id": "22c10b1287206f49", "proof": "⟪p45⟫ f g h₁ (fun Z i j => by\n    obtain ⟨a, rfl, rfl⟩ := h₂ i j\n    let f₁ : (mk (Y := zero) (f ≫ a) : ⟪p43⟫ (⟪p62⟫ f g) Z) ⟶ mk (Y := one) a :=\n      homMk left\n    let f₂ : (mk (Y := zero) (g ≫ a) : ⟪p43⟫ (⟪p62⟫ f g) Z) ⟶ mk (Y := one) a :=\n      homMk right\n    exact ⟪p52⟫ f₁ f₂)", "sample_idx": 0}
+{"item_id": "8759a682729ff65e", "proof": "by\n  rw [⟪p43⟫ (⟪p24⟫ G) (⟪p46⟫ (𝟭 G) ⋙ ⟪p24⟫ G) (by rw [← ⟪p19⟫, ⟪p49⟫, ⟪p39⟫])]\n  symm; apply ⟪p43⟫\n  rw [⟪p21⟫]", "sample_idx": 0}
+{"item_id": "f1e4d5b709361848", "proof": "(⟪p54⟫ (⟪p4⟫ L) (⟪p4⟫ P)).trans (congr_arg (fun n => n ^ 2 + n + 1) (⟪p23⟫ P L))", "sample_idx": 0}
+{"item_id": "9071b31e677906d5", "proof": "⟪p15⟫", "sample_idx": 0}
+{"item_id": "17ec924748b0cbf5", "proof": "⟨(⟪p63⟫.comp hf.1 fun _ hx => h₀ _ (⟪p6⟫ hx) :), hf.2.inv₀ h₀⟩", "sample_idx": 0}
+{"item_id": "eb06ee1f3a2583cf", "proof": "by simp [⟪p50⟫, ⟪p16⟫]", "sample_idx": 0}
+{"item_id": "6954f17a8cb66af6", "proof": "⟪p28⟫ _ hf", "sample_idx": 0}
+{"item_id": "5500cf72074a2d0a", "proof": "by\n  rw [⟪p4⟫, P.isoClosure_eq_self]", "sample_idx": 0}
+{"item_id": "03ff5bb21f4dcf70", "proof": "⟪p60⟫\n    ((⟪p47⟫ C).inverse.sheafInducedTopologyEquivOfIsCoverDense J A)", "sample_idx": 0}
+{"item_id": "4cd9d8f737f13994", "proof": "⟪p46⟫ (⟪p21⟫ hf) hc ⟨b⟩", "sample_idx": 0}
+{"item_id": "07b1d3d6d9bde921", "proof": "by\n  let e := ⟪p18⟫ (fun _ : ι ↦ measurableEquivRealProd.symm)\n  have := ⟪p5⟫ (fun _ : ι ↦ ⟪p36⟫.symm)\n  rw [← ⟪p33⟫ this e.measurableEmbedding]\n  exact ⟪p8⟫ (f ∘ e)", "sample_idx": 0}
+{"item_id": "ebf2b531421d79e2", "proof": "by\n  refine ⟪p26⟫ f hfi hFi ?_\n  simp_rw [⟪p33⟫, ⟪p50⟫] at hF\n  exact hF", "sample_idx": 0}
+{"item_id": "d523c595d9b5302c", "proof": "by\n  suffices ∀ (_ : G ≃+o ℤ), ¬ ⟪p48⟫ G by\n    rcases ⟪p0⟫ G with ⟨⟨h⟩⟩ | h\n    · simpa [this h] using ⟨h⟩\n    · simp only [h, not_true_eq_false, iff_false, ⟪p51⟫]\n      exact ⟨fun H ↦ (this H) h⟩\n  intro e H\n  rw [⟪p13⟫ e] at H\n  obtain ⟨_, _⟩ := ⟪p21⟫ (⟪p20⟫ (α := ℤ))\n  lia", "sample_idx": 0}
+{"item_id": "02b12978275da074", "proof": "by\n  have : ¬⟪p11⟫ s 1 ≤ 0 := fun h => by simpa using h s\n  simp only [⟪p1⟫, ⟪p50⟫, if_neg this]", "sample_idx": 0}
+{"item_id": "278c6f317f4ece56", "proof": "(⟪p28⟫).mp ⟨s, hμs⟩", "sample_idx": 0}
+{"item_id": "401c05fb51a28202", "proof": ".comap (⟪p59⟫ G) ⟪p57⟫", "sample_idx": 0}
+{"item_id": "a726b7136c3f7379", "proof": "(⟪p2⟫.mp hM).2", "sample_idx": 0}
+{"item_id": "6723383a91f1c946", "proof": "by\n  simp only [⟪p23⟫, ⟪p3⟫, ⟪p52⟫]\n  rw [⟪p18⟫, ⟪p26⟫, ⟪p8⟫]\n  simp only [⟪p34⟫, ← ⟪p5⟫]\n  congr\n  rw [⟪p45⟫, ← ⟪p23⟫]\n  rw [⟪p10⟫]\n  simp only [⟪p20⟫, ⟪p52⟫, ⟪p56⟫, ⟪p7⟫]\n  simp only [⟪p34⟫]", "sample_idx": 0}
+{"item_id": "2e766a55ad09939a", "proof": "⟪p15⟫.1 <| ⟪p30⟫ (⟪p15⟫.2 hf) _", "sample_idx": 0}
+{"item_id": "a94c5c547de70711", "proof": "by\n  intro b hb\n  have hb₀ : 0 < b := hb.1\n  refine ⟨1 / 2, by norm_num, ?_⟩\n  refine ⟨1, by norm_num, ?_⟩\n  have h_tendsto : ⟪p51⟫ (fun x => 1 / 2 * ⟪p39⟫ x) ⟪p7⟫ ⟪p7⟫ :=\n    ⟪p37⟫ (by norm_num) ⟪p12⟫\n  filter_upwards [⟪p16⟫ 1,\n                  (⟪p23⟫.const_mul_atTop hb.1).eventually_forall_ge_atTop\n                    <| h_tendsto.eventually (⟪p16⟫ (-⟪p39⟫ b))] with x hx_pos hx\n  intro u hu\n  refine ⟨?lb, ?ub⟩\n  case lb => calc\n    1 / 2 * ⟪p39⟫ x = ⟪p39⟫ x + (-1 / 2) * ⟪p39⟫ x := by ring\n      _ ≤ ⟪p39⟫ x + ⟪p39⟫ b := by grind\n      _ = ⟪p39⟫ (b * x) := by rw [← ⟪p44⟫ (by positivity) (by positivity), ⟪p47⟫]\n      _ ≤ ⟪p39⟫ u := by gcongr; exact hu.1\n  case ub =>\n    rw [⟪p25⟫]\n    gcongr\n    · calc 0 < b * x := by positivity\n         _ ≤ u := by exact hu.1\n    · exact hu.2", "sample_idx": 0}
+{"item_id": "a3ff1eb57f975813", "proof": "⟨by\n    classical\n    intro h\n    replace h := congr_arg (⟪p42⟫ (⟪p45⟫ s 1)) h\n    rw [⟪p20⟫, if_pos rfl, ⟪p20⟫] at h\n    split_ifs at h with H\n    · rw [⟪p61⟫] at H\n      rcases H with H | H\n      · exact H.1\n      · exfalso\n        exact ⟪p5⟫ H.1\n    · exfalso\n      exact ⟪p5⟫ h, congr_arg ⟪p39⟫⟩", "sample_idx": 0}
+{"item_id": "9d2cb926690beae4", "proof": "by\n  refine ⟨⟪p63⟫ (.of_nonneg ha) hx.1, fun y => ?_⟩\n  simpa [⟪p31⟫, ⟪p3⟫, ← ⟪p22⟫] using ⟪p51⟫ ha (hx.2 _)", "sample_idx": 0}
+{"item_id": "9dad8cdc97e71722", "proof": "by\n  subst hy₀\n  exact ⟪p55⟫ hV hf hf' hmn hst", "sample_idx": 0}
+{"item_id": "7e7799244655f0f1", "proof": "(⟪p46⟫ hS).homology_exact₁ ..", "sample_idx": 0}
+{"item_id": "7d6f179597bdc210", "proof": "⟪p15⟫", "sample_idx": 0}
+{"item_id": "f1ba8de4d89ace32", "proof": "by rw [← ⟪p54⟫, ⟪p4⟫]", "sample_idx": 0}
+{"item_id": "9bbfc5e76e787233", "proof": "by\n  rw [⟪p44⟫] at hS\n  exact hS.2", "sample_idx": 0}
+{"item_id": "fff50ec2d3be11c3", "proof": "⟪p14⟫ X 𝕜 |>.monotone", "sample_idx": 0}
+{"item_id": "b5407beb0937ac9b", "proof": "⟪p30⟫ ..", "sample_idx": 0}
+{"item_id": "55b029735f2a9bab", "proof": "⟪p30⟫.mpr hs ▸ ⟪p31⟫ f", "sample_idx": 0}
+{"item_id": "e1fbf5c8fa634b82", "proof": "⟪p43⟫ (a := ⟪p20⟫) _ (.σ i)", "sample_idx": 0}
+{"item_id": "8443b0652910eead", "proof": "by\n  simp only [⟪p9⟫, ⟪p49⟫]; intro c\n  set π₀ := ⟪p18⟫ J I h\n  refine ⟪p2⟫ (max c π₀.compl.distortion) ?_\n  refine ((l.hasBasis_toFilterDistortioniUnion I c ⊤).tendsto_iff\n    (l.hasBasis_toFilterDistortioniUnion J _ _)).2 fun r hr => ?_\n  refine ⟨r, hr, fun π hπ => ?_⟩\n  rw [⟪p16⟫, ⟪p19⟫] at hπ\n  refine ⟨⟨hπ.1.1, hπ.1.2, fun hD => ⟪p4⟫ (hπ.1.3 hD) (⟪p40⟫ _ _), fun _ => ?_⟩, ?_⟩\n  · refine ⟨_, π₀.iUnion_compl.trans ?_, ⟪p31⟫ _ _⟩\n    congr 1\n    exact (⟪p35⟫ h).trans hπ.2.symm\n  · exact hπ.2.trans (⟪p35⟫ _).symm", "sample_idx": 0}
+{"item_id": "703733986b38c061", "proof": "⟪p13⟫", "sample_idx": 0}
+{"item_id": "da3f0191634809fa", "proof": "⟪p9⟫ c hf", "sample_idx": 0}
+{"item_id": "c7f9415f5b97e789", "proof": "⟪p27⟫ f.toLRSHom x", "sample_idx": 0}
+{"item_id": "af325703757ebeda", "proof": "⟪p57⟫ (⟪p41⟫ C) κ", "sample_idx": 0}
+{"item_id": "ec352726b03c273a", "proof": "⟨hY.1.map (⟪p62⟫ e).trans⟩", "sample_idx": 0}
+{"item_id": "4e18db879c7a64af", "proof": "Closeds.gi.isAtom_iff' rfl\n    (fun t ht ↦ by obtain ⟨x, rfl⟩ := ⟪p51⟫.1 ht; exact ⟪p56⟫) s", "sample_idx": 0}
+{"item_id": "bf701cdfb38c7371", "proof": "by\n  let ⟨a, hva, hwa⟩ := ⟪p6⟫ hv h\n  let ⟨b, hwb, hvb⟩ := ⟪p6⟫ hw (mt .symm h)\n  exact ⟨b / a, by simp [w.pos_iff.1 (⟪p19⟫ ⟪p40⟫ hwa), ⟪p63⟫, ⟪p56⟫,\n    ⟪p42⟫ hvb hva, ⟪p42⟫ hwa hwb]⟩", "sample_idx": 0}
+{"item_id": "10d7f16a5d5d6d8c", "proof": "by\n  classical\n    obtain ⟨f, hf1, hf2⟩ := ⟪p0⟫ hPL\n    let s : ⟪p6⟫ (P × L) := ⟪p14⟫ { i | i.1 ∈ i.2 }\n    have step1 : ∑ i : P × L, ⟪p23⟫ L i.1 = ∑ i : P × L, ⟪p55⟫ P i.2 := by\n      rw [← ⟪p16⟫, ⟪p13⟫, ⟪p57⟫]\n      simp_rw [⟪p52⟫, ⟪p33⟫, hPL, ⟪p34⟫]\n    have step2 : ∑ i ∈ s, ⟪p23⟫ L i.1 = ∑ i ∈ s, ⟪p55⟫ P i.2 := by\n      rw [s.sum_finset_product ⟪p59⟫ fun p => ⟪p14⟫ { l | p ∈ l }]\n      on_goal 1 =>\n        rw [s.sum_finset_product_right ⟪p59⟫ fun l => ⟪p14⟫ { p | p ∈ l }, eq_comm]\n        · refine ⟪p8⟫ _ hf1 (by simp) fun l _ ↦ ?_\n          simp_rw [hf2, ⟪p52⟫, ⟪p58⟫, ← ⟪p20⟫]\n          change ⟪p55⟫ P l • _ = ⟪p23⟫ L (f l) • _\n          rw [hf2]\n      all_goals simp_rw [s, ⟪p15⟫, true_and, ⟪p19⟫]; exact fun p => Iff.rfl\n    have step3 : ∑ i ∈ sᶜ, ⟪p23⟫ L i.1 = ∑ i ∈ sᶜ, ⟪p55⟫ P i.2 := by\n      rwa [← s.sum_add_sum_compl, ← s.sum_add_sum_compl, step2, ⟪p10⟫] at step1\n    rw [← ⟪p27⟫] at step3\n    exact\n      ((⟪p28⟫ fun i hi =>\n              ⟪p12⟫ (by exact ⟪p19⟫.mp hi)).mp\n          step3.symm (p, l) (⟪p19⟫.mpr hpl)).symm", "sample_idx": 0}
+{"item_id": "92fc9408fd9eae43", "proof": "by\n  rw [⟪p46⟫]\n  constructor <;> intro H ε ε_pos\n  · exact ⟪p12⟫ h' (H ε ε_pos)\n  · rcases H ε ε_pos with ⟨x, x_in, hx⟩\n    exact ⟪p32⟫ h x_in hx", "sample_idx": 0}
+{"item_id": "d6bd0ed9f80ab942", "proof": "by\n  obtain rfl | hn := s.eq_empty_or_nonempty; · simp\n  by_cases hb : ⟪p32⟫ s\n  · rw [⟪p6⟫ hn hb]\n  · rw [⟪p17⟫ hb, ⟪p4⟫, ⟪p58⟫ (⟪p34⟫.not.2 hb),\n      ⟪p16⟫, ⟪p27⟫]", "sample_idx": 0}
+{"item_id": "cbbf13f6446d7f1e", "proof": "by\n    apply ((⟪p30⟫ (L.map f) (L.obj 0)).out 2 0).mp\n    refine ⟪p41⟫ ?_ (hL _ (((⟪p30⟫ f 0).out 0 2).mp hf))\n    exact ⟪p46⟫ (⟪p33⟫ _) (⟪p33⟫ _) (⟪p33⟫ _)", "sample_idx": 0}
+{"item_id": "06af0e786fee7b2d", "proof": "by\n  apply ⟪p8⟫\n  rw [⟪p43⟫, ⟪p44⟫ hA]", "sample_idx": 0}
+{"item_id": "7ae14977ce07553d", "proof": "by\n  simp [⟪p45⟫, ⟪p11⟫]", "sample_idx": 0}
+{"item_id": "67444d36e0af8ea1", "proof": "by\n  letI := (⟪p13⟫ (e₂ : B₁ →+* B₂) (⟪p54⟫ A₁ B₁)).toAlgebra' ?_\n  · let e' : B₁ ≃ₐ[A₁] B₂ := { e₂ with commutes' := fun _ ↦ rfl }\n    rw [← ⟪p53⟫ e₁ he, ← ⟪p8⟫ e']\n    simp [e']\n  intro c x\n  apply e₂.symm.injective\n  simp only [⟪p37⟫, ⟪p27⟫, Function.comp_apply, ⟪p42⟫,\n    ⟪p15⟫, ⟪p59⟫]", "sample_idx": 0}
+{"item_id": "7c109d63629a9865", "proof": "⟪p49⟫", "sample_idx": 0}
+{"item_id": "bd4e13cf48cfd76f", "proof": "by\n  ext Y\n  simp [⟪p13⟫, ⟪p9⟫]", "sample_idx": 0}
+{"item_id": "14c1147be9431a4d", "proof": "⟨⟪p41⟫, by simp⟩", "sample_idx": 0}
+{"item_id": "1a9b1739813d804e", "proof": "by\n  rw [← ⟪p17⟫, assoc, ⟪p3⟫, comp_id]", "sample_idx": 0}
+{"item_id": "7374681446a7d42f", "proof": "by rw [← ⟪p57⟫, h, ⟪p57⟫]", "sample_idx": 0}
+{"item_id": "663d9e18c66b2596", "proof": "⟪p53⟫ _ _", "sample_idx": 0}
+{"item_id": "de65e6dcc61ef230", "proof": "by\n  intro V hV\n  refine (h hV).restrict_scalars <| ⟪p53⟫ (K := ‖(1 : 𝕜')‖₊⁻¹) ?_\n  refine ⟪p16⟫ fun x y ↦ ?_\n  rw [⟪p39⟫, ⟪p39⟫, ← ⟪p61⟫, ⟪p24⟫, ← ⟪p55⟫,\n    ⟪p19⟫ _ (⟪p17⟫.2 ⟪p18⟫)]", "sample_idx": 0}
+{"item_id": "8293470e2aaab143", "proof": "by\n  simp only [⟪p18⟫, ⟪p11⟫]", "sample_idx": 0}
+{"item_id": "b796c9da7764ed53", "proof": "by\n  have := ⟪p42⟫ (F ⊛ H)\n    (⟪p0⟫ F H) G\n  dsimp at this\n  simp [this, ⟪p58⟫]", "sample_idx": 0}
+{"item_id": "0890230959378fd2", "proof": "by\n  intro x hx\n  simpa [⟪p26⟫, ⟪p15⟫] using hM.dotProduct_mulVec_pos hx", "sample_idx": 0}
+{"item_id": "8182582f49636991", "proof": "by\n  rw [← ⟪p48⟫, ⟪p28⟫, ⟪p48⟫]", "sample_idx": 0}
+{"item_id": "622ce6d67644524d", "proof": "by\n  refine ⟨fun h ↦ ⟨fun X ↦ ?_⟩, fun h ↦ ⟪p47⟫ _⟩\n  apply ⟪p7⟫ (α := ⟪p17⟫ X)\n  simp only [← ⟪p37⟫, h, ⟪p10⟫]", "sample_idx": 0}
+{"item_id": "4150091e50e3f208", "proof": "by\n  let f₁ := hf.toL1 f\n  -- Go to the `L¹` space\n  have eq₁ : ⟪p45⟫ (∫⁻ a, ⟪p42⟫ (f a) ∂μ) = ‖⟪p13⟫ f₁‖ := by\n    rw [⟪p54⟫]\n    congr 1\n    apply ⟪p62⟫\n    filter_upwards [⟪p11⟫ f₁, hf.coeFn_toL1] with _ h₁ h₂\n    rw [h₁, h₂, ⟪p42⟫]\n    congr 1\n    apply ⟪p36⟫\n    rw [⟪p19⟫ (⟪p8⟫ _ _)]\n    rw [⟪p21⟫, ⟪p57⟫]\n  -- Go to the `L¹` space\n  have eq₂ : ⟪p45⟫ (∫⁻ a, ⟪p42⟫ (-f a) ∂μ) = ‖⟪p63⟫ f₁‖ := by\n    rw [⟪p54⟫]\n    congr 1\n    apply ⟪p62⟫\n    filter_upwards [⟪p33⟫ f₁, hf.coeFn_toL1] with _ h₁ h₂\n    rw [h₁, h₂, ⟪p42⟫]\n    congr 1\n    apply ⟪p36⟫\n    simp only [⟪p21⟫, ⟪p1⟫, ⟪p52⟫]\n    rw [⟪p44⟫ (⟪p60⟫ _ _), ← ⟪p25⟫, ⟪p6⟫]\n  rw [eq₁, eq₂, ⟪p47⟫, dif_pos, dif_pos]\n  exact ⟪p37⟫ _", "sample_idx": 0}
+{"item_id": "4f944b9ad709602d", "proof": "by\n  simp_rw [← ⟪p4⟫, ⟪p16⟫]", "sample_idx": 0}

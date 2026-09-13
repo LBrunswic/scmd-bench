@@ -25,20 +25,33 @@ autoregressive LLMs, retrieval provers, and pointer or diffusion models.
 
 ## An item
 
-The item shown here is abbreviated.
+This is a real dev item, shown on the anonymised track at K = 16. The two starred slots are the
+gold premises; the star is not part of the prompt.
 
 ```text
-theorem target (h : SemiconjBy x a b) (z : ℂ) :
-    expMulMulExp a b x z = expUnitary ((2 : ℝ) • ℑ (z • star b)) * x * expUnitary …
+theorem target {α} [BooleanAlgebra α] [IsAtomic α] {x y : α} :
+    x = y ↔ ∀ a, IsAtom a → (a ≤ x ↔ a ≤ y)
 
-BASE (K = 64, anonymised track):
-  ⟪p0⟫ {F : MonoFactorisation f} (hF : IsImage F) : hF.lift (Image.monoFactorisation f) ≫ … = F.m
-  ⟪p1⟫ …
-  …
+  ⟪p0⟫ : ∀ a : α, a ≤ a
+  ⟪p1⟫ {a b} : f a ≤ f b ↔ a ≤ b
+  ⟪p3⟫ : a = b ↔ a ≤ b ∧ ¬a < b
+* ⟪p5⟫ : a ≤ b → b ≤ a → a = b
+  ⟪p10⟫ : ⊥ ⋖ a ↔ IsAtom a
+* ⟪p15⟫ {α} [BooleanAlgebra α] [IsAtomic α] {x y : α} : x ≤ y ↔ ∀ a, IsAtom a → a ≤ x → a ≤ y
+  …                                                        (16 slots)
 ```
 
-A system returns the text after `:=`, citing slot `i` as `⟪pI⟫`. The `named` track shows the real
-mathlib names instead.
+A proof that verifies:
+
+```lean
+by
+  refine ⟨fun h => h ▸ by simp, fun h => ?_⟩
+  exact ⟪p5⟫ (⟪p15⟫.2 fun a ha hx => (h a ha).1 hx)
+    (⟪p15⟫.2 fun a ha hy => (h a ha).2 hy)
+```
+
+A system returns only the text after `:=`. The `named` track shows the real mathlib names
+(`le_antisymm`, …) instead of placeholders.
 
 ## Quickstart
 

@@ -46,7 +46,7 @@ from typing import Any, Final, Iterable
 
 from scmd_bench.context import declaration_context, render_declaration
 from scmd_bench.repl import LeanPaths, ReplResult, ReplSession
-from scmd_bench.schema import Attempt, Fault, Item, Outcome
+from scmd_bench.schema import Attempt, Fault, Item, Outcome, clean_rest
 from scmd_bench.submission import spells, static_violations, substitute_placeholders
 
 PREAMBLE: Final[Path] = Path(__file__).parent / "lean" / "preamble.lean"
@@ -383,7 +383,7 @@ class Grader:
 
 
 def _shown_text(item: Item, k: int) -> str:
-    return "\n".join([item.prompt["target"], *(s["rest"] for s in item.base(k))])
+    return "\n".join([item.prompt["target"], *(clean_rest(s["rest"]) for s in item.base(k))])
 
 
 def _shown(const: str, raw: str, shown: str) -> bool:

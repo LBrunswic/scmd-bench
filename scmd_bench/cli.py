@@ -92,8 +92,14 @@ def _write(out: Path, rows: dict) -> None:
 def cmd_score(a: argparse.Namespace) -> int:
     items = load_items(a.items)
     atts = [Attempt.from_json(r) for r in read_jsonl(a.graded)]
+    if a.only_graded_items:
+        # NOT LEADERBOARD-VALID: a missing item is a failed item under RULES §6. This exists for
+        # declared partial baselines, and the flag is recorded in the output.
+        seen = {x.item_id for x in atts}
+        items = [it for it in items if it.item_id in seen]
     res = score(items, atts, n=a.n, k_base=a.k, allow_harness_faults=a.allow_harness_faults)
     res["items_file"] = str(a.items)
+    res["partial_item_subset"] = bool(a.only_graded_items)
     res["split"] = items[0].split if items else None
     text = json.dumps(res, indent=2)
     if a.out:
@@ -142,6 +148,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--n", type=int, required=True, help="samples per item the system drew")
     p.add_argument("--out")
     p.add_argument("--allow-harness-faults", action="store_true")
+    p.add_argument("--only-graded-items", action="store_true",
+                   help="score only items present in --graded (a declared partial run; not leaderboard-valid)")
     p.set_defaults(fn=cmd_score)
     p = sub.add_parser("compare"); common(p)
     p.add_argument("--a", required=True)

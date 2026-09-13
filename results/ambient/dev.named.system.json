@@ -1,0 +1,9 @@
+{
+  "name": "ambient battery (16 zero-parameter proofs)",
+  "track": "named",
+  "k": 64,
+  "n_samples": 16,
+  "budget": "16 fixed tactics, not i.i.d.",
+  "exposure": "n/a",
+  "parameters": 0
+}

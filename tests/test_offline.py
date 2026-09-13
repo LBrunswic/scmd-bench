@@ -196,7 +196,7 @@ def test_mcnemar_exact():
 
 
 def test_released_items_never_show_their_answer():
-    for path in sorted((ROOT / "data").glob("v*/*.jsonl")):
+    for path in sorted(p for p in (ROOT / "data").glob("v*/*.jsonl") if not p.name.startswith("_")):
         for line in path.read_text(encoding="utf-8").splitlines():
             it = Item.from_json(json.loads(line))
             for k in it.prompt["base"]:
@@ -204,3 +204,10 @@ def test_released_items_never_show_their_answer():
                 gold = it.answer["gold_proof"].strip()
                 if len(gold) > 40:
                     assert gold not in v
+
+
+def test_clean_rest_drops_leftover_heads_only():
+    from scmd_bench.schema import clean_rest
+    assert clean_rest(" lemma empty : Absorbs M s ∅") == " : Absorbs M s ∅"
+    assert clean_rest(" def extend₂ (f : α → β → γ) : hatα") == " (f : α → β → γ) : hatα"
+    assert clean_rest(" {a b} : f a ≤ f b ↔ a ≤ b") == " {a b} : f a ≤ f b ↔ a ≤ b"

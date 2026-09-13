@@ -1,0 +1,858 @@
+{
+  "split": "dev",
+  "n_candidates": 900,
+  "n_kept": 500,
+  "want": 500,
+  "reasons": {
+    "witness_from_proof_source": 5,
+    "gold_named_rejected": 8,
+    "gold_anon_illegal": 8,
+    "gold_named_illegal": 33,
+    "base_unresolvable": 9,
+    "gold_named_malformed": 4,
+    "gold_anon_rejected": 7,
+    "surplus": 331
+  },
+  "ambient_solvable": 57,
+  "gold_failures": [
+    {
+      "item_id": "aafadab19dff8615",
+      "decl": "AddMonoidAlgebra.zero_divOf",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Unknown constant `AddMonoidAlgebra.map_zero`",
+      "source_detail": "names constants outside BASE: ['map_zero']"
+    },
+    {
+      "item_id": "6136584788dae115",
+      "decl": "IsLiouville.trans",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Unknown constant `Polynomial.coe_eq_zero_iff` || unsolved goals\nF : Type u_1\nK : Type u_2\ninst✝¹² : Field F\ninst✝¹¹ : Field K\ninst✝¹⁰ : Differential F\ninst✝⁹ : Differential K\ninst✝⁸ : Algebra F K\ninst✝⁷ : DifferentialAlgebra F K\nA : Type u_3\ninst✝⁶ : Field A\ninst✝⁵ : Algebra K A\ninst✝⁴ : Algebra F A\ninst✝³ : Differential A\ninst✝² : IsScalarTower F K A\ninst✝¹ : ContainConstants F K\ninst1 : IsLiouville F K\ninst2 : IsLiouville K A\na : F\nι : Type\ninst✝ : Fintype ι\nc : ι → F\nhc : ∀ (x : ι), (c x)′ = ",
+      "source_detail": "names constants outside BASE: ['algebraMap.coe_eq_zero_iff']"
+    },
+    {
+      "item_id": "ce64e659a4f292b4",
+      "decl": "EquicontinuousOn.tendsto_uniformOnFun_iff_pi'",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['nhds_iInf']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['nhds_iInf']"
+    },
+    {
+      "item_id": "b0a2fc1568e30273",
+      "decl": "MeasureTheory.integrable_resolvent",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['MeasureTheory.Measure.support_mem_ae']",
+      "source_detail": "names constants outside BASE: ['MeasureTheory.Measure.support_mem_ae']"
+    },
+    {
+      "item_id": "b00332f6ff9f52c2",
+      "decl": "ContinuousMap.exists_finite_approximation_of_mem_nhds_diagonal",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Invalid `⟨...⟩` notation: The expected type `Disjoint ↑(E j) ↑(E i) → False` is not an inductive type\n\nNote: This notation can only be used when the expected type is an inductive type with a single constructor || Type mismatch: After simplification, term\n  hEne i\n has type\n  ¬↑(E i) = ∅\nbut is expected to have type\n  ∃ x, x ∈ E i",
+      "source_detail": "names constants outside BASE: ['Set.nonempty_iff_ne_empty', 'Set.not_disjoint_iff']"
+    },
+    {
+      "item_id": "80c1677a3a2aa710",
+      "decl": "CategoryTheory.MorphismProperty.strictMap_multiplicativeClosure_le",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Invalid alternative name `CategoryTheory.MorphismProperty.multiplicativeClosure.comp_of`: Expected `comp_of` || Alternative `comp_of` has not been provided",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.MorphismProperty.multiplicativeClosure.id', 'CategoryTheory.MorphismProperty.multiplicativeClosure.of']"
+    },
+    {
+      "item_id": "77c0f29469fb9774",
+      "decl": "MeasureTheory.L1.norm_eq_integral_norm",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['div_one']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['MeasureTheory.Lp.aestronglyMeasurable', 'div_one']"
+    },
+    {
+      "item_id": "e1f6cc4669312878",
+      "decl": "CategoryTheory.MonoidalCategory.Limits.pushout.associator_inv_naturality_right_condition",
+      "failed": [
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['CategoryTheory.Limits.pushout.condition']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['CategoryTheory.Limits.pushout.condition']"
+    },
+    {
+      "item_id": "da1e482eb2621be3",
+      "decl": "MvPolynomial.supDegree_esymmAlgHomMonomial",
+      "unresolvable": {
+        "resolve_64": [
+          "MvPolynomial.R"
+        ]
+      }
+    },
+    {
+      "item_id": "d835b317397c6c50",
+      "decl": "CategoryTheory.Equalizer.Presieve.sheaf_condition",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Limits.Types.type_equalizer_iff_unique']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Limits.Types.type_equalizer_iff_unique']"
+    },
+    {
+      "item_id": "e1583d962f9bde89",
+      "decl": "Ideal.iSupIndep_primaryComponent",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['IsDedekindDomain.HeightOneSpectrum.isCoprime_pow_of_ne']",
+      "source_detail": "names constants outside BASE: ['IsDedekindDomain.HeightOneSpectrum.isCoprime_pow_of_ne']"
+    },
+    {
+      "item_id": "70e2b657292fb334",
+      "decl": "NumberField.IsTotallyReal.finrank",
+      "failed": [
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['NumberField.InfinitePlace.card_add_two_mul_card_eq_rank']",
+      "source_detail": "names constants outside BASE: ['NumberField.InfinitePlace.card_add_two_mul_card_eq_rank']"
+    },
+    {
+      "item_id": "833397f17437f11e",
+      "decl": "Fin.accumulate_rec",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['lt_iff_le_and_ne']",
+      "source_detail": "names constants outside BASE: ['lt_iff_le_and_ne']"
+    },
+    {
+      "item_id": "657118242bab9f72",
+      "decl": "CategoryTheory.GrpObj.one_inv",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.MonObj.one_eq_one']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.MonObj.one_eq_one']"
+    },
+    {
+      "item_id": "5fdcfcb5aa9e4016",
+      "decl": "EisensteinSeries.D2_mul",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['Complex.I_ne_zero', 'Complex.ofReal_eq_zero', 'Matrix.SpecialLinearGroup.coe_mul', 'ModularForm.SL_slash_def', 'Real.pi_ne_zero']",
+      "source_detail": "names constants outside BASE: ['Complex.I_ne_zero', 'Complex.ofReal_eq_zero', 'Matrix.SpecialLinearGroup.coe_mul', 'ModularForm.SL_slash_def', 'Real.pi_ne_zero']"
+    },
+    {
+      "item_id": "8c9c81a5b0e2c1c7",
+      "decl": "EReal.abs_mul",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Tactic `assumption` failed\n\ncase symm\nx✝ y✝ : EReal\nh : (x✝ * y✝).abs = x✝.abs * y✝.abs\n⊢ (y✝ * x✝).abs = y✝.abs * x✝.abs",
+      "source_detail": "names constants outside BASE: ['mul_comm']"
+    },
+    {
+      "item_id": "acd0c126f94a56b2",
+      "decl": "CategoryTheory.Limits.desc_op_comp_opCoproductIsoProduct'_hom",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['Opposite.op_unop', 'Opposite.unop_op']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['Opposite.op_unop', 'Opposite.unop_op']"
+    },
+    {
+      "item_id": "0ba4ad093e8009bf",
+      "decl": "CategoryTheory.Triangulated.Localization.isTriangulated",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Localization.essSurj_mapComposableArrows']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Localization.essSurj_mapComposableArrows']"
+    },
+    {
+      "item_id": "201abcf85f2fdd31",
+      "decl": "Algebra.Presentation.span_range_relation_eq_ker_baseChange",
+      "unresolvable": {
+        "resolve_64": [
+          "MvPolynomial.R"
+        ]
+      }
+    },
+    {
+      "item_id": "bef47d9f0071b505",
+      "decl": "LieAlgebra.Basis.baseSupp_apply_h'",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['Module.Basis.span_repr_eq_single']",
+      "source_detail": "names constants outside BASE: ['Module.Basis.span_repr_eq_single']"
+    },
+    {
+      "item_id": "d45c0cb0a74d722f",
+      "decl": "CategoryTheory.HopfObj.antipode_antipode",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.MonoidalCategory.comp_whiskerRight', 'CategoryTheory.MonoidalCategory.tensorHom_def_assoc']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.MonoidalCategory.comp_whiskerRight', 'CategoryTheory.MonoidalCategory.tensorHom_def_assoc']"
+    },
+    {
+      "item_id": "28cb04a6a40a8156",
+      "decl": "Int.isClosedEmbedding_coe_real",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['zero_lt_one']",
+      "source_detail": "names constants outside BASE: ['zero_lt_one']"
+    },
+    {
+      "item_id": "e43bed59446d76dc",
+      "decl": "CategoryTheory.SimplicialObject.Splitting.cofan_inj_comp_PInfty_eq_zero",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['AlgebraicTopology.DoldKan.degeneracy_comp_PInfty', 'CategoryTheory.Limits.comp_zero']",
+      "source_detail": "names constants outside BASE: ['AlgebraicTopology.DoldKan.degeneracy_comp_PInfty', 'CategoryTheory.Limits.comp_zero']"
+    },
+    {
+      "item_id": "62b159351f8d8281",
+      "decl": "ENNReal.tsum_iUnion_le_tsum",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "malformed",
+      "detail": "Type mismatch\n  tsum_le_tsum_comp_of_surjective\nhas type\n  Surjective ?m.47 → ∀ (g : ?m.46 → ℝ≥0∞), ∑' (y : ?m.46), g y ≤ ∑' (x : ?m.45), g (?m.47 x)\nbut is expected to have type\n  ∑' (x : ↑(⋃ i, t i)), f ↑x ≤ ∑' (x : (i : ι) × ↑(t i)), f ↑x.snd || invalid 'calc' step, right-hand side is\n  tsum.{0, max u_1 u_4} fun x ↦ f ↑x.snd : ℝ≥0∞\nbut is expected to be\n  tsum.{0, u_4} fun i ↦ ∑' (x : ↑(t i)), f ↑x : ℝ≥0∞ || unexpected token '('; expected command",
+      "source_detail": "Type mismatch\n  tsum_le_tsum_comp_of_surjective\nhas type\n  Surjective ?m.47 → ∀ (g : ?m.46 → ℝ≥0∞), ∑' (y : ?m.46), g y ≤ ∑' (x : ?m.45), g (?m.47 x)\nbut is expected to have type\n  ∑' (x : ↑(⋃ i, t i)), f ↑x ≤ ∑' (x : (i : ι) × ↑(t i)), f ↑x.snd || invalid 'calc' step, right-hand side is\n  tsum.{0, "
+    },
+    {
+      "item_id": "6657e3e3eebfdaa7",
+      "decl": "Acc.cutExpand",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['Relation.acc_of_singleton']",
+      "source_detail": "names constants outside BASE: ['Relation.acc_of_singleton']"
+    },
+    {
+      "item_id": "11cc9e481b126b7f",
+      "decl": "MvPowerSeries.eq_of_coeff_monomial_ne_zero",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['by_contra']",
+      "source_detail": "names constants outside BASE: ['by_contra']"
+    },
+    {
+      "item_id": "515b25f1b9ae0ddf",
+      "decl": "Matrix.PosDef.submatrix",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Type mismatch: After simplification, term\n  hM.right ((Function.Injective.ne_iff' (Finsupp.mapDomain_injective he) Finsupp.mapDomain_zero).mpr hx)\n has type\n  0 <\n    Finsupp.sum.{u_2, u_3, u_3} (Finsupp.mapDomain e x) fun i xi ↦\n      (Finsupp.mapDomain e x).sum fun j xj ↦ star xi * M i j * xj\nbut is expected to have type\n  0 < Finsupp.sum.{u_1, u_3, u_3} x fun i xi ↦ x.sum fun j xj ↦ star xi * M (e i) (e j) * xj",
+      "source_detail": "names constants outside BASE: ['add_mul', 'mul_add']"
+    },
+    {
+      "item_id": "58de9879ee8eaaf3",
+      "decl": "Complex.norm_eqOn_closedBall_of_isMaxOn",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "unknown tactic || unsolved goals\ncase inl\nE : Type u\ninst✝³ : NormedAddCommGroup E\ninst✝² : NormedSpace ℂ E\nF : Type v\ninst✝¹ : NormedAddCommGroup F\ninst✝ : NormedSpace ℂ F\nf : E → F\nz : E\nr : ℝ\nhd : DiffContOnCl ℂ f (ball z r)\nhz : IsMaxOn (norm ∘ f) (ball z r) z\nw : E\nhw : dist z w ≤ r\n_root_.Set.Subset.rfl : z = w\n⊢ (norm ∘ f) w = Function.const E ‖f z‖ w || unsolved goals\ncase inr\nE : Type u\ninst✝³ : NormedAddCommGroup E\ninst✝² : NormedSpace ℂ E\nF : Type v\ninst✝¹ : NormedAddCommGroup F\ninst✝",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['Set.Subset.rfl']"
+    },
+    {
+      "item_id": "4271b98a82c053cd",
+      "decl": "AkraBazziRecurrence.GrowsPolynomially.pow",
+      "unresolvable": {
+        "resolve_64": [
+          "AkraBazziRecurrence.p"
+        ],
+        "resolve_16": [
+          "AkraBazziRecurrence.p"
+        ]
+      }
+    },
+    {
+      "item_id": "189e86100fa8b9ef",
+      "decl": "EisensteinSeries.vecMulSL_gcd",
+      "unresolvable": {
+        "resolve_64": [
+          "EisensteinSeries.r"
+        ],
+        "resolve_16": [
+          "EisensteinSeries.r"
+        ]
+      }
+    },
+    {
+      "item_id": "d9a32e94650c2a68",
+      "decl": "MeasureTheory.integral_eq_lintegral_of_nonneg_ae",
+      "failed": [
+        "gold/anon/64"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['sub_zero']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['sub_zero']"
+    },
+    {
+      "item_id": "954cc9cf817e6e37",
+      "decl": "AlgebraicGeometry.pointsPi_injective",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Limits.equalizer.condition']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Limits.equalizer.condition']"
+    },
+    {
+      "item_id": "2a9c947e565ab79c",
+      "decl": "opensMeasurableSpace_iff_forall_measurableSet",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['MeasurableSpace.GenerateMeasurable.basic']",
+      "source_detail": "names constants outside BASE: ['MeasurableSpace.GenerateMeasurable.basic']"
+    },
+    {
+      "item_id": "0d877f7310c832fc",
+      "decl": "CategoryTheory.Limits.PreservesLimit₂.isoObjConePointsOfIsLimit_hom_comp_π",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "unknown tactic || unsolved goals\nJ₁ : Type u_1\nJ₂ : Type u_2\ninst✝⁵ : Category.{v_1, u_1} J₁\ninst✝⁴ : Category.{v_2, u_2} J₂\nC₁ : Type u_3\nC₂ : Type u_4\nC : Type u_5\ninst✝³ : Category.{v_3, u_3} C₁\ninst✝² : Category.{v_4, u_4} C₂\ninst✝¹ : Category.{v_5, u_5} C\nK₁ : J₁ ⥤ C₁\nK₂ : J₂ ⥤ C₂\nG : C₁ ⥤ C₂ ⥤ C\ninst✝ : PreservesLimit₂ K₁ K₂ G\nc₁ : Cone K₁\nhc₁ : IsLimit c₁\nc₂ : Cone K₂\nhc₂ : IsLimit c₂\nc₃ : Cone (uncurry.obj ((((whiskeringLeft₂ C).obj K₁).obj K₂).obj G))\nhc₃ : IsLimit c₃\nj : J₁ × J₂\n⊢ ((is",
+      "source_detail": "unknown tactic || unsolved goals\nJ₁ : Type u_1\nJ₂ : Type u_2\ninst✝⁵ : Category.{v_1, u_1} J₁\ninst✝⁴ : Category.{v_2, u_2} J₂\nC₁ : Type u_3\nC₂ : Type u_4\nC : Type u_5\ninst✝³ : Category.{v_3, u_3} C₁\ninst✝² : Category.{v_4, u_4} C₂\ninst✝¹ : Category.{v_5, u_5} C\nK₁ : J₁ ⥤ C₁\nK₂ : J₂ ⥤ C₂\nG : C₁ ⥤ C₂ ⥤"
+    },
+    {
+      "item_id": "1c86db74bda93075",
+      "decl": "CategoryTheory.Limits.PreservesColimit₂.ι_comp_isoObjConePointsOfIsColimit_inv",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "unknown tactic || unsolved goals\nJ₁ : Type u_1\nJ₂ : Type u_2\ninst✝⁵ : Category.{v_1, u_1} J₁\ninst✝⁴ : Category.{v_2, u_2} J₂\nC₁ : Type u_3\nC₂ : Type u_4\nC : Type u_5\ninst✝³ : Category.{v_3, u_3} C₁\ninst✝² : Category.{v_4, u_4} C₂\ninst✝¹ : Category.{v_5, u_5} C\nK₁ : J₁ ⥤ C₁\nK₂ : J₂ ⥤ C₂\nG : C₁ ⥤ C₂ ⥤ C\ninst✝ : PreservesColimit₂ K₁ K₂ G\nc₁ : Cocone K₁\nhc₁ : IsColimit c₁\nc₂ : Cocone K₂\nhc₂ : IsColimit c₂\nc₃ : Cocone (uncurry.obj ((((whiskeringLeft₂ C).obj K₁).obj K₂).obj G))\nhc₃ : IsColimit c₃\nj : ",
+      "source_detail": "unknown tactic || unsolved goals\nJ₁ : Type u_1\nJ₂ : Type u_2\ninst✝⁵ : Category.{v_1, u_1} J₁\ninst✝⁴ : Category.{v_2, u_2} J₂\nC₁ : Type u_3\nC₂ : Type u_4\nC : Type u_5\ninst✝³ : Category.{v_3, u_3} C₁\ninst✝² : Category.{v_4, u_4} C₂\ninst✝¹ : Category.{v_5, u_5} C\nK₁ : J₁ ⥤ C₁\nK₂ : J₂ ⥤ C₂\nG : C₁ ⥤ C₂ ⥤"
+    },
+    {
+      "item_id": "6c67ca6e2134ba4d",
+      "decl": "Complex.analyticAt_iff_eventually_differentiableAt",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['eventually_nhds_iff']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['eventually_nhds_iff']"
+    },
+    {
+      "item_id": "c668b466d925d04f",
+      "decl": "AkraBazziRecurrence.growsPolynomially_rpow",
+      "unresolvable": {
+        "resolve_64": [
+          "AkraBazziRecurrence.p"
+        ],
+        "resolve_16": [
+          "AkraBazziRecurrence.p"
+        ]
+      }
+    },
+    {
+      "item_id": "ecb1562b347105f4",
+      "decl": "CategoryTheory.CountableAB4Star.of_countableAB5Star",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "malformed",
+      "detail": "Fields missing: `ofShape` || unexpected token ':='; expected command",
+      "source_detail": "Fields missing: `ofShape` || unexpected token ':='; expected command"
+    },
+    {
+      "item_id": "3fbb21638e6bd8c9",
+      "decl": "CategoryTheory.Abelian.epiWithInjectiveKernel_of_iso",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Limits.isZero_zero']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Limits.isZero_zero']"
+    },
+    {
+      "item_id": "a09d4f8476963af2",
+      "decl": "CategoryTheory.preservesLimit_of_lan_preservesLimit",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Function expected at\n  (Presheaf.compULiftYonedaIsoULiftYonedaCompLan F).symm\nbut this term has type\n  uliftYoneda.{u, u, u} ⋙ F.op.lan ≅ F ⋙ uliftYoneda.{u, u, u}\n\nNote: Expected a function because this term is being applied to the argument\n  preservesLimitsOfShape_of_reflects_of_preserves",
+      "source_detail": "Function expected at\n  (Presheaf.compULiftYonedaIsoULiftYonedaCompLan F).symm\nbut this term has type\n  uliftYoneda.{u, u, u} ⋙ F.op.lan ≅ F ⋙ uliftYoneda.{u, u, u}\n\nNote: Expected a function because this term is being applied to the argument\n  preservesLimitsOfShape_of_reflects_of_preserves"
+    },
+    {
+      "item_id": "6dd317113e9c5680",
+      "decl": "Ordinal.IsFundamentalSequence.zero",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Application type mismatch: The argument\n  hi\nhas type\n  i < 0\nof sort `Prop` but is expected to have type\n  Ordinal.{?u.32}\nof sort `Type (?u.32 + 1)` in the application\n  Ordinal.not_lt_zero hi",
+      "source_detail": "names constants outside BASE: ['not_lt_zero']"
+    },
+    {
+      "item_id": "b19594d15de05110",
+      "decl": "SimplexCategoryGenRel.hom_induction'",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: [\"CategoryTheory.MorphismProperty.multiplicativeClosure'.id\", \"CategoryTheory.MorphismProperty.multiplicativeClosure'.of\", \"CategoryTheory.MorphismProperty.multiplicativeClosure'.of_comp\"]",
+      "source_detail": "names constants outside BASE: [\"CategoryTheory.MorphismProperty.multiplicativeClosure'.id\", \"CategoryTheory.MorphismProperty.multiplicativeClosure'.of\", \"CategoryTheory.MorphismProperty.multiplicativeClosure'.of_comp\"]"
+    },
+    {
+      "item_id": "848b22c7230ed666",
+      "decl": "CategoryTheory.Adjunction.leftAdjointUniq_hom_counit",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Functor.whiskerLeft_app']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Functor.whiskerLeft_app']"
+    },
+    {
+      "item_id": "b16723c04db0587f",
+      "decl": "CategoryTheory.HopfObj.antipode_comul",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.MonoidalCategory.comp_whiskerRight', 'CategoryTheory.MonoidalCategory.tensor_whiskerLeft', 'CategoryTheory.MonoidalCategory.whiskerLeft_comp']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.MonoidalCategory.comp_whiskerRight', 'CategoryTheory.MonoidalCategory.tensor_whiskerLeft', 'CategoryTheory.MonoidalCategory.whiskerLeft_comp']"
+    },
+    {
+      "item_id": "bd80d5e8f4abd00b",
+      "decl": "AlgebraicTopology.DoldKan.Compatibility.equivalenceCounitIso_eq",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Functor.comp_obj', 'CategoryTheory.Functor.id_obj', 'CategoryTheory.NatTrans.ext']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Functor.comp_obj', 'CategoryTheory.Functor.id_obj', 'CategoryTheory.NatTrans.ext']"
+    },
+    {
+      "item_id": "69892aad1748a20e",
+      "decl": "CategoryTheory.FintypeCat.Action.pretransitive_of_isConnected",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Functor.map_isIso', 'CategoryTheory.PreGaloisCategory.not_initial_iff_fiber_nonempty']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Functor.map_isIso', 'CategoryTheory.PreGaloisCategory.not_initial_iff_fiber_nonempty']"
+    },
+    {
+      "item_id": "9668fccac0e4d08f",
+      "decl": "AbsoluteValue.IsEquiv.isEmbedding_equivWithAbs",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['Topology.IsInducing.isEmbedding']",
+      "source_detail": "names constants outside BASE: ['Topology.IsInducing.isEmbedding']"
+    },
+    {
+      "item_id": "f7f20d8b1d388b32",
+      "decl": "Real.sSup_le",
+      "failed": [
+        "gold/anon/64"
+      ],
+      "outcome": "rejected",
+      "detail": "Application type mismatch: The argument\n  ha\nhas type\n  0 ≤ a\nbut is expected to have type\n  ⊥ ≤ ?m.45\nin the application\n  Eq.trans_le _root_.sSup_empty ha",
+      "source_detail": "Application type mismatch: The argument\n  ha\nhas type\n  0 ≤ a\nbut is expected to have type\n  ⊥ ≤ ?m.45\nin the application\n  Eq.trans_le _root_.sSup_empty ha"
+    },
+    {
+      "item_id": "b85992bdb9b86242",
+      "decl": "Set.card_union_le",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['finite_or_infinite']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['Nat.cast_le', 'finite_or_infinite']"
+    },
+    {
+      "item_id": "4d1c205e69f83ed5",
+      "decl": "MeasureTheory.analyticOn_resolventTransform",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['MeasureTheory.Measure.isClosed_support']",
+      "source_detail": "names constants outside BASE: ['MeasureTheory.Measure.isClosed_support']"
+    },
+    {
+      "item_id": "6fa93873369b8299",
+      "decl": "CochainComplex.IsKInjective.eq_δ_of_cocycle",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CochainComplex.HomComplex.Cochain.rightShift_units_smul', 'CochainComplex.HomComplex.Cochain.δ_rightUnshift', 'CochainComplex.HomComplex.Cocycle.ext_iff']",
+      "source_detail": "names constants outside BASE: ['CochainComplex.HomComplex.Cochain.rightShift_units_smul', 'CochainComplex.HomComplex.Cochain.δ_rightUnshift', 'CochainComplex.HomComplex.Cocycle.ext_iff']"
+    },
+    {
+      "item_id": "80df3b0daf629eb3",
+      "decl": "NumberField.IsTotallyReal.mult_eq",
+      "failed": [
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['NumberField.InfinitePlace.mult_isReal']",
+      "source_detail": "names constants outside BASE: ['NumberField.InfinitePlace.mult_isReal']"
+    },
+    {
+      "item_id": "c74f7f013826ade6",
+      "decl": "NumberField.IsTotallyComplex.complexEmbedding_not_isReal",
+      "failed": [
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['NumberField.InfinitePlace.isReal_mk_iff', 'NumberField.InfinitePlace.not_isReal_iff_isComplex']",
+      "source_detail": "names constants outside BASE: ['NumberField.InfinitePlace.isReal_mk_iff', 'NumberField.InfinitePlace.not_isReal_iff_isComplex']"
+    },
+    {
+      "item_id": "12b199f7006198a2",
+      "decl": "CategoryTheory.LocalizerMorphism.Derives.isRightDerivedFunctor_of_isIso",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "unknown tactic || unsolved goals\nC₁ : Type u₁\nC₂ : Type u₂\nH : Type u₃\ninst✝⁵ : Category.{v₁, u₁} C₁\ninst✝⁴ : Category.{v₂, u₂} C₂\ninst✝³ : Category.{v₃, u₃} H\nD₂ : Type u₄\ninst✝² : Category.{v₄, u₄} D₂\nW₁ : MorphismProperty C₁\nW₂ : MorphismProperty C₂\nΦ : LocalizerMorphism W₁ W₂\nF : C₂ ⥤ H\nh : Φ.Derives F\ninst✝¹ : Φ.IsRightDerivabilityStructure\nL₂ : C₂ ⥤ D₂\ninst✝ : L₂.IsLocalization W₂\nRF : D₂ ⥤ H\nα : F ⟶ L₂ ⋙ RF\nhα : ∀ (X₁ : C₁), IsIso (α.app (Φ.functor.obj X₁))\nthis✝² : F.HasPointwiseRightDer",
+      "source_detail": "unknown tactic || unsolved goals\nC₁ : Type u₁\nC₂ : Type u₂\nH : Type u₃\ninst✝⁵ : Category.{v₁, u₁} C₁\ninst✝⁴ : Category.{v₂, u₂} C₂\ninst✝³ : Category.{v₃, u₃} H\nD₂ : Type u₄\ninst✝² : Category.{v₄, u₄} D₂\nW₁ : MorphismProperty C₁\nW₂ : MorphismProperty C₂\nΦ : LocalizerMorphism W₁ W₂\nF : C₂ ⥤ H\nh : Φ.De"
+    },
+    {
+      "item_id": "493bffb2382b2f8a",
+      "decl": "Equiv.Perm.fin_5_not_solvable",
+      "unresolvable": {
+        "resolve_64": [
+          "Equiv.zero"
+        ],
+        "resolve_16": [
+          "Equiv.zero"
+        ]
+      }
+    },
+    {
+      "item_id": "1576c99685b13841",
+      "decl": "NumberField.IsTotallyReal.ofRingEquiv",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "malformed",
+      "detail": "Fields missing: `isReal` || unexpected token ':='; expected command",
+      "source_detail": "Fields missing: `isReal` || unexpected token ':='; expected command"
+    },
+    {
+      "item_id": "d39277a84003a4b9",
+      "decl": "CategoryTheory.HopfObj.antipode_counit",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: [\"CategoryTheory.MonoidalCategory.tensorHom_def'\", 'CategoryTheory.MonoidalCategory.unitors_equal', 'CategoryTheory.MonoidalCategory.whisker_exchange_assoc']",
+      "source_detail": "names constants outside BASE: [\"CategoryTheory.MonoidalCategory.tensorHom_def'\", 'CategoryTheory.MonoidalCategory.unitors_equal', 'CategoryTheory.MonoidalCategory.whisker_exchange_assoc']"
+    },
+    {
+      "item_id": "6d3307b2f541b044",
+      "decl": "CategoryTheory.CountableAB4.of_countableAB5",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "malformed",
+      "detail": "Fields missing: `ofShape` || unexpected token ':='; expected command",
+      "source_detail": "Fields missing: `ofShape` || unexpected token ':='; expected command"
+    },
+    {
+      "item_id": "cd3b0b0676ec95b1",
+      "decl": "CategoryTheory.Limits.CofanTypes.isColimit_sigma",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Unknown identifier `_root_.CategoryTheory.congr_arg`",
+      "source_detail": "Unknown identifier `_root_.CategoryTheory.congr_arg`"
+    },
+    {
+      "item_id": "da325f1140ff16a7",
+      "decl": "List.Vector.eq_cons_iff",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "anonymised track: names BASE premises by real names no prompt text showed: ['trans']",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['trans']"
+    },
+    {
+      "item_id": "aa63ed7eff1c86a3",
+      "decl": "MvPolynomial.esymmAlgEquiv_symm_apply",
+      "unresolvable": {
+        "resolve_64": [
+          "MvPolynomial.R"
+        ],
+        "resolve_16": [
+          "MvPolynomial.R"
+        ]
+      }
+    },
+    {
+      "item_id": "1295903b6897fd2c",
+      "decl": "HahnSeries.pow_add",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['HahnSeries.SummableFamily.hsum_mul', 'HahnSeries.SummableFamily.hsum_powerSeriesFamily_mul']",
+      "source_detail": "names constants outside BASE: ['HahnSeries.SummableFamily.hsum_mul', 'HahnSeries.SummableFamily.hsum_powerSeriesFamily_mul']"
+    },
+    {
+      "item_id": "6ea0c9f941f654f4",
+      "decl": "CategoryTheory.Equalizer.Presieve.compatible_iff",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: [\"CategoryTheory.Limits.Types.limit_ext_iff'\"]",
+      "source_detail": "names constants outside BASE: [\"CategoryTheory.Limits.Types.limit_ext_iff'\"]"
+    },
+    {
+      "item_id": "1251050411a840c8",
+      "decl": "CategoryTheory.braiding_leftUnitor",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.MonoidalCategory.comp_whiskerRight']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.MonoidalCategory.comp_whiskerRight']"
+    },
+    {
+      "item_id": "72c52e5191316693",
+      "decl": "AlgebraicGeometry.Scheme.Hom.toNormalization_normalizationDesc",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CategoryTheory.Limits.colimit.ι_desc']",
+      "source_detail": "names constants outside BASE: ['CategoryTheory.Limits.colimit.ι_desc']"
+    },
+    {
+      "item_id": "3095e6251518bf18",
+      "decl": "AkraBazziRecurrence.growsPolynomially_pow",
+      "unresolvable": {
+        "resolve_64": [
+          "AkraBazziRecurrence.p"
+        ],
+        "resolve_16": [
+          "AkraBazziRecurrence.p"
+        ]
+      }
+    },
+    {
+      "item_id": "6b7062f34cf4af22",
+      "decl": "AkraBazziRecurrence.growsPolynomially_zpow",
+      "unresolvable": {
+        "resolve_64": [
+          "AkraBazziRecurrence.p"
+        ],
+        "resolve_16": [
+          "AkraBazziRecurrence.p"
+        ]
+      }
+    },
+    {
+      "item_id": "d287e47b717344cc",
+      "decl": "CategoryTheory.CommSq.HasLift.iff_unop",
+      "failed": [
+        "gold/anon/64",
+        "gold/anon/16"
+      ],
+      "outcome": "rejected",
+      "detail": "Unknown identifier `_root_.sq` || Unknown identifier `_root_.sq`",
+      "source_detail": "anonymised track: names BASE premises by real names no prompt text showed: ['CategoryTheory.CommSq.HasLift.iff']"
+    },
+    {
+      "item_id": "06ea6e4f010fd427",
+      "decl": "CircleDeg1Lift.isUnit_iff_bijective",
+      "failed": [
+        "gold/named/64",
+        "gold/anon/64",
+        "gold/named/16",
+        "gold/anon/16"
+      ],
+      "outcome": "illegal",
+      "detail": "names constants outside BASE: ['CircleDeg1Lift.ext']",
+      "source_detail": "names constants outside BASE: ['CircleDeg1Lift.ext']"
+    }
+  ]
+}

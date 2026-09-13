@@ -67,6 +67,23 @@ def item_id_of(prompt: dict[str, Any], grading: dict[str, Any]) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
+_LEFTOVER_HEAD = __import__("re").compile(
+    r"^\s*(?:(?:private|protected|noncomputable|nonrec)\s+)*(?:theorem|lemma|def|abbrev|instance)\s+\S+")
+
+
+def clean_rest(rest: str) -> str:
+    """A premise's text after its name, with a leftover declaration head removed.
+
+    About 1% of the corpus's SOURCE renderings (1,153 of 109,587 premises) still begin with the
+    keyword and the short name -- ` lemma empty : Absorbs M s ∅` -- where the upstream renderer's
+    cut missed. The name is already shown in front, so the head is dropped at DISPLAY time. The
+    stored text, and therefore every `item_id`, is the corpus's own; `Item.view` and a system
+    training on the release should both apply this function.
+    """
+    m = _LEFTOVER_HEAD.match(rest)
+    return (" " + rest[m.end():].lstrip()) if m else rest
+
+
 def placeholder(slot: int) -> str:
     """The anonymised track's name for slot `slot`. See `scmd_bench.placeholders`."""
     return f"⟪p{slot}⟫"            # ⟪p17⟫
@@ -111,9 +128,9 @@ class Item:
         base = []
         for i, s in enumerate(self.base(k)):
             nm = s["name"] if track == "named" else placeholder(i)
-            base.append({"slot": i, "name": nm, "statement": nm + s["rest"]})
+            base.append({"slot": i, "name": nm, "statement": nm + clean_rest(s["rest"])})
         return {"item_id": self.item_id, "track": track, "k": k,
-                "target": "theorem target " + self.prompt["target"], "base": base}
+                "target": "theorem target " + self.prompt["target"].lstrip(), "base": base}
 
 
 @dataclass
