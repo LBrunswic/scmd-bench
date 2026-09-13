@@ -97,7 +97,12 @@ elab "sb_check " sbNonce:ident sbCmd:command : command => do
       let sbKind ← match sbEnv.find? sbC with
         | _root_.Option.some sbCi => do
           let sbIsProp ← liftTermElabM <| _root_.Lean.Meta.isProp sbCi.type
-          pure (if sbIsProp then "t" else "d")
+          -- A projection onto a Prop FIELD of a structure or class (`Category.assoc`,
+          -- `SMulCommClass.smul_comm`) is a law of the structure the statement already mentions,
+          -- not a lemma: it is `d`. The corpus's dependency labels never list them either, so
+          -- charging them would reject correct gold proofs (measured: 7 of the first 101 dev
+          -- candidates).
+          pure (if sbIsProp && !(sbEnv.isProjectionFn sbC) then "t" else "d")
         | _root_.Option.none => pure "d"
       let sbLine := s!"SB_{sbTag}_CITED {sbPos.line} {sbPos.column} {sbC} {sbMod} {sbPriv} {sbKind} {sbRaw}"
       unless sbSeen.contains sbLine do

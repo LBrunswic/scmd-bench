@@ -123,7 +123,9 @@ SorryDB's "no edits outside the proof".
   - defined outside `Mathlib.*` (Lean core, Batteries, Aesop, …);
   - private;
   - already named in the target's own signature.
-- Definitions, structures, projections and instances are vocabulary, not premises.
+- A theorem here means a constant whose type is a proposition. Definitions, structures,
+  instances, and projections of structure or class fields (including Prop fields such as
+  `Category.assoc`) are vocabulary, not premises.
 - A named theorem outside BASE makes the attempt **ILLEGAL**.
 
 **3.7 Anonymised track only.** A BASE premise must be cited by its placeholder `⟪pI⟫`. The

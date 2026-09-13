@@ -15,7 +15,8 @@ An attempt is SOLVED iff all of these hold:
   5. every constant the proof NAMES (an identifier in the proof's own source that elaborates to a
      constant and spells it) that is a THEOREM is in BASE, or is ambient -- defined outside
      `Mathlib.*`, or private, or already named by the target's own signature. Definitions,
-     structures, projections and instances are vocabulary, not premises;
+     structures, instances and structure/class projections -- including projections onto Prop
+     fields, the laws of a class -- are vocabulary, not premises;
   6. anonymised track only: a BASE premise the proof names by its REAL name must be a name some
      prompt text showed. Otherwise the system could only have known it from memorising mathlib.
 
