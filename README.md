@@ -84,9 +84,17 @@ The **headline is scored on items no zero-parameter tactic solves** (`rfl`, `sim
 `exact?`, … — 16 of them). On SCMD's own held-out targets that floor was 26.5% before anyone
 measured it.
 
-## Baselines
+## Baselines and validation (v1.0)
 
-See [`LEADERBOARD.md`](LEADERBOARD.md).
+| | dev (500) | test (2,000) |
+|---|---|---|
+| gold proof, both tracks | 1.000 | 1.000 |
+| ambient floor (any of 16 zero-parameter proofs) | 0.114 | 0.099 |
+| qwen2.5-7B, CPU, named, K=16, n=4 (partial: 100 headline items) | solved 0.04, pass@1 0.018 | — |
+
+The full table is in [`LEADERBOARD.md`](LEADERBOARD.md) and the harness checks are in the
+[dataset card](docs/DATASET_CARD.md#harness-validation). The container and host grader agree on
+500 of 500 dev verdicts.
 
 ## Rebuilding the data
 

@@ -1,0 +1,8 @@
+{
+  "name": "gold proof (harness validation)",
+  "track": "named",
+  "k": 64,
+  "n_samples": 1,
+  "budget": "the corpus witness",
+  "exposure": "n/a"
+}

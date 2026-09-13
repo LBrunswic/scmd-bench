@@ -8,12 +8,16 @@ bootstrap over items. `solved` is the fraction of items solved by any of the n s
 
 | system | track | K | n | budget | exposure | pass@1 (necessary) | pass@8 | pass@32 | solved (necessary) | solved (all) | items |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| gold proof (harness validation) | anon | 64 | 1 | the corpus witness | n/a | — | — | — | 1.000 | 1.000 | 2000 |
+| gold proof (harness validation) | named | 64 | 1 | the corpus witness | n/a | — | — | — | 1.000 | 1.000 | 2000 |
 | ambient battery (16 zero-parameter proofs) | named | 64 | 16 | 16 fixed tactics, not i.i.d. | n/a | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | — | 0.000 | 0.099 | 2000 |
 
 ## dev
 
 | system | track | K | n | budget | exposure | pass@1 (necessary) | pass@8 | pass@32 | solved (necessary) | solved (all) | items |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen2.5:7b (Ollama, Q4, CPU) — partial: first 100 premise_necessary dev items | named | 16 | 4 | n=4, no verifier in the loop | clean for temporal (released 2024-09, before the 2026-03-24 cut); older mathlib declarations may be in its pretraining | 0.018 [0.003, 0.037] | — | — | 0.040 | 0.040 | 100 |
+| gold proof (harness validation) | anon | 64 | 1 | the corpus witness | n/a | — | — | — | 1.000 | 1.000 | 500 |
+| gold proof (harness validation) | named | 64 | 1 | the corpus witness | n/a | — | — | — | 1.000 | 1.000 | 500 |
+| qwen2.5:7b (Ollama, Q4, CPU) — partial: first 100 premise_necessary dev items | named | 16 | 4 | n=4, no verifier in the loop | clean (2024 model) | 0.018 [0.003, 0.037] | — | — | 0.040 | 0.040 | 100 |
 | ambient battery (16 zero-parameter proofs) | named | 64 | 16 | 16 fixed tactics, not i.i.d. | n/a | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | — | 0.000 | 0.114 | 500 |
 

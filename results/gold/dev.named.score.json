@@ -1,0 +1,51 @@
+{
+  "n_samples": 1,
+  "k_base": 64,
+  "n_items": 500,
+  "n_void": 0,
+  "harness_faults": 0,
+  "ks_reported": [],
+  "ks_refused_n_le_k": [
+    1,
+    8,
+    32
+  ],
+  "subsets": {
+    "premise_necessary": {
+      "solved_any": 1.0
+    },
+    "all": {
+      "solved_any": 1.0
+    },
+    "premise_necessary&base_binding": {
+      "solved_any": 1.0
+    },
+    "heldout:file": {
+      "solved_any": 1.0
+    },
+    "heldout:temporal": {
+      "solved_any": 1.0
+    },
+    "heldout:novel_premises": {
+      "solved_any": 1.0
+    },
+    "gold:1": {
+      "solved_any": 1.0
+    },
+    "gold:2-3": {
+      "solved_any": 1.0
+    },
+    "gold:4-8": {
+      "solved_any": 1.0
+    },
+    "gold:9+": {
+      "solved_any": 1.0
+    }
+  },
+  "headline": {
+    "solved_any": 1.0
+  },
+  "items_file": "data/v1/dev.jsonl",
+  "partial_item_subset": false,
+  "split": "dev"
+}

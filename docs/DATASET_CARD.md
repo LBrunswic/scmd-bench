@@ -98,6 +98,30 @@ The chain is as follows:
 - **Realised distractor mix at K = 64** (2000 items): retrieval_hard 0.7457, sibling 0.1451, random 0.1092. The nominal endpoint is 0.65 / 0.25 / 0.10.
 - **Realised distractor mix at K = 16** (1957 items): retrieval_hard 0.6772, sibling 0.2208, random 0.102. The nominal endpoint is 0.65 / 0.25 / 0.10.
 
+## Harness validation
+
+| check | dev | test |
+|---|---|---|
+| gold proof SOLVED, named track (CLI re-grade) | 500 / 500 | 2000 / 2000 |
+| gold proof SOLVED, anonymised track | 500 / 500 | 2000 / 2000 |
+| gold-removed control ILLEGAL (`base_binding`) | 469 / 500 | 1824 / 2000 |
+| container (`--network none`) vs host verdicts, dev gold named | 500 / 500 identical | — |
+
+`scmd_bench/assemble.py` reproduces upstream `scmd.data.assemble` on 2,000 of 2,000 recorded
+draws (`tests/test_release.py`). The Lean-tier adversarial suite (`tests/test_lean.py`, 14 tests)
+rejects all of the following:
+
+- `sorry`, `admit`, `native_decide`, and a smuggled `sorryAx`;
+- a second declaration;
+- a named theorem outside BASE;
+- another item's proof;
+- an out-of-range placeholder;
+- real names on the anonymised track;
+- a forged report line;
+- `set_option maxHeartbeats` and `set_option debug.skipKernelTC`.
+
+Grading is deterministic.
+
 ## Known limitations
 
 - **Exposure.** Every target is in public mathlib, so web-pretrained models may have seen the
@@ -110,5 +134,10 @@ The chain is as follows:
   shortfall goes to `retrieval_hard`.
 - **Reach.** Tactics can still reach lemmas outside BASE without naming them. This is reported
   per attempt; the headline subset controls the zero-parameter part of it.
+- **Not every item binds BASE.** Some gold proofs name only definitions from BASE. The contract
+  does not charge definitions, so BASE membership is not what those items test; they are marked
+  `meta.base_binding = false`, and the scorer reports the binding subset.
+- **Leftover declaration heads.** About 1% of premise renderings (1,153 of 109,587) still start with
+  `lemma name`. `clean_rest` removes this at display time; the stored text is the corpus's.
 - **Premise texts are SOURCE renderings** (mathlib's own signature). They can depend on file-level
   `variable`s that are not shown.

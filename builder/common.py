@@ -320,7 +320,7 @@ def anonymise_full_names(proof: str, names_to_slot: dict[str, str]) -> str:
             forms.setdefault(".".join(parts[i:]), []).append(name)
     names_to_slot = dict(names_to_slot)
     for form, owners in forms.items():
-        if len(owners) == 1 and form not in names_to_slot and "_" in form:
+        if len(owners) == 1 and form not in names_to_slot and ("_" in form or "." in form):
             names_to_slot[form] = names_to_slot[owners[0]]
     for name in sorted(names_to_slot, key=len, reverse=True):
         if "." not in name and "_" not in name:

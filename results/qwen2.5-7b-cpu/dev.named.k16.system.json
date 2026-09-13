@@ -4,7 +4,7 @@
   "k": 16,
   "n_samples": 4,
   "budget": "n=4, no verifier in the loop",
-  "exposure": "clean for temporal (released 2024-09, before the 2026-03-24 cut); older mathlib declarations may be in its pretraining",
+  "exposure": "clean (2024 model)",
   "parameters": "7B",
   "open_weights": true,
   "api": null,
@@ -15,5 +15,6 @@
   "gen_seconds_total": 6252,
   "prompt": "baselines/llm.py SYSTEM + item view",
   "partial_item_subset": true,
-  "training_data_cutoff": "2024 (model release 2024-09)"
+  "training_data_cutoff": "2024 (model release 2024-09)",
+  "exposure_note": "clean for temporal (released 2024-09, before the 2026-03-24 cut); older mathlib declarations may be in its pretraining"
 }

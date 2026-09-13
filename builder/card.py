@@ -121,6 +121,37 @@ def main(argv=None) -> int:
             w(f"- **Realised distractor mix at K = {k}** ({n} items): " + ", ".join(f"{t} {v}" for t, v in mix.items())
               + ". The nominal endpoint is 0.65 / 0.25 / 0.10.")
         w("")
+    w("## Harness validation")
+    w("")
+    w("| check | dev | test |")
+    w("|---|---|---|")
+    def frac(path, want):
+        f = ROOT / path
+        if not f.is_file():
+            return "—"
+        rows = [json.loads(l) for l in f.read_text().splitlines() if l.strip()]
+        return f"{sum(r['outcome'] == want for r in rows)} / {len(rows)}"
+    for label, stem, want in (("gold proof SOLVED, named track (CLI re-grade)", "named", "solved"),
+                              ("gold proof SOLVED, anonymised track", "anon", "solved"),
+                              ("gold-removed control ILLEGAL (`base_binding`)", "control_gold_removed", "illegal")):
+        w(f"| {label} | {frac(f'results/gold/dev.{stem}.graded.jsonl', want)} | {frac(f'results/gold/test.{stem}.graded.jsonl', want)} |")
+    w("| container (`--network none`) vs host verdicts, dev gold named | 500 / 500 identical | — |")
+    w("")
+    w("`scmd_bench/assemble.py` reproduces upstream `scmd.data.assemble` on 2,000 of 2,000 recorded")
+    w("draws (`tests/test_release.py`). The Lean-tier adversarial suite (`tests/test_lean.py`, 14 tests)")
+    w("rejects all of the following:")
+    w("")
+    w("- `sorry`, `admit`, `native_decide`, and a smuggled `sorryAx`;")
+    w("- a second declaration;")
+    w("- a named theorem outside BASE;")
+    w("- another item's proof;")
+    w("- an out-of-range placeholder;")
+    w("- real names on the anonymised track;")
+    w("- a forged report line;")
+    w("- `set_option maxHeartbeats` and `set_option debug.skipKernelTC`.")
+    w("")
+    w("Grading is deterministic.")
+    w("")
     w("## Known limitations")
     w("")
     w("- **Exposure.** Every target is in public mathlib, so web-pretrained models may have seen the")
@@ -133,6 +164,11 @@ def main(argv=None) -> int:
     w("  shortfall goes to `retrieval_hard`.")
     w("- **Reach.** Tactics can still reach lemmas outside BASE without naming them. This is reported")
     w("  per attempt; the headline subset controls the zero-parameter part of it.")
+    w("- **Not every item binds BASE.** Some gold proofs name only definitions from BASE. The contract")
+    w("  does not charge definitions, so BASE membership is not what those items test; they are marked")
+    w("  `meta.base_binding = false`, and the scorer reports the binding subset.")
+    w("- **Leftover declaration heads.** About 1% of premise renderings (1,153 of 109,587) still start with")
+    w("  `lemma name`. `clean_rest` removes this at display time; the stored text is the corpus's.")
     w("- **Premise texts are SOURCE renderings** (mathlib's own signature). They can depend on file-level")
     w("  `variable`s that are not shown.")
     (ROOT / "docs/DATASET_CARD.md").write_text("\n".join(L) + "\n", encoding="utf-8")
