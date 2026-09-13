@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "scmd-bench: premise-conditioned Lean 4 proving with adversarial premise sets"
+message: "If you use this benchmark, please cite it as below."
+type: dataset
+authors:
+  - family-names: Brunswic
+    given-names: Leo
+version: "1.0"
+license: Apache-2.0
+repository-code: "https://github.com/OWNER/scmd-bench"

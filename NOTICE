@@ -1,0 +1,13 @@
+scmd-bench
+Copyright 2026 Leo Brunswic
+
+This benchmark's items and training release are derived from mathlib4
+(https://github.com/leanprover-community/mathlib4), commit
+fabf563a7c95a166b8d7b6efca11c8b4dc9d911f, which is distributed under the
+Apache License, Version 2.0. Statements, proofs and premise renderings are
+mathlib's, re-rendered; mathlib's copyright notices apply to them.
+
+The corpus extraction, dependency resolution, distractor assembly and
+verification design come from LeanDLLM (SCMD), and portions of
+scmd_bench/repl.py, scmd_bench/context.py and scmd_bench/assemble.py are
+transcribed from it, as marked in each file.

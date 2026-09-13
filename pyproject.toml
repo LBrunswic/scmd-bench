@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scmd-bench"
+version = "1.0.0"
+description = "Premise-conditioned Lean 4 proving: a training set, a frozen eval set, and a verifier"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+scmd-bench = "scmd_bench.cli:main"
+
+[tool.setuptools]
+packages = ["scmd_bench"]
+
+[tool.setuptools.package-data]
+scmd_bench = ["lean/*.lean"]

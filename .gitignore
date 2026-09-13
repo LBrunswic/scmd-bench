@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+data/v1/_finalize.*.jsonl
+*.tmp
