@@ -73,7 +73,7 @@ def test_naming_a_mathlib_theorem_outside_base_is_illegal(grader, items):
     it = items[0]
     names = {s["name"] for s in it.base(64)}
     assert "mul_comm" not in names
-    a = _g(grader, it, f"by\n  have _sb := @mul_comm\n  exact ({it.answer['gold_proof']})")
+    a = _g(grader, it, f"by\n  have _sb : ∀ m n : ℕ, m * n = n * m := mul_comm\n  exact ({it.answer['gold_proof']})")
     assert a.outcome is Outcome.ILLEGAL and "mul_comm" in a.evidence.get("outside_base_named", []), a.detail
 
 
@@ -83,10 +83,10 @@ def test_another_items_gold_does_not_solve(grader, items):
 
 
 def test_anon_track_refuses_unshown_real_names_and_bad_placeholders(grader, items):
-    it = items[0]
-    named = it.answer["gold_proof"]
-    if any(s["name"] in named for s in it.base(64)):
-        assert _g(grader, it, named, "anon").outcome is Outcome.ILLEGAL
+    # items[1]'s gold proof is `SemiconjBy.neg_left_iff`, a BASE theorem named by its real name.
+    it = items[1]
+    a = _g(grader, it, it.answer["gold_proof"], "anon")
+    assert a.outcome is Outcome.ILLEGAL and a.evidence.get("unshown_real_names"), a.detail
     assert _g(grader, it, f"{placeholder(99)}", "anon").outcome is Outcome.ILLEGAL
 
 

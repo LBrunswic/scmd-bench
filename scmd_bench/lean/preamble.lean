@@ -29,7 +29,8 @@ position.
 DECL gives the harness the declaration's exact full name (a `theorem Foo.sb_target` written inside
 `namespace Bar` is `Bar.Foo.sb_target`); its absence means nothing was declared.
 
-`kind` is `t` for a theorem and `d` for anything else (definition, structure, projection, instance).
+`kind` is `t` when the constant's type is a proposition (a theorem, however Lean stores it) and
+`d` for anything else (definition, structure, projection, instance).
 
 WHAT "NAMES" MEANS, PRECISELY
 A `TermInfo` node whose expression is a constant and whose syntax is an identifier with ORIGINAL
@@ -89,9 +90,15 @@ elab "sb_check " sbNonce:ident sbCmd:command : command => do
         | _root_.Option.some sbIdx => (sbEnv.header.moduleNames.getD sbIdx.toNat .anonymous).toString
         | _root_.Option.none => "_"
       let sbPriv := if isPrivateName sbC then "1" else "0"
-      let sbKind := match sbEnv.find? sbC with
-        | _root_.Option.some (_root_.Lean.ConstantInfo.thmInfo _) => "t"
-        | _ => "d"
+      -- A PREMISE IS A PROOF OF A PROPOSITION, decided by the constant's TYPE. Not by
+      -- `ConstantInfo.thmInfo`: under Lean's module system an imported theorem can arrive as a
+      -- different constructor (its body is not exported), and `SemiconjBy.neg_left_iff` read as a
+      -- definition -- measured, which let a proof name it freely.
+      let sbKind ← match sbEnv.find? sbC with
+        | _root_.Option.some sbCi => do
+          let sbIsProp ← liftTermElabM <| _root_.Lean.Meta.isProp sbCi.type
+          pure (if sbIsProp then "t" else "d")
+        | _root_.Option.none => pure "d"
       let sbLine := s!"SB_{sbTag}_CITED {sbPos.line} {sbPos.column} {sbC} {sbMod} {sbPriv} {sbKind} {sbRaw}"
       unless sbSeen.contains sbLine do
         sbSeen := sbSeen.insert sbLine

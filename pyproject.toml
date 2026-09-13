@@ -19,3 +19,6 @@ packages = ["scmd_bench"]
 
 [tool.setuptools.package-data]
 scmd_bench = ["lean/*.lean"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
