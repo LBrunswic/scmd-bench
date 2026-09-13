@@ -77,6 +77,8 @@ def _mean_ci(rows: list[tuple[int, int]], k: int, seed: int) -> dict[str, Any]:
 SUBSETS = {
     "premise_necessary": lambda it: it.meta.get("premise_necessary", False),
     "all": lambda it: True,
+    "premise_necessary&base_binding": lambda it: it.meta.get("premise_necessary", False)
+    and it.meta.get("base_binding", False),
     "heldout:file": lambda it: "file" in it.meta.get("heldout_in", ()),
     "heldout:temporal": lambda it: "temporal" in it.meta.get("heldout_in", ()),
     "heldout:novel_premises": lambda it: "novel_premises" in it.meta.get("heldout_in", ()),

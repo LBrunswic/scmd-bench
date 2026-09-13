@@ -132,6 +132,12 @@ SorryDB's "no edits outside the proof".
 grader substitutes `_root_.<name>`. Naming a BASE theorem by a real name that no prompt text
 showed is **ILLEGAL**.
 
+**What the contract does not bind.** If every gold dependency a proof names is a *definition*,
+removing those dependencies from BASE leaves the proof admissible. Definitions are vocabulary, so
+BASE membership is not what that item tests. The grader runs the gold-removed control on every
+released item and records `meta.base_binding`. On dev, 469 of 500 items are base-binding, and the
+scorer reports the `premise_necessary & base_binding` subset beside the headline.
+
 **What is reported but not forbidden.** A tactic may still *reach* lemmas without naming them:
 
 - the default simp set (97,393 lemmas);

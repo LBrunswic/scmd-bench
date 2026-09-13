@@ -1,0 +1,129 @@
+{
+  "n_samples": 4,
+  "k_base": 16,
+  "n_items": 100,
+  "n_void": 0,
+  "harness_faults": 0,
+  "ks_reported": [
+    1
+  ],
+  "ks_refused_n_le_k": [
+    8,
+    32
+  ],
+  "subsets": {
+    "premise_necessary": {
+      "pass@1": {
+        "n_items": 100,
+        "mean": 0.0175,
+        "ci95": [
+          0.0025,
+          0.0375
+        ]
+      },
+      "solved_any": 0.04
+    },
+    "all": {
+      "pass@1": {
+        "n_items": 100,
+        "mean": 0.0175,
+        "ci95": [
+          0.0025,
+          0.0375
+        ]
+      },
+      "solved_any": 0.04
+    },
+    "heldout:file": {
+      "pass@1": {
+        "n_items": 28,
+        "mean": 0.008929,
+        "ci95": [
+          0.0,
+          0.026786
+        ]
+      },
+      "solved_any": 0.03571428571428571
+    },
+    "heldout:temporal": {
+      "pass@1": {
+        "n_items": 18,
+        "mean": 0.041667,
+        "ci95": [
+          0.0,
+          0.125
+        ]
+      },
+      "solved_any": 0.05555555555555555
+    },
+    "heldout:novel_premises": {
+      "pass@1": {
+        "n_items": 55,
+        "mean": 0.013636,
+        "ci95": [
+          0.0,
+          0.036364
+        ]
+      },
+      "solved_any": 0.03636363636363636
+    },
+    "gold:1": {
+      "pass@1": {
+        "n_items": 28,
+        "mean": 0.035714,
+        "ci95": [
+          0.0,
+          0.098214
+        ]
+      },
+      "solved_any": 0.07142857142857142
+    },
+    "gold:2-3": {
+      "pass@1": {
+        "n_items": 34,
+        "mean": 0.022059,
+        "ci95": [
+          0.0,
+          0.058824
+        ]
+      },
+      "solved_any": 0.058823529411764705
+    },
+    "gold:4-8": {
+      "pass@1": {
+        "n_items": 26,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "solved_any": 0.0
+    },
+    "gold:9+": {
+      "pass@1": {
+        "n_items": 12,
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "solved_any": 0.0
+    }
+  },
+  "headline": {
+    "pass@1": {
+      "n_items": 100,
+      "mean": 0.0175,
+      "ci95": [
+        0.0025,
+        0.0375
+      ]
+    },
+    "solved_any": 0.04
+  },
+  "items_file": "data/v1/dev.jsonl",
+  "partial_item_subset": true,
+  "split": "dev"
+}
