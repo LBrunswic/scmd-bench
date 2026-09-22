@@ -8,7 +8,7 @@ This repository has three parts, all built from the same corpus:
 
 | | what | where |
 |---|---|---|
-| **training set** | 168,807 mathlib theorems with gold dependencies and proofs, tokenizer-neutral, plus the premise table, BM25 hard negatives and a reference BASE assembler | [release asset](https://github.com/LBrunswic/LeanTex/releases) `scmd-bench-v1-train.tar` |
+| **training set** | 168,807 mathlib theorems with gold dependencies and proofs, tokenizer-neutral, plus the premise table, BM25 hard negatives and a reference BASE assembler | [release asset](https://github.com/LBrunswic/scmd-bench/releases) `scmd-bench-v1-train.tar` |
 | **evaluation set** | 500 dev and 2,000 test items from the corpus's hold-out, each with a frozen BASE at K = 64 and K = 16 | `data/v1/` |
 | **evaluation environment** | a verifier implementing a written contract, shipped as a network-free container | `scmd_bench/`, `docker/` |
 
@@ -56,7 +56,7 @@ A system returns only the text after `:=`. The `named` track shows the real math
 ## Quickstart
 
 ```bash
-git clone https://github.com/LBrunswic/LeanTex.git && cd LeanTex
+git clone https://github.com/LBrunswic/scmd-bench.git && cd scmd-bench
 pip install -e .                                          # the harness is stdlib-only
 scmd-bench view --items data/v1/dev.jsonl --track anon --k 64 | head -1
 
