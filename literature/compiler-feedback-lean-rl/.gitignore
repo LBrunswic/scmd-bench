@@ -1,0 +1,3 @@
+# Third-party full texts: regenerate with `kb fetch <kb> --status read`
+pdf/
+text/
